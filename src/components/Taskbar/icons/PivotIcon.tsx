@@ -2,10 +2,13 @@ import { useRef } from "react";
 import styled from "styled-components";
 import { createPortal } from "react-dom";
 import IconHolder from "./IconHolder";
+import { useDispatch } from "react-redux";
+import { addApplication, IApp } from "../../../redux/app";
+
 const Div = styled.div`
   position: fixed;
-  top: 650px;
-  left: 16x;
+  top: 350px;
+  left: 200px;
   width: 100px;
   height: 100;
   user-select: none;
@@ -21,6 +24,7 @@ const AppIcon: React.FC<Props> = ({
   parent = document.body,
 }) => {
   const panelRef = useRef<HTMLDivElement>(null);
+  const dispatch = useDispatch();
 
   const handleDrag = (movementX: number, movementY: number) => {
     const panel = panelRef.current;
@@ -32,11 +36,24 @@ const AppIcon: React.FC<Props> = ({
     panel.style.top = `${y + movementY}px`;
   };
 
+  const app: IApp = {
+    _uid: "cc-pivot-hjkhksdf",
+    component: "grid",
+    height: 346,
+    width: 640,
+    title: "Data Grid",
+    name: "Data Grid",
+  };
+
+  const handleDoubleClick = () => {
+    dispatch(addApplication(app));
+  };
+
   return (
     <>
       {isOpen
         ? createPortal(
-            <Div ref={panelRef}>
+            <Div ref={panelRef} onDoubleClick={handleDoubleClick}>
               <IconHolder onDrag={handleDrag} image={"pivot1"} label="Pivot" />
             </Div>,
             parent

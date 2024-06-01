@@ -7,6 +7,8 @@ import Counter from "./Counter/Counter";
 import Receiver from "../pubsub/Receiver";
 import TreeViewWindow from "./Windows/TreeViewWindow";
 import LineWindow from "./Windows/LineWindow";
+import PivotWindow from "./Windows/PivotWindow";
+import DataGridWindow from "./Windows/DataGridWindow";
 import { IBody } from "../layout";
 
 interface IComponents {
@@ -20,6 +22,8 @@ const Components: IComponents = {
   receiver: Receiver,
   treeview: TreeViewWindow,
   linechart: LineWindow,
+  pivot: PivotWindow,
+  grid: DataGridWindow,
 };
 
 export default (block: IBody) => {

@@ -7,7 +7,7 @@ const Div = styled.div`
   justify-content: space-between;
   padding: 4px;
   background-color: ${(props) => props.theme.colors.window.header};
-  height: 25px;
+  height: ${(props) => props.theme.windowHeaderHeight}px;
   user-select: none;
 `;
 

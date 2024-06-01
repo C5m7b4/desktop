@@ -58,10 +58,11 @@ const PortalWindow = styled.div<{ $animation: string }>`
   width: 600px;
   height: 400px;
   border: 2px solid black;
-  border-radius: 10px;
+  border-radius: ${(props) => props.theme.window.borderRadius}px;
   z-index: 10;
   box-sizing: border-box;
   overflow: hidden;
+  padding: 0;
   box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.3);
   animation-name: ${(props) => (props.$animation ? props.$animation : "none")};
   animation-duration: 500ms;
@@ -80,7 +81,7 @@ const PortalWindow = styled.div<{ $animation: string }>`
 `;
 
 const Content = styled.div`
-  padding: 4px;
+  padding: 0;
   background-color: ${(props) => props.theme.colors.bg};
   color: ${(props) => props.theme.colors.text};
   flex: 1;
@@ -90,7 +91,7 @@ const Content = styled.div`
 const Children = styled.div`
   user-select: none;
   height: 100%;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
 `;
 
 interface Props {
@@ -228,7 +229,7 @@ const Window: React.FC<Props> = ({
                 handleClose={handleClose}
                 handleMinimize={handleMinimize}
               />
-              <Content>
+              <Content className="contents">
                 <Children>{children}</Children>
               </Content>
             </PortalWindow>,

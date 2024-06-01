@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import { IChildNodes } from "./StartMenu";
+import SubMenuItem from "./SubMenuItem";
 
 const Div = styled.div<{ $roundTop: boolean }>`
   display: flex;
@@ -20,6 +22,7 @@ interface Props {
   roundTop?: boolean;
   scale?: number;
   onClick?: (e: string) => void;
+  childNodes?: IChildNodes[];
 }
 
 const MenuItem: React.FC<Props> = ({
@@ -28,18 +31,35 @@ const MenuItem: React.FC<Props> = ({
   roundTop = false,
   scale = 20,
   onClick,
+  childNodes = [],
 }) => {
-  const handleClick = (e: string) => {
+  const [open, setOpen] = useState(false);
+  const [points, setPoints] = useState({
+    x: 0,
+    y: 0,
+  });
+
+  const handleClick = (e: React.MouseEvent<HTMLDivElement>, label: string) => {
+    console.log(e);
+    setPoints({
+      x: e.clientX,
+      y: e.clientY,
+    });
     if (onClick) {
-      onClick(e);
+      onClick(label);
     }
+    setOpen(!open);
   };
+
   return (
-    <Div onClick={() => handleClick(label)}>
+    <Div onClick={(e) => handleClick(e, label)}>
       <div style={{ marginTop: "5px" }}>{label}</div>
       <div>
         <Icon scale={scale} $roundTop={roundTop} style={{ marginTop: "3px" }} />
       </div>
+      {open && childNodes.length > 0 ? (
+        <SubMenuItem childNodes={childNodes} isOpen={open} bottom={points.y} />
+      ) : null}
     </Div>
   );
 };

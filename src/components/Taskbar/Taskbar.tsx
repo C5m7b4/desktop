@@ -15,7 +15,8 @@ const Div = styled.div`
   height: ${(props) => props.theme.taskbarHeight};
   text-align: center;
   background-color: ${(props) => props.theme.colors.taskbar};
-  display: flex;
+  display: grid;
+  grid-template-columns: 50px 1fr 100px;
   justify-content: space-between;
   transition: all 0.3s ease-in;
 `;

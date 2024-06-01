@@ -27,6 +27,9 @@ const Clock = () => {
       if (i < 10) {
         result = "0" + i;
       }
+      if (i == 0) {
+        result = "12";
+      }
       return result;
     };
 

@@ -5,8 +5,8 @@ import IconHolder from "./IconHolder";
 
 const Div = styled.div`
   position: fixed;
-  top: 500px;
-  left: 16px;
+  top: 200px;
+  left: 350px;
   width: 100px;
   height: 100;
   user-select: none;

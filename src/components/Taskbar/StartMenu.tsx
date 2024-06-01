@@ -24,6 +24,29 @@ const Div = styled.div<{ $show?: boolean; $left: number }>`
   transition-timing-function: ease-out;
 `;
 
+export interface IChildNodes {
+  app: string;
+  icon: string;
+}
+const programNodes: IChildNodes[] = [
+  {
+    app: "Pivot Table",
+    icon: "pivo1",
+  },
+  {
+    app: "Tree View",
+    icon: "tree",
+  },
+  {
+    app: "Line Chart",
+    icon: "chart1",
+  },
+  {
+    app: "Calculator",
+    icon: "calc",
+  },
+];
+
 interface Props {
   showStartMenu: boolean;
 }
@@ -34,7 +57,12 @@ const StartMenu: React.FC<Props> = ({ showStartMenu }) => {
 
   return (
     <Div $show={showStartMenu} $left={left}>
-      <MenuItem label="Programs" Icon={FolderIcon} roundTop={true} />
+      <MenuItem
+        label="Programs"
+        Icon={FolderIcon}
+        roundTop={true}
+        childNodes={programNodes}
+      />
       <MenuItem label="Favorites" Icon={StarIcon} />
       <MenuItem label="Trash" Icon={TrashIcon} />
       <hr />

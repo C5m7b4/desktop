@@ -1,7 +1,7 @@
-import Linechart from "../Charta/LineChart/Linechart";
-import { lineData } from "../../mockData/lineData";
 import Window from "../Window/Window";
 import { IBody } from "../../layout";
+import Linechart from "../Charta/LineChart/Linechart";
+import { lineData } from "../../mockData/lineData";
 
 interface Props {
   parent?: React.ReactNode;
