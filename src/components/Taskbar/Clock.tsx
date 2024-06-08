@@ -8,8 +8,10 @@ const Clock = () => {
     const interval = setInterval(() => {
       const today = new Date();
 
-      const h =
-        today.getHours() > 12 ? today.getHours() - 12 : today.getHours();
+      let h = today.getHours() > 12 ? today.getHours() - 12 : today.getHours();
+      if (h === 0) {
+        h = 12;
+      }
       const m = today.getMinutes();
       const s = today.getSeconds();
       const ampm = today.getHours() > 12 ? "PM" : "AM";
@@ -26,9 +28,6 @@ const Clock = () => {
       let result = i.toString();
       if (i < 10) {
         result = "0" + i;
-      }
-      if (i == 0) {
-        result = "12";
       }
       return result;
     };

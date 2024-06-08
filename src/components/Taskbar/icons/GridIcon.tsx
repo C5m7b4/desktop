@@ -8,7 +8,7 @@ import { addApplication, IApp } from "../../../redux/app";
 const Div = styled.div`
   position: fixed;
   top: 350px;
-  left: 200px;
+  left: 350px;
   width: 100px;
   height: 100;
   user-select: none;
@@ -19,7 +19,7 @@ interface Props {
   parent?: Element;
 }
 
-const AppIcon: React.FC<Props> = ({
+const GridIcon: React.FC<Props> = ({
   isOpen = true,
   parent = document.body,
 }) => {
@@ -38,11 +38,11 @@ const AppIcon: React.FC<Props> = ({
 
   const app: IApp = {
     _uid: "cc-pivot-hjkhksdf",
-    component: "pivot",
-    height: 600,
+    component: "grid",
+    height: 346,
     width: 640,
-    title: "Pivot Grid",
-    name: "Pivot Grid",
+    title: "Data Grid",
+    name: "Data Grid",
   };
 
   const handleDoubleClick = () => {
@@ -54,7 +54,7 @@ const AppIcon: React.FC<Props> = ({
       {isOpen
         ? createPortal(
             <Div ref={panelRef} onDoubleClick={handleDoubleClick}>
-              <IconHolder onDrag={handleDrag} image={"pivot1"} label="Pivot" />
+              <IconHolder onDrag={handleDrag} image={"grid"} label="grid" />
             </Div>,
             parent
           )
@@ -63,4 +63,4 @@ const AppIcon: React.FC<Props> = ({
   );
 };
 
-export default AppIcon;
+export default GridIcon;

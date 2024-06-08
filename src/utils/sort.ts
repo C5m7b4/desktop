@@ -1,4 +1,10 @@
-export const sort = (arr, field) => {
+export type SortDirection = "asc" | "desc";
+
+export function sort<T>(
+  arr: T[],
+  field: keyof T,
+  direction: SortDirection = "asc"
+): T[] {
   if (arr.length <= 1) {
     return arr;
   }
@@ -9,15 +15,27 @@ export const sort = (arr, field) => {
   const rightArr = [];
 
   for (let i = 1; i < arr.length; i++) {
-    if (arr[i][field] < pivot) {
-      leftArr.push(arr[i]);
+    if (direction === "asc") {
+      if (arr[i][field] < pivot) {
+        leftArr.push(arr[i]);
+      } else {
+        rightArr.push(arr[i]);
+      }
     } else {
-      rightArr.push(arr[i]);
+      if (arr[i][field] > pivot) {
+        leftArr.push(arr[i]);
+      } else {
+        rightArr.push(arr[i]);
+      }
     }
   }
 
-  return [...sort(leftArr, field), pivotRecord, ...sort(rightArr, field)];
-};
+  return [
+    ...sort(leftArr, field, direction),
+    pivotRecord,
+    ...sort(rightArr, field, direction),
+  ];
+}
 
 export const sortInts = (arr) => {
   if (arr.length <= 1) {

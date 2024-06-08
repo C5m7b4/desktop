@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 500 500">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke-linecap: round;
+        stroke-width: 15px;
+      }
+
+      .cls-1, .cls-2 {
+        stroke: #231f20;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-3 {
+        display: none;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1" data-name="Layer 1" class="cls-3">
+    <polygon class="cls-2" points="385.55 250 169.19 125.08 169.19 374.92 385.55 250 169.19 125.08 169.19 374.92 385.55 250"/>
+  </g>
+  <g id="Layer_2" data-name="Layer 2">
+    <line class="cls-1" x1="169.19" y1="125.08" x2="385.55" y2="250"/>
+    <line class="cls-1" x1="169.19" y1="374.92" x2="385.55" y2="250"/>
+  </g>
+</svg>

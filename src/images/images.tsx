@@ -6,6 +6,7 @@ const IMAGES = {
   pivot1: new URL("./pivot1.png", import.meta.url).href,
   calc: new URL("./calc.png", import.meta.url).href,
   chart1: new URL("./charts1.png", import.meta.url).href,
+  grid: new URL("./grid.png", import.meta.url).href,
 };
 
 export default IMAGES;

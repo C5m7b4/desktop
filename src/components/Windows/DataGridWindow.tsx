@@ -19,7 +19,7 @@ const columns = [
   {
     title: "Order ID",
     columnName: "Order ID",
-    width: 75,
+    width: 85,
     align: ColumnAlignment.left,
   },
   {
@@ -30,7 +30,7 @@ const columns = [
   {
     title: "Units Sold",
     columnName: "Units Sold",
-    width: 75,
+    width: 90,
     align: ColumnAlignment.left,
   },
   {

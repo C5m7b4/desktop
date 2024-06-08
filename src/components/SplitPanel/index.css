@@ -1,0 +1,51 @@
+.split-panel-col {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .split-panel-row {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .split-panel-top,
+  .split-panel-bottom,
+  .split-panel-right,
+  .split-panel-left {
+    flex: 1;
+    overflow: hidden;
+  }
+  
+  .split-panel-right {
+    background-color: #fff;
+    background-image: linear-gradient(
+        90deg,
+        transparent 79px,
+        #abced4 79px,
+        #abced4 81px,
+        transparent 81px
+      ),
+      linear-gradient(#eee 0.1em, transparent 0.1em);
+    background-size: 100% 1.2em;
+  }
+  
+  .split-panel-top,
+  .split-panel-bottom {
+    background-color: #ccc;
+    text-align: left;
+    padding: 2%;
+  }
+  
+  .separator-col {
+    border: 5px solid black;
+    cursor: col-resize;
+  }
+  
+  .separator-row {
+    border: 5px solid black;
+    cursor: row-resize;
+  }

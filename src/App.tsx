@@ -5,6 +5,7 @@ import { lightTheme, darkTheme } from "./theme/theme";
 import styled, { ThemeProvider } from "styled-components";
 import Taskbar from "./components/Taskbar/Taskbar";
 import Mode from "./components/Sidebars/Mode";
+import Wrapper from "./Wrapper";
 // import { layout } from "./layout";
 import Components from "./components/Components";
 import AppIcon from "./components/Taskbar/icons/AppIcon";
@@ -12,6 +13,7 @@ import TreeIcon from "./components/Taskbar/icons/TreeIcon";
 import PivotIcon from "./components/Taskbar/icons/PivotIcon";
 import CalculatorIcon from "./components/Taskbar/icons/CalcIcon";
 import ChartIcon from "./components/Taskbar/icons/ChartIcon";
+import GridIcon from "./components/Taskbar/icons/GridIcon";
 
 const Div = styled.div`
   background-image: linear-gradient(
@@ -57,6 +59,7 @@ const App = () => {
   return (
     <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
       <Div>
+        <Wrapper />
         <Mode onChange={onChange} />
         <Main>{apps.map((block) => Components(block))}</Main>
         <AppIcon />
@@ -65,6 +68,7 @@ const App = () => {
         <CalculatorIcon />
         <ChartIcon />
         <Taskbar />
+        <GridIcon />
       </Div>
     </ThemeProvider>
   );
