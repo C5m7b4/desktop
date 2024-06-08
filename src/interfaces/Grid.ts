@@ -1,3 +1,5 @@
+import { Renderers } from "../utils/renderers";
+
 export enum ColumnAlignment {
   left,
   center,
@@ -19,10 +21,11 @@ export type TableHeader<T> = {
   visible?: boolean;
   filterable?: boolean;
   editor?: TableHeaderEditor;
+  renderer?: (e: typeof Renderers) => void;
 };
 
 export interface TableProps<T> {
   data: T[];
   columns: TableHeader<T>[];
-  customerRenderers?: CustomRenderers<T>;
+  // customerRenderers?: CustomRenderers<T>;
 }

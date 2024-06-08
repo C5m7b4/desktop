@@ -57,7 +57,7 @@ const PortalWindow = styled.div<{ $animation: string }>`
   left: 16px;
   width: 600px;
   height: 400px;
-  border: 2px solid black;
+  /* border: 2px solid black; */
   border-radius: ${(props) => props.theme.window.borderRadius}px;
   z-index: 10;
   box-sizing: border-box;

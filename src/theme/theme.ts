@@ -20,8 +20,9 @@ const window = {
 
 export const lightTheme = {
   colors: {
-    bg: "#fff",
-    text: "#000",
+    bg: "#ffffff",
+    bg2: "#eeeeee",
+    text: "#000000",
     taskbar: "#a2d2ff",
     desktop: "#bde0fe",
     gradient1: "#4f9bec",
@@ -36,9 +37,24 @@ export const lightTheme = {
       oddRows: "#f3f3f3",
       evenRows: "#fff",
       rowBottomLineColor: "1px solid lightgray",
-      thText: "#fff",
-      hoverBackgroundColor: "#009879",
+      thText: "#ffffff",
+      hoverBackgroundColor: "#17b696",
       hoverTextColor: "#ffffff",
+      iconColor: "#ffffff",
+      iconHoverColor: "#000000",
+      activeHeader: "#19b696",
+    },
+    buttons: {
+      borderRadius: "8",
+      padding: "8px 15px",
+      primary: {
+        color: "#1f9fe9",
+        text: "#ffffff",
+        hover: {
+          color: "#226288",
+          text: "#ffffff",
+        },
+      },
     },
     window: {
       header: "#e2e0e0",
@@ -50,13 +66,21 @@ export const lightTheme = {
   taskbarHeight: "40px",
   transition: "all .3s ease-out",
   window,
+  scrollbar: {
+    width: 20,
+    boxShadow: "inset 0 0 5px gray",
+    trackBorderRadius: "10",
+    background: "#948f8f",
+    backgroundHover: "#555252",
+    thumbBorderRadius: "10",
+  },
 };
 
 export const darkTheme = {
   colors: {
     bg: "#121212",
+    bg2: "#313030",
     text: "#b5aeae",
-
     taskbar: "#003049",
     desktop: "#14213d",
     gradient1: "#27292a",
@@ -73,7 +97,22 @@ export const darkTheme = {
       rowBottomLineColor: "1px solid lightgray",
       thText: "#fff",
       hoverBackgroundColor: "#575353",
-      hoverTextColor: "#000000",
+      hoverTextColor: "#ffffff",
+      iconColor: "#000000",
+      iconHoverColor: "#ffffff",
+      activeHeader: "#19b696",
+    },
+    buttons: {
+      borderRadius: "8",
+      padding: "8px 15px",
+      primary: {
+        color: "#1f9fe9",
+        text: "#ffffff",
+        hover: {
+          color: "#2a7cac",
+          text: "#ffffff",
+        },
+      },
     },
     window: {
       header: "#e2e0e0",
@@ -87,4 +126,12 @@ export const darkTheme = {
   windowHeaderHeight: "25",
   windowFooterHeight: "25",
   window,
+  scrollbar: {
+    width: 20,
+    boxShadow: "inset 0 0 5px gray",
+    trackBorderRadius: "10",
+    background: "#50771c",
+    backgroundHover: "#384e1b",
+    thumbBorderRadius: "10",
+  },
 };
