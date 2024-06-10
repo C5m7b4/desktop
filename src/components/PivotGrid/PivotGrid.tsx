@@ -41,26 +41,22 @@ function PivotGrid<T, _>({ data, columns }) {
   const theme = useTheme();
   const windowRef = useRef<HTMLDivElement>(null);
   const resizeRef = useRef();
+  const parentResizeRef = useRef();
 
   useEffect(() => {
     if (windowRef.current) {
+      resizeHandler();
       resizeRef.current = new ResizeObserver(
         debounce(resizeHandler, 500)
       ).observe(windowRef.current);
-    }
-  });
 
-  useEffect(() => {
-    // determine the height after we draw the title of the window
-    if (windowRef.current) {
-      const windowDimensions =
-        windowRef.current.parentElement?.parentElement?.parentElement?.getBoundingClientRect();
-      if (windowDimensions) {
-        const panelHeight =
-          windowDimensions.height - theme.window.windowHeaderHeight;
-        setHeight(panelHeight);
-      }
+      const parent =
+        windowRef.current.parentElement?.parentElement?.parentElement;
+      parentResizeRef.current = new ResizeObserver(
+        debounce(resizeHandler, 500)
+      ).observe(parent);
     }
+
     setPivotedData([]);
   }, []);
 
@@ -74,6 +70,15 @@ function PivotGrid<T, _>({ data, columns }) {
   }, [rows]);
 
   const resizeHandler = useCallback(() => {
+    if (windowRef.current) {
+      const windowDimensions =
+        windowRef.current.parentElement?.parentElement?.parentElement?.getBoundingClientRect();
+      if (windowDimensions) {
+        const panelHeight =
+          windowDimensions.height - theme.window.windowHeaderHeight;
+        setHeight(panelHeight);
+      }
+    }
     setResized(!resized);
   }, []);
 
