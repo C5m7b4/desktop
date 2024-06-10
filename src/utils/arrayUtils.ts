@@ -62,21 +62,6 @@ export function arrAvg<T>(
   return total / itemCount;
 }
 
-export const aggregateOptions = [
-  {
-    fn: arrSum,
-    label: "Sum",
-  },
-  {
-    fn: arrCount,
-    label: "Count",
-  },
-  {
-    fn: arrAvg,
-    label: "Avg",
-  },
-];
-
 export function grandTotalCount<T>(arr: T[]) {
   return arr.reduce((acc) => {
     return acc + 1;
