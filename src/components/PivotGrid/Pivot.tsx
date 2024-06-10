@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 import { IRow } from "./dropTargets/Rows";
 import { IValue } from "./dropTargets/Values";
+import THead from "./head/THead";
 
 import TableRow from "./body/TableRow";
 
@@ -12,19 +13,6 @@ const Table = styled.div`
   font-size: ${(props) => props.theme.fontSizes.normal};
   border-radius: 5px 5px 0 0;
   transition: ${(props) => props.theme.transition};
-  padding: 8px 10px;
-`;
-
-const TableHeader = styled.div`
-  display: flex;
-  border-bottom: 1px solid black;
-  background-color: ${(props) => props.theme.colors.table.excel};
-  color: ${(props) => props.theme.colors.table.thText};
-`;
-
-const TableHeaderCell = styled.div<{ $width: number; $align: string }>`
-  width: ${(props) => props.$width}px;
-  text-align: ${(props) => props.$align};
 `;
 
 const SubRow = styled.div`
@@ -77,8 +65,10 @@ function Pivot<T>(props: Props<T>) {
   }, [values, rows]);
 
   useEffect(() => {
-    renderTableHeader();
+    console.log("resizing pivot");
     renderTableBody();
+    calculateTableHeight();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [resized]);
 
   const calculateTableHeight = () => {
@@ -87,8 +77,14 @@ function Pivot<T>(props: Props<T>) {
       const parentbox = parent?.getBoundingClientRect();
       tableRef.current.style.height = `${parentbox?.height}px`;
       const bodyBox = tableBodyRef.current.getBoundingClientRect();
-      if (bodyBox.height > parentbox?.height) {
-        tableRef.current.style.overflowY = "scroll";
+      if (parentbox) {
+        if (bodyBox.height > parentbox?.height) {
+          console.log("setting to scrollable");
+          tableRef.current.style.overflowY = "scroll";
+        } else {
+          console.log("setting to non scrollable");
+          tableRef.current.style.overflowY = "";
+        }
       }
     }
   };
@@ -128,44 +124,6 @@ function Pivot<T>(props: Props<T>) {
     setShowContextMenu(true);
   };
 
-  const sum = (arr, key) => {
-    const result = arr.reduce((acc, cur) => {
-      return acc + Number(cur[key]);
-    }, 0);
-    return result;
-  };
-
-  const renderTableHeader = () => {
-    return (
-      <TableHeader className="seudo-table-header">
-        {rows.map((r, i) => {
-          if (i === 0) {
-            return (
-              <TableHeaderCell
-                $align={"left"}
-                $width={calculateWidth()}
-                key={`th-${i}`}
-              >
-                {r.label}
-              </TableHeaderCell>
-            );
-          }
-        })}
-        {values.map((v, i) => {
-          return (
-            <TableHeaderCell
-              $align={"right"}
-              $width={calculateWidth() as number}
-              key={`th-v${i}`}
-            >
-              Sum of {v.label}
-            </TableHeaderCell>
-          );
-        })}
-      </TableHeader>
-    );
-  };
-
   const buildAggregates = (parentObject) => {
     return values.map((v, i) => {
       if (Array.isArray(parentObject)) {
@@ -175,7 +133,7 @@ function Pivot<T>(props: Props<T>) {
             $width={calculateWidth() as number}
             key={`tr-td-${i}`}
           >
-            {sum(parentObject, v.label)}
+            {v.fn(parentObject, v.label)}
           </Td>
         );
       } else {
@@ -185,7 +143,7 @@ function Pivot<T>(props: Props<T>) {
             $width={calculateWidth() as number}
             key={`tr-td-${i}`}
           >
-            {sum(parentObject["data"], v.label)}
+            {v.fn(parentObject["data"], v.label)}
           </Td>
         );
       }
@@ -234,7 +192,11 @@ function Pivot<T>(props: Props<T>) {
 
   const renderTableBody = () => {
     return (
-      <div ref={tableBodyRef} className="seudo-table-body">
+      <div
+        ref={tableBodyRef}
+        className="seudo-table-body"
+        style={{ padding: "4px 6px" }}
+      >
         {Object.keys(data).map((r, i) => {
           return (
             <TableRow
@@ -256,16 +218,13 @@ function Pivot<T>(props: Props<T>) {
   return (
     <>
       <Table ref={tableRef} className="seudo-table">
-        {renderTableHeader()}
-        {renderTableBody()}
-        {/* <Thead
+        <THead
           rows={rows}
-          setShowContextMenu={setShowContextMenu}
-          handleSortDirection={handleSortDirection}
           values={values}
-          handleContextMenu={handleContextMenu}
+          setValues={setValues}
+          calculateWidth={calculateWidth}
         />
-        <Tbody rows={rows} data={data} values={values} /> */}
+        {renderTableBody()}
       </Table>
     </>
   );
