@@ -29,13 +29,28 @@ import SplitPane from "./SplitPane";
 
 export default function SplitPanelExmple() {
   return (
-    <SplitPane>
-      <SplitPane.Top>
-        <div>top div</div>
-      </SplitPane.Top>
-      <SplitPane.Bottom>
-        <div> bottom div</div>
-      </SplitPane.Bottom>
+    <SplitPane
+      direction={"vertical"}
+      separatorWidth={3}
+      separatorColor={"limegreen"}
+    >
+      <SplitPane.Left>
+        <SplitPane
+          direction={"horizontal"}
+          separatorWidth={3}
+          separatorColor={"limegreen"}
+        >
+          <SplitPane.Top>
+            <div>top pane</div>
+          </SplitPane.Top>
+          <SplitPane.Bottom>
+            <div>bottom pane</div>
+          </SplitPane.Bottom>
+        </SplitPane>
+      </SplitPane.Left>
+      <SplitPane.Right>
+        <div> right div</div>
+      </SplitPane.Right>
     </SplitPane>
   );
 }
