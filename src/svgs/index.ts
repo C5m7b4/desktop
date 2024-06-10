@@ -1,3 +1,5 @@
+import { BoxMinusIcon } from "./BoxMinusIcon";
+import { BoxPlusIcon } from "./BoxPlusIcon";
 import { CalculatorIcon } from "./CalculatorIcon";
 import { ChevronRight } from "./ChevronRightIcon";
 import { DarkModeIcon } from "./DarkModeIcon";
@@ -10,6 +12,8 @@ import { SortAZ } from "./SortAZ";
 import { SortZA } from "./SortZA";
 
 export {
+  BoxMinusIcon,
+  BoxPlusIcon,
   CalculatorIcon,
   ChevronRight,
   DarkModeIcon,

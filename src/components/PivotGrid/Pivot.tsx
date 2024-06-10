@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { IRow } from "./dropTargets/Rows";
 import { IValue } from "./dropTargets/Values";
 
+import TableRow from "./body/TableRow";
+
 const Table = styled.div`
   width: 100%;
   height: 90%;
@@ -25,20 +27,17 @@ const TableHeaderCell = styled.div<{ $width: number; $align: string }>`
   text-align: ${(props) => props.$align};
 `;
 
-const TableRow = styled.div`
-  display: flex;
-  width: 100%;
-  border-bottom: 1px solid black;
-`;
-
 const SubRow = styled.div`
   display: flex;
   width: 100%;
 `;
 
-const Td = styled.span<{ $width: number; $align: string }>`
+export const Td = styled.span<{ $width: number; $align: string }>`
   width: ${(props) => props.$width}px;
   text-align: ${(props) => props.$align};
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 `;
 
 const SubRowSpacer = styled.span<{ $width: number }>`
@@ -52,6 +51,7 @@ interface Props<T> {
   setRows: (r: IRow[]) => void;
   values: IValue[];
   setValues: (v: IValue[]) => void;
+  resized: boolean;
 }
 
 function Pivot<T>(props: Props<T>) {
@@ -67,7 +67,7 @@ function Pivot<T>(props: Props<T>) {
   const tableRef = useRef<HTMLDivElement>(null);
   const tableBodyRef = useRef<HTMLDivElement>(null);
 
-  const { data, rows, setRows, values, setValues } = props;
+  const { data, rows, setRows, values, setValues, resized } = props;
 
   useEffect(() => {}, []);
 
@@ -76,21 +76,24 @@ function Pivot<T>(props: Props<T>) {
     calculateTableHeight();
   }, [values, rows]);
 
+  useEffect(() => {
+    renderTableHeader();
+    renderTableBody();
+  }, [resized]);
+
   const calculateTableHeight = () => {
     if (tableRef.current && tableBodyRef.current) {
       const parent = tableRef.current.parentElement;
       const parentbox = parent?.getBoundingClientRect();
       tableRef.current.style.height = `${parentbox?.height}px`;
       const bodyBox = tableBodyRef.current.getBoundingClientRect();
-      console.log("parentBox", parentbox);
-      console.log("bodyBox", bodyBox);
       if (bodyBox.height > parentbox?.height) {
         tableRef.current.style.overflowY = "scroll";
       }
     }
   };
 
-  const calculateWidth = () => {
+  const calculateWidth = (): number => {
     if (tableRef.current) {
       // const configuratorWidth = 200;
       const totalColumns = values.length + 1;
@@ -98,6 +101,8 @@ function Pivot<T>(props: Props<T>) {
       const individualColumnWidth = tableBox.width / totalColumns;
 
       return individualColumnWidth;
+    } else {
+      return 0;
     }
   };
 
@@ -187,30 +192,33 @@ function Pivot<T>(props: Props<T>) {
     });
   };
 
-  const buildSubRows = (r) => {
-    const subrows = data[r];
+  const buildSubRows = (subrows, i) => {
+    //const subrows = data[r];
     if (!Array.isArray(subrows)) {
-      return Object.keys(subrows).map((s, i) => {
+      return Object.keys(subrows).map((s, idx) => {
         if (s !== "data") {
           return (
-            <SubRow key={`sub-row-${i}`}>
-              <Td $width={calculateWidth() as number} $align={"left"}>
-                <SubRowSpacer $width={25}>&nbsp;</SubRowSpacer>
+            <div key={`sub-row-${idx}`}>
+              <SubRow>
+                <Td $width={calculateWidth() as number} $align={"left"}>
+                  <SubRowSpacer $width={10 + i}>&nbsp;</SubRowSpacer>
 
-                <span>{s}</span>
-              </Td>
-              {values.map((v, i) => {
-                return (
-                  <Td
-                    $width={calculateWidth() as number}
-                    $align={"right"}
-                    key={`subrow-v-${i}`}
-                  >
-                    {buildAggregates(subrows[s])}
-                  </Td>
-                );
-              })}
-            </SubRow>
+                  <span>{s}</span>
+                </Td>
+                {values.map((v, i) => {
+                  return (
+                    <Td
+                      $width={calculateWidth() as number}
+                      $align={"right"}
+                      key={`subrow-v-${i}`}
+                    >
+                      {buildAggregates(subrows[s])}
+                    </Td>
+                  );
+                })}
+              </SubRow>
+              {buildSubRows(subrows[s], i)}
+            </div>
           );
         }
       });
@@ -222,23 +230,16 @@ function Pivot<T>(props: Props<T>) {
       <div ref={tableBodyRef} className="seudo-table-body">
         {Object.keys(data).map((r, i) => {
           return (
-            <div key={`table-row-container-${i}`}>
-              <TableRow key={`tr-${i}`}>
-                {rows.length > 0 ? (
-                  <Td $align={"left"} $width={calculateWidth() as number}>
-                    <span>-</span>
-                    <span>{r}</span>
-                  </Td>
-                ) : (
-                  <Td $align={"left"} $width={calculateWidth() as number}>
-                    {r}
-                  </Td>
-                )}
-
-                {buildAggregates(data[r])}
-              </TableRow>
-              {buildSubRows(r)}
-            </div>
+            <TableRow
+              key={`table-row=${i}`}
+              rows={rows}
+              i={i}
+              calculateWidth={calculateWidth}
+              r={r}
+              buildSubRows={buildSubRows}
+              buildAggregates={buildAggregates}
+              data={data}
+            />
           );
         })}
       </div>

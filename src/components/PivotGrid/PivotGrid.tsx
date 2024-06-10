@@ -6,6 +6,8 @@ import { IRow } from "./dropTargets/Rows";
 import { IValue } from "./dropTargets/Values";
 import { groupFn } from "../../utils/arrayUtils";
 import { Box } from "../../utils/Box";
+import SplitPane from "../SplitPanel/SplitPane";
+import { debounce } from "../../utils/utils";
 
 // import Pivot from "./Pivot";
 // import Configurator from "./Configurator";
@@ -34,9 +36,19 @@ function PivotGrid<T, _>({ data, columns }) {
   const [values, setValues] = useState<IValue[]>([]);
   const [height, setHeight] = useState(0);
   const [pivotedData, setPivotedData] = useState<T[]>([]);
-  const theme = useTheme();
+  const [resized, setResized] = useState(false);
 
+  const theme = useTheme();
   const windowRef = useRef<HTMLDivElement>(null);
+  const resizeRef = useRef();
+
+  useEffect(() => {
+    if (windowRef.current) {
+      resizeRef.current = new ResizeObserver(
+        debounce(resizeHandler, 500)
+      ).observe(windowRef.current);
+    }
+  });
 
   useEffect(() => {
     // determine the height after we draw the title of the window
@@ -54,7 +66,6 @@ function PivotGrid<T, _>({ data, columns }) {
 
   useEffect(() => {
     if (rows.length === 0) return;
-    console.log("pivoting data...");
     const rowKeys = rows.map((r) => r.label);
     const pivoted = Box(data)
       .map((x) => groupFn(x, rowKeys))
@@ -62,25 +73,40 @@ function PivotGrid<T, _>({ data, columns }) {
     setPivotedData(pivoted);
   }, [rows]);
 
+  const resizeHandler = useCallback(() => {
+    setResized(!resized);
+  }, []);
+
   return (
     <Div className="pivot-grid-window" ref={windowRef} $height={height}>
       <TableContainer>
-        <Pivot
-          data={pivotedData}
-          rows={rows}
-          setRows={setRows}
-          values={values}
-          setValues={setValues}
-        />
-        <Configurator
-          data={data}
-          rows={rows}
-          setRows={setRows}
-          filters={filters}
-          columns={columns}
-          values={values}
-          setValues={setValues}
-        />
+        <SplitPane
+          direction={"vertical"}
+          separatorWidth={2}
+          separatorColor={"black"}
+        >
+          <SplitPane.Left>
+            <Pivot
+              data={pivotedData}
+              rows={rows}
+              setRows={setRows}
+              values={values}
+              setValues={setValues}
+              resized={resized}
+            />
+          </SplitPane.Left>
+          <SplitPane.Right>
+            <Configurator
+              data={data}
+              rows={rows}
+              setRows={setRows}
+              filters={filters}
+              columns={columns}
+              values={values}
+              setValues={setValues}
+            />
+          </SplitPane.Right>
+        </SplitPane>
       </TableContainer>
     </Div>
   );

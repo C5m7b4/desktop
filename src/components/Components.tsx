@@ -11,11 +11,22 @@ import PivotWindow from "./Windows/PivotWindow";
 import DataGridWindow from "./Windows/DataGridWindow";
 import { IBody } from "../layout";
 
-interface IComponents {
-  [key: string]: Element;
-}
+type ComponentNames =
+  | "window"
+  | "calculator"
+  | "counter"
+  | "receiver"
+  | "treeview"
+  | "linechart"
+  | "pivot"
+  | "grid";
 
-const Components: IComponents = {
+type Components = Record<ComponentNames, any>;
+// interface IComponents {
+//   [key: string]: Element;
+// }
+
+const Components: Components = {
   window: Window,
   calculator: CalculatorWindow,
   counter: Counter,

@@ -8,7 +8,6 @@ import { Box } from "../../utils/Box";
 import { groupFn } from "../../utils/arrayUtils";
 
 const Div = styled.div`
-  width: 50%;
   border: 1px solid black;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   background-color: ${(props) => props.theme.colors.bg};
@@ -103,6 +102,7 @@ function Configurator<T>(props: Props<T>) {
             rows={rows}
             values={values}
             setValues={setValues}
+            setRows={setRows}
           />
         </FieldsContainer>
         <div style={{ margin: "10px 12px" }}>
