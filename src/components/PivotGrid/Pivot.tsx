@@ -192,9 +192,16 @@ function Pivot<T>(props: Props<T>) {
     });
   };
 
+  const sortObject = (obj) => {
+    const result = Object.fromEntries(Object.entries(obj).sort());
+    return result;
+  };
+
   const buildSubRows = (subrows, i) => {
     //const subrows = data[r];
+
     if (!Array.isArray(subrows)) {
+      subrows = sortObject(subrows);
       return Object.keys(subrows).map((s, idx) => {
         if (s !== "data") {
           return (
