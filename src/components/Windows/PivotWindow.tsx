@@ -4,8 +4,6 @@ import { IBody } from "../../layout";
 import PivotGrid from "../PivotGrid/PivotGrid";
 import { pivotData } from "../../mockData/pivotData";
 import { ColumnAlignment } from "../../interfaces/Grid";
-import { Renderers } from "../../utils/renderers";
-import SplitPanelExample from "../SplitPanel/SplitPanelExample";
 
 interface Props {
   parent?: React.ReactNode;
@@ -68,8 +66,7 @@ const columns: IColumn[] = [
 const PivotWindow: React.FC<Props> = ({ block }) => {
   return (
     <Window block={block}>
-      {/* <PivotGrid data={pivotData} columns={columns} /> */}
-      <SplitPanelExample />
+      <PivotGrid data={pivotData} columns={columns} />
     </Window>
   );
 };
