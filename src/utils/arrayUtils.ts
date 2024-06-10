@@ -105,6 +105,7 @@ export function groupFn<T extends {}>(arr: T[], fields: Array<keyof T>) {
   }, []);
   const fieldCopy = [...fields];
   fieldCopy.splice(0, 1);
+  fieldCopy.sort();
   fieldCopy.map(() => {
     Object.keys(result).map((key: string) => {
       const innerResults = groupFn(result[key], fieldCopy);
