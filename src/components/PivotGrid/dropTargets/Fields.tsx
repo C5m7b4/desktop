@@ -7,10 +7,11 @@ interface Props<T> {
   rows: IRow[];
   values: IValue[];
   setValues: (v: IValue[]) => void;
+  setRows: (e: IRow[]) => void;
 }
 
 function Fields<T>(props: Props<T>) {
-  const { data, rows = [], values = [], setValues } = props;
+  const { data, rows = [], values = [], setValues, setRows } = props;
   const [usedFields, setUsedFields] = useState<string[]>([]);
 
   useEffect(() => {
@@ -29,16 +30,27 @@ function Fields<T>(props: Props<T>) {
     e.currentTarget.style.opacity = "0.8";
   };
 
-  const handleCheck = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleCheck = (e: React.ChangeEvent<HTMLInputElement>) => {
     const index = usedFields.findIndex((f) => f === e.target.value);
-    const copy = [...usedFields];
-    copy.splice(index, 1);
-    setUsedFields(copy);
+    if (index >= 0) {
+      const copy = [...usedFields];
+      copy.splice(index, 1);
+      setUsedFields(copy);
+    }
 
     const valueIndex = values.findIndex((v) => v.label === e.target.value);
-    const valuesCopy = [...values];
-    valuesCopy.splice(valueIndex);
-    setValues(valuesCopy);
+    if (valueIndex >= 0) {
+      const valuesCopy = [...values];
+      valuesCopy.splice(valueIndex);
+      setValues(valuesCopy);
+    }
+
+    const rowIndex = rows.findIndex((r) => r.label === e.target.value);
+    if (rowIndex >= 0) {
+      const rowsCopy = [...rows];
+      rowsCopy.splice(rowIndex);
+      setRows(rowsCopy);
+    }
   };
 
   const isChecked = (r: string) => {
