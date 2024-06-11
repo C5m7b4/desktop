@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { IRow } from "./Rows";
 import { IValue } from "./Values";
+import Checkbox from "../../Checkbox";
 
 interface Props<T> {
   data: T[];
@@ -73,6 +74,11 @@ function Fields<T>(props: Props<T>) {
                 draggable
                 onDragStart={(e) => handleDragStart(e, r)}
               >
+                {/* <Checkbox
+                  label={r}
+                  checked={isChecked(r)}
+                  onChange={handleCheck}
+                /> */}
                 <input
                   type="checkbox"
                   value={r}
@@ -80,7 +86,7 @@ function Fields<T>(props: Props<T>) {
                   checked={isChecked(r)}
                   onChange={handleCheck}
                 />
-                <label className="draggable-item">{r}</label>
+                <label className="draggable-item-label">{r}</label>
               </div>
             );
           })}
