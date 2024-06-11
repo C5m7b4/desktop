@@ -94,6 +94,8 @@ function THead(props: Props) {
           left={points.x}
           column={column}
           handleAliasClick={handleAliasClick}
+          values={values}
+          setValues={setValues}
         />
       ) : null}
       {showAliasContextMenu ? (
