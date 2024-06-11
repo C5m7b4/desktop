@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 500 500">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #fff;
+        stroke-linecap: round;
+        stroke-miterlimit: 10;
+        stroke-width: 60px;
+      }
+
+      .cls-2 {
+        fill: #4a8cff;
+      }
+
+      .cls-2, .cls-3 {
+        stroke-width: 0px;
+      }
+
+      .cls-3 {
+        fill: #2a6cff;
+      }
+    </style>
+  </defs>
+  <g id="base">
+    <path class="cls-3" d="M434.72,30.98H65.28c-18.94,0-34.3,15.36-34.3,34.3v369.45c0,18.94,15.36,34.3,34.3,34.3h369.45c18.94,0,34.3-15.36,34.3-34.3V65.28c0-18.94-15.36-34.3-34.3-34.3ZM447.85,413.55c0,18.94-15.36,34.3-34.3,34.3H86.45c-18.94,0-34.3-15.36-34.3-34.3V86.45c0-18.94,15.36-34.3,34.3-34.3h327.1c18.94,0,34.3,15.36,34.3,34.3v327.1Z"/>
+  </g>
+  <g id="filler">
+    <rect class="cls-2" x="52.15" y="52.15" width="395.7" height="395.7" rx="34.3" ry="34.3"/>
+  </g>
+  <g id="check">
+    <line class="cls-1" x1="385.44" y1="121.07" x2="202.1" y2="377.74"/>
+    <line class="cls-1" x1="109.73" y1="297.76" x2="202.1" y2="377.74"/>
+  </g>
+</svg>
