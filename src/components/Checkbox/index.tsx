@@ -4,7 +4,13 @@ import { useState } from "react";
 import { CheckboxType } from "../../svgs/CheckboxIcon";
 import styled from "styled-components";
 
-const Label = styled.label``;
+const Label = styled.label`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 10px;
+`;
 
 interface Props {
   label: string;
@@ -34,7 +40,7 @@ function Checkbox(props: Props) {
           stroke={"#ffffff"}
           type={type}
         />
-        <span>{label}</span>
+        <div>{label}</div>
       </Label>
     </div>
   );
