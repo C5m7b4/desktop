@@ -8,7 +8,8 @@ const Div = styled.div`
   align-items: center;
   width: 50%;
   border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.2),
+    inset 1px 1px 1px rgba(0, 0, 0, 0.2);
 `;
 
 const Entry = styled.div`
@@ -17,6 +18,7 @@ const Entry = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
+  padding: 2px 5px;
 `;
 
 const Value = styled.div`
@@ -65,8 +67,8 @@ function NumberField(props: Props) {
       <Entry>
         <Value>{count}</Value>
         <Buttons>
-          <UpArrow stroke={"#000000"} onClick={increment} />
-          <DownArrow stroke={"#000000"} onClick={decrement} />
+          <UpArrow scale={10} stroke={"#000000"} onClick={increment} />
+          <DownArrow scale={10} stroke={"#000000"} onClick={decrement} />
         </Buttons>
       </Entry>
     </Div>
