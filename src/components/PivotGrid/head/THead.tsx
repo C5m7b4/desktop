@@ -81,7 +81,7 @@ function THead(props: Props) {
     setAliasValue("");
   };
 
-  const getAggregatorName = (a) => {
+  const getAggregatorName = (a: string) => {
     const value = values.filter((v) => v.label === a)[0];
     return value.aggregator;
   };
@@ -96,6 +96,9 @@ function THead(props: Props) {
           handleAliasClick={handleAliasClick}
           values={values}
           setValues={setValues}
+          close={() => {
+            setShowHeaderContextMenu(false);
+          }}
         />
       ) : null}
       {showAliasContextMenu ? (
