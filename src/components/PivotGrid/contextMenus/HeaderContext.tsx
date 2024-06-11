@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 import Select, { SelectProps } from "../../Select";
 import { formatNumber, formatCurrency } from "../formatters";
@@ -10,7 +10,7 @@ const Div = styled.div`
   border-bottom: 1px solid black;
   margin-bottom: 5px;
   padding: 5px 15px;
-  font-size: 1rem;
+  font-size: ${(props) => props.theme.fontSizes.normal};
   font-weight: bold;
   cursor: pointer;
   z-index: 100;
@@ -24,6 +24,7 @@ const Div = styled.div`
 
 const H3 = styled.div`
   padding: 5px 15px;
+  font-size: ${(props) => props.theme.fontSizes.normal};
 `;
 
 interface Props {
@@ -33,11 +34,33 @@ interface Props {
   handleAliasClick: (c: string) => void;
   values: IValue[];
   setValues: (i: IValue[]) => void;
+  close: () => void;
 }
 
 function HeaderContext(props: Props) {
-  const { top, left, column, handleAliasClick, values, setValues } = props;
+  const { top, left, column, handleAliasClick, values, setValues, close } =
+    props;
   const [isPercentage, setIsPercentage] = useState(false);
+
+  const windowRef = useRef<HTMLDivElement>(null);
+
+  const handleClick = (e: MouseEvent) => {
+    if (windowRef.current) {
+      if (!windowRef.current.contains(e.target as HTMLDivElement)) {
+        close();
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (windowRef.current) {
+      window.addEventListener("click", handleClick);
+    }
+
+    return () => {
+      window.removeEventListener("click", handleClick);
+    };
+  }, []);
 
   const handleFormatterClick = (c: SelectProps) => {
     const selectedValue = values.filter((v) => v.label === column)[0];
@@ -82,11 +105,12 @@ function HeaderContext(props: Props) {
     top: `${top}px`,
     left: `${left}px`,
     width: "200px",
-    backgroundColor: "rgba(255, 255, 255, 1)",
+    backgroundColor: "rgba(255, 255, 255, 1.0)",
     boxShadow: "2px 4px 5px rgba(0, 0, 0, 0.3)",
+    zIndex: "999",
   };
   return (
-    <div style={style as React.CSSProperties}>
+    <div ref={windowRef} style={style as React.CSSProperties}>
       <Div className="header-element" onClick={() => handleAliasClick(column)}>
         Create Alias
       </Div>
@@ -109,11 +133,19 @@ function HeaderContext(props: Props) {
         <H3>Decimal Places</H3>
         <NumberField />
       </div>
-      <Checkbox
-        label="Percentage"
-        checked={isPercentage}
-        onChange={setIsPercentage}
-      />
+      <div
+        style={{
+          margin: "10px 10px",
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <Checkbox
+          label="Percentage"
+          checked={isPercentage}
+          onChange={setIsPercentage}
+        />
+      </div>
     </div>
   );
 }
