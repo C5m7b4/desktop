@@ -8,7 +8,7 @@ import { addApplication, IApp } from "../../../redux/app";
 const Div = styled.div`
   position: fixed;
   top: 200px;
-  left: 450px;
+  left: 600px;
   width: 100px;
   height: 100;
   user-select: none;
@@ -19,7 +19,7 @@ interface Props {
   parent?: Element;
 }
 
-const BarChartIcon: React.FC<Props> = ({
+const BoxPlotIcon: React.FC<Props> = ({
   isOpen = true,
   parent = document.body,
 }) => {
@@ -37,12 +37,12 @@ const BarChartIcon: React.FC<Props> = ({
   };
 
   const app: IApp = {
-    _uid: "kkyir8r048tkr",
-    component: "barchart",
+    _uid: "l;kj;lkjsdfjkjkdfr",
+    component: "boxplot",
     height: 346,
     width: 640,
-    title: "Bar Chart",
-    name: "Bar Chart",
+    title: "Box Plot",
+    name: "Box Plot",
   };
 
   const handleDoubleClick = () => {
@@ -54,7 +54,11 @@ const BarChartIcon: React.FC<Props> = ({
       {isOpen
         ? createPortal(
             <Div ref={panelRef} onDoubleClick={handleDoubleClick}>
-              <IconHolder onDrag={handleDrag} image={"barchart"} label="Bars" />
+              <IconHolder
+                onDrag={handleDrag}
+                image={"boxplot"}
+                label="BoxPlot"
+              />
             </Div>,
             parent
           )
@@ -63,4 +67,4 @@ const BarChartIcon: React.FC<Props> = ({
   );
 };
 
-export default BarChartIcon;
+export default BoxPlotIcon;

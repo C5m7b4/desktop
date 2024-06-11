@@ -450,6 +450,7 @@ const Linechart = ({
     backgroundColor: backgroundColor,
     margin: "0 auto",
     boxShadow: "2px 4px 6px rgba(0, 0, 0, 0.3)",
+    borderRadius: "20px",
   };
   const svgContainer = {
     backgroundColor: svgBackgroundColor,
