@@ -1,6 +1,8 @@
 import React from "react";
 import styled, { useTheme, keyframes } from "styled-components";
 
+export type CheckboxType = "normal" | "X";
+
 interface Props {
   scale?: number;
   style?: React.CSSProperties;
@@ -8,6 +10,7 @@ interface Props {
   stroke?: string;
   fill?: string;
   innerFill?: string;
+  type?: CheckboxType;
 }
 
 const fadeIn = keyframes`
@@ -41,6 +44,7 @@ export const CheckboxIcon: React.FC<Props> = ({
   stroke,
   fill,
   innerFill,
+  type = "normal",
 }) => {
   const theme = useTheme();
   return (
@@ -78,30 +82,57 @@ export const CheckboxIcon: React.FC<Props> = ({
           ry="34.3"
         />
       </g>
-      <g data-id="check">
-        <line
-          fill="none"
-          stroke={stroke ?? "#ffffff"}
-          strokeLinecap="round"
-          strokeMiterlimit="10"
-          strokeWidth="60"
-          x1="385.44"
-          y1="121.07"
-          x2="202.1"
-          y2="377.74"
-        />
-        <line
-          fill="none"
-          stroke={stroke ?? "#ffffff"}
-          strokeLinecap="round"
-          strokeMiterlimit="10"
-          strokeWidth="60"
-          x1="109.73"
-          y1="297.76"
-          x2="202.1"
-          y2="377.74"
-        />
-      </g>
+      {type === "normal" ? (
+        <g data-id="check">
+          <line
+            fill="none"
+            stroke={stroke ?? "#ffffff"}
+            strokeLinecap="round"
+            strokeMiterlimit="10"
+            strokeWidth="60"
+            x1="385.44"
+            y1="121.07"
+            x2="202.1"
+            y2="377.74"
+          />
+          <line
+            fill="none"
+            stroke={stroke ?? "#ffffff"}
+            strokeLinecap="round"
+            strokeMiterlimit="10"
+            strokeWidth="60"
+            x1="109.73"
+            y1="297.76"
+            x2="202.1"
+            y2="377.74"
+          />
+        </g>
+      ) : (
+        <g id="X">
+          <line
+            fill="none"
+            stroke={stroke ?? "#ffffff"}
+            strokeLinecap="round"
+            strokeMiterlimit="10"
+            strokeWidth="60"
+            x1="354.36"
+            y1="136.97"
+            x2="133.18"
+            y2="361.83"
+          />
+          <line
+            fill="none"
+            stroke={stroke ?? "#ffffff"}
+            strokeLinecap="round"
+            strokeMiterlimit="10"
+            strokeWidth="60"
+            x1="131.34"
+            y1="138.81"
+            x2="356.2"
+            y2="360"
+          />
+        </g>
+      )}
     </Icon>
   );
 };

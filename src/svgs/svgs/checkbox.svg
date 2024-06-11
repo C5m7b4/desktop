@@ -18,6 +18,10 @@
         stroke-width: 0px;
       }
 
+      .cls-4 {
+        display: none;
+      }
+
       .cls-3 {
         fill: #2a6cff;
       }
@@ -29,8 +33,12 @@
   <g id="filler">
     <rect class="cls-2" x="52.15" y="52.15" width="395.7" height="395.7" rx="34.3" ry="34.3"/>
   </g>
-  <g id="check">
+  <g id="check" class="cls-4">
     <line class="cls-1" x1="385.44" y1="121.07" x2="202.1" y2="377.74"/>
     <line class="cls-1" x1="109.73" y1="297.76" x2="202.1" y2="377.74"/>
+  </g>
+  <g id="X">
+    <line class="cls-1" x1="354.36" y1="136.97" x2="133.18" y2="361.83"/>
+    <line class="cls-1" x1="131.34" y1="138.81" x2="356.2" y2="360"/>
   </g>
 </svg>
