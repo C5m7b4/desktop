@@ -62,21 +62,6 @@ export function arrAvg<T>(
   return total / itemCount;
 }
 
-export const aggregateOptions = [
-  {
-    fn: arrSum,
-    label: "Sum",
-  },
-  {
-    fn: arrCount,
-    label: "Count",
-  },
-  {
-    fn: arrAvg,
-    label: "Avg",
-  },
-];
-
 export function grandTotalCount<T>(arr: T[]) {
   return arr.reduce((acc) => {
     return acc + 1;
@@ -109,6 +94,9 @@ export function groupFn<T extends {}>(arr: T[], fields: Array<keyof T>) {
   fieldCopy.map(() => {
     Object.keys(result).map((key: string) => {
       const innerResults = groupFn(result[key], fieldCopy);
+      if (Array.isArray(innerResults)) {
+        innerResults.sort();
+      }
       Object.keys(innerResults).map((inner, i) => {
         if (i === 0) {
           const originalData = result[key];

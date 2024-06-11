@@ -10,6 +10,9 @@ import { StarIcon } from "./StarIcon";
 import { TrashIcon } from "./TrashIcon";
 import { SortAZ } from "./SortAZ";
 import { SortZA } from "./SortZA";
+import { UpArrow } from "./UpArrow";
+import { DownArrow } from "./DownArrow";
+import { CheckboxIcon } from "./CheckboxIcon";
 
 export {
   BoxMinusIcon,
@@ -24,4 +27,7 @@ export {
   SortAZ,
   SortZA,
   TrashIcon,
+  UpArrow,
+  DownArrow,
+  CheckboxIcon,
 };

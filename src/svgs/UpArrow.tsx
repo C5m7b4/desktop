@@ -32,7 +32,7 @@ const Icon = styled.svg<{ $stroke: string; $hoverColor: string }>`
   animation-timing-function: ease-out;
 `;
 
-export const DownIcon: React.FC<Props> = ({
+export const UpArrow: React.FC<Props> = ({
   scale = 15,
   style,
   onClick,
@@ -55,19 +55,10 @@ export const DownIcon: React.FC<Props> = ({
         }
       }}
     >
-      <circle
-        stroke={stroke ?? theme.colors.table.iconColor}
-        strokeWidth="10px"
-        fill="transparent"
-        cx="250"
-        cy="253.96"
-        r="197.94"
-      />
       <polygon
-        stroke={stroke ?? theme.colors.table.iconColor}
-        strokeWidth="10px"
-        fill={theme.colors.table.iconColor}
-        points="366.11 186.2 294.59 279.42 250.62 388.39 205.65 279.84 133.27 187.28 249.76 202.61 366.11 186.2"
+        strokeWidth="0"
+        fill={stroke ?? theme.colors.table.iconColor}
+        points="252.65 80.64 348.82 250 448.22 419.36 253.91 421.47 57.09 419.36 156.38 246.05 252.65 80.64"
       />
     </Icon>
   );

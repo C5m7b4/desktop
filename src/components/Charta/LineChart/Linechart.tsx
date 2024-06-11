@@ -10,6 +10,7 @@ const Linechart = ({
   seriesStroke = "blue",
   seriesStrokeWidth = 2,
   onClick,
+  lineCircleRadius = 5,
   axisStrokeColor = "#000",
   axisStrokeWidth = 1,
   axisCircleRadius = 5,
@@ -31,6 +32,7 @@ const Linechart = ({
   horizontalLineOpacity = 0.2,
   showVerticalLines = true,
   verticalLineOpacity = 0.2,
+  showTooltips = true,
   gradient_backgroundConfig = {
     stop1: {
       offset: 0,
@@ -67,6 +69,15 @@ const Linechart = ({
     fontSize: 12,
     fill: "#000",
     fontWeight: 600,
+  },
+  tooltip_config = {
+    tooltipHeight: 20,
+    tooltipWidth: 40,
+    tooltipFill: "#ffffff",
+    tooltipBorderRadius: 7,
+    fontSize: 12,
+    fontWeight: "400",
+    textAnchor: "middle",
   },
 }) => {
   const x_margin = 50;
@@ -272,6 +283,15 @@ const Linechart = ({
   const render_line_circles = () => {
     const { gap_between_ticks: x_gap } = calculateWidth();
     const { gap_between_ticks: y_gap, yMax, y_value_gap } = calculateHeight();
+    const {
+      tooltipWidth,
+      tooltipHeight,
+      tooltipFill,
+      tooltipBorderRadius,
+      fontSize,
+      fontWeight,
+      textAnchor,
+    } = tooltip_config;
     return data.map((item, index) => {
       const x = x_margin + x_gap * index;
       const y = (yMax - item[y_key]) * (y_gap / y_value_gap) + y_margin;
@@ -287,6 +307,38 @@ const Linechart = ({
             fill={lineCircleFill}
             onClick={() => onClick(item)}
           />
+          {showTooltips ? (
+            <g key={`tooltip-${index}`}>
+              <line
+                x1={x}
+                y1={y - lineCircleRadius / 2}
+                x2={x}
+                y2={y - lineCircleRadius / 2 - 10}
+                stroke={"#000000"}
+                strokeWidth={2}
+                opacity={0.8}
+              />
+              <rect
+                x={x - tooltipWidth / 2}
+                y={y - lineCircleRadius / 2 - tooltipHeight - 10}
+                width={tooltipWidth}
+                height={tooltipHeight}
+                fill={tooltipFill}
+                rx={tooltipBorderRadius}
+                opacity={1}
+                onClick={() => onClick(item)}
+              />
+              <text
+                x={x}
+                y={y - lineCircleRadius / 2 - tooltipHeight / 2 - 5}
+                fontSize={fontSize}
+                fontWeight={fontWeight}
+                textAnchor={textAnchor}
+              >
+                {item[y_key]}
+              </text>
+            </g>
+          ) : null}
         </g>
       );
     });

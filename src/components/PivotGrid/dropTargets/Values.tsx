@@ -1,9 +1,12 @@
 import {
+  pivotSum,
+  pivotCount,
+  pivotMin,
+  pivotMax,
+  pivotMean,
+  pivotMedian,
   aggregateOptions,
-  arrAvg,
-  arrCount,
-  arrSum,
-} from "../../../utils/arrayUtils";
+} from "../aggregators";
 import styled from "styled-components";
 
 const FiltersContainer = styled.div`
@@ -33,23 +36,35 @@ const Values: React.FC<Props> = ({ values, setValues }) => {
   ) => {
     const selectedAggregate = values.filter((v) => v.label === label)[0];
     const index = values.findIndex((v) => v.label === label);
-    let currentFn: Function = arrSum;
+    let currentFn: Function = pivotSum;
     let currentDescription = "Sum";
     switch (e.target.value) {
       case "Count":
-        currentFn = arrCount;
+        currentFn = pivotCount;
         currentDescription = "Count";
         break;
       case "Sum":
-        currentFn = arrSum;
+        currentFn = pivotSum;
         currentDescription = "Sum";
         break;
       case "Avg":
-        currentFn = arrAvg;
+        currentFn = pivotMean;
         currentDescription = "Avg";
         break;
+      case "Min":
+        currentFn = pivotMin;
+        currentDescription = "Min";
+        break;
+      case "Max":
+        currentFn = pivotMax;
+        currentDescription = "Max";
+        break;
+      case "Median":
+        currentFn = pivotMedian;
+        currentDescription = "Median";
+        break;
       default:
-        currentFn = arrSum;
+        currentFn = pivotSum;
         break;
     }
     const newValue = {
@@ -68,7 +83,7 @@ const Values: React.FC<Props> = ({ values, setValues }) => {
     const newValue = {
       aggregator: "Sum",
       label: fieldType,
-      fn: arrSum,
+      fn: pivotSum,
     };
     const newValues = [...values, newValue];
     setValues(newValues);
