@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { UpArrow, DownArrow } from "../../svgs";
 
 const Div = styled.div`
@@ -43,6 +43,10 @@ interface Props {
 function NumberField(props: Props) {
   const { min = 0, max = 100, value = 0, onChange } = props;
   const [count, setCount] = useState(value);
+
+  useEffect(() => {
+    setCount(value);
+  }, [value]);
 
   const increment = () => {
     if (count < max) {
