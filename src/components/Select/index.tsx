@@ -23,7 +23,7 @@ const ButtonHolder = styled.div`
   border-radius: 10px;
   margin: 5px 8px;
   cursor: pointer;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 3px 7px rgba(0, 0, 0, 0.2);
 `;
 
 const Item = styled.div`
