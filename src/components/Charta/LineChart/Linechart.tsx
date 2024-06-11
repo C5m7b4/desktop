@@ -4,12 +4,12 @@ import { sortInts } from "../../../utils/sort";
 
 const Linechart = ({
   data = [],
-  x_key = "month",
-  y_key = "value",
+  x_key = "",
+  y_key = "",
   curve = true,
   seriesStroke = "blue",
   seriesStrokeWidth = 2,
-  onClick,
+  onClick = () => {},
   lineCircleRadius = 5,
   axisStrokeColor = "#000",
   axisStrokeWidth = 1,
@@ -18,8 +18,8 @@ const Linechart = ({
   axisCircleStroke = "red",
   axisCircleStrokeWidth = 1,
   axisCircleOpacity = 0.8,
-  height: containerHeight,
-  width: containerWidth,
+  height: containerHeight = 300,
+  width: containerWidth = 600,
   backgroundColor = "transparent",
   svgBackgroundColor = "transparent",
   useGradientBackground = true,
@@ -107,7 +107,7 @@ const Linechart = ({
     const yMin = data.reduce((acc, curr) => {
       return curr[y_key] < acc ? curr[y_key] : acc;
     }, yMax);
-    let min = 0;
+    const min = 0;
     const actualChartHeight = containerHeight - y_margin * 2;
     const gap_between_ticks = actualChartHeight / (data.length - 1);
     const y_value_gap = (yMax - min) / (data.length - 1);
