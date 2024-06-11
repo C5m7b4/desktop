@@ -22,6 +22,8 @@ export interface IValue {
   label: string;
   alias?: string;
   formatter?: Function;
+  isPercentage?: boolean;
+  decimals?: number;
 }
 
 interface Props {

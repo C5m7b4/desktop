@@ -65,7 +65,6 @@ function Pivot<T>(props: Props<T>) {
   }, [values, rows]);
 
   useEffect(() => {
-    console.log("resizing pivot");
     renderTableBody();
     calculateTableHeight();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -79,10 +78,8 @@ function Pivot<T>(props: Props<T>) {
       const bodyBox = tableBodyRef.current.getBoundingClientRect();
       if (parentbox) {
         if (bodyBox.height > parentbox?.height) {
-          console.log("setting to scrollable");
           tableRef.current.style.overflowY = "scroll";
         } else {
-          console.log("setting to non scrollable");
           tableRef.current.style.overflowY = "";
         }
       }
@@ -124,6 +121,17 @@ function Pivot<T>(props: Props<T>) {
     setShowContextMenu(true);
   };
 
+  const applyFormatter = (
+    input: string,
+    formatter: Function,
+    decimals: number
+  ) => {
+    if (formatter) {
+      return formatter(input, decimals);
+    }
+    return input;
+  };
+
   const buildAggregates = (parentObject) => {
     return values.map((v, i) => {
       if (Array.isArray(parentObject)) {
@@ -133,7 +141,11 @@ function Pivot<T>(props: Props<T>) {
             $width={calculateWidth() as number}
             key={`tr-td-${i}`}
           >
-            {v.fn(parentObject, v.label)}
+            {applyFormatter(
+              v.fn(parentObject, v.label),
+              v.formatter!,
+              v.decimals!
+            )}
           </Td>
         );
       } else {
@@ -143,7 +155,7 @@ function Pivot<T>(props: Props<T>) {
             $width={calculateWidth() as number}
             key={`tr-td-${i}`}
           >
-            {v.fn(parentObject["data"], v.label)}
+            {applyFormatter(v.fn(parentObject["data"], v.label), v.formatter!)}
           </Td>
         );
       }

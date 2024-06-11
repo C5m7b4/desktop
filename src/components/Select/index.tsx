@@ -67,12 +67,13 @@ interface Props {
   options: SelectProps[];
   placeholder: string;
   onChange: (s: SelectProps) => void;
+  value: string;
 }
 
 function Select(props: Props) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedValue, setSelectedValue] = useState<SelectProps>();
-  const { options, placeholder, onChange } = props;
+  const { options, placeholder, onChange, value } = props;
 
   const selectRef = useRef<HTMLDivElement>(null);
   const itemsRef = useRef<HTMLDivElement>(null);
@@ -113,7 +114,13 @@ function Select(props: Props) {
             setIsOpen(!isOpen);
           }}
         >
-          <span>{selectedValue?.label ?? placeholder}</span>
+          <span>
+            {selectedValue?.label
+              ? selectedValue.label
+              : value
+              ? value
+              : placeholder}
+          </span>
           <DownArrow stroke={"#000000"} />
         </ButtonHolder>
       </div>

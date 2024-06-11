@@ -5,6 +5,7 @@ import { formatNumber, formatCurrency } from "../formatters";
 import { IValue } from "../dropTargets/Values";
 import NumberField from "../../NumberField";
 import Checkbox from "../../Checkbox";
+import Button from "../../Button";
 
 const Div = styled.div`
   border-bottom: 1px solid black;
@@ -27,6 +28,13 @@ const H3 = styled.div`
   font-size: ${(props) => props.theme.fontSizes.normal};
 `;
 
+const Buttons = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 8px;
+`;
+
 interface Props {
   top: number;
   left: number;
@@ -41,6 +49,8 @@ function HeaderContext(props: Props) {
   const { top, left, column, handleAliasClick, values, setValues, close } =
     props;
   const [isPercentage, setIsPercentage] = useState(false);
+  const [decimals, setDecimals] = useState(0);
+  const [selected, setSelected] = useState("");
 
   const windowRef = useRef<HTMLDivElement>(null);
 
@@ -57,9 +67,27 @@ function HeaderContext(props: Props) {
       window.addEventListener("click", handleClick);
     }
 
+    // lets see if there is anything already available on this value or not
+    const selectedValue = values.filter((v) => v.label === column)[0];
+    console.log(selectedValue);
+    if (selectedValue.isPercentage) {
+      setIsPercentage(true);
+    } else {
+      setIsPercentage(false);
+    }
+    if (selectedValue.decimals) {
+      setDecimals(selectedValue.decimals);
+    }
+    if (selectedValue.formatter) {
+      const args = selectedValue.formatter.name.split(/(?=[A-Z])/);
+      const first = args[0].charAt(0).toUpperCase() + args[0].slice(1);
+      setSelected(`${first} ${args[1]}`);
+    }
+
     return () => {
       window.removeEventListener("click", handleClick);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleFormatterClick = (c: SelectProps) => {
@@ -91,13 +119,23 @@ function HeaderContext(props: Props) {
     },
     {
       label: "Format Currency",
-      value: "formatNumber",
+      value: "formatCurrency",
     },
     {
       label: "Remove formatter",
       value: "remove",
     },
   ];
+
+  const handleOk = () => {
+    const selectedValue = values.filter((v) => v.label === column)[0];
+    const copy = [...values];
+    const index = values.findIndex((v) => v.label === column);
+    const newValue = { ...selectedValue, decimals, isPercentage };
+    copy.splice(index, 1, newValue);
+    setValues(copy);
+    close();
+  };
 
   const style = {
     border: "1px solid black",
@@ -120,6 +158,7 @@ function HeaderContext(props: Props) {
           onChange={handleFormatterClick}
           placeholder="Formatters"
           options={formatters}
+          value={selected}
         />
       </div>
       <div
@@ -131,7 +170,7 @@ function HeaderContext(props: Props) {
         }}
       >
         <H3>Decimal Places</H3>
-        <NumberField />
+        <NumberField value={decimals} onChange={(e) => setDecimals(e)} />
       </div>
       <div
         style={{
@@ -146,6 +185,9 @@ function HeaderContext(props: Props) {
           onChange={setIsPercentage}
         />
       </div>
+      <Buttons>
+        <Button label="OK" onClick={handleOk} type="normal" size="small" />
+      </Buttons>
     </div>
   );
 }
