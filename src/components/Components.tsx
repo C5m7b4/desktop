@@ -7,6 +7,7 @@ import Counter from "./Counter/Counter";
 import Receiver from "../pubsub/Receiver";
 import TreeViewWindow from "./Windows/TreeViewWindow";
 import LineWindow from "./Windows/LineWindow";
+import BarChartWindow from "./Windows/BarChartWindow";
 import PivotWindow from "./Windows/PivotWindow";
 import DataGridWindow from "./Windows/DataGridWindow";
 import { IBody } from "../layout";
@@ -19,7 +20,8 @@ type ComponentNames =
   | "treeview"
   | "linechart"
   | "pivot"
-  | "grid";
+  | "grid"
+  | "barchart";
 
 type Components = Record<ComponentNames, any>;
 // interface IComponents {
@@ -35,6 +37,7 @@ const Components: Components = {
   linechart: LineWindow,
   pivot: PivotWindow,
   grid: DataGridWindow,
+  barchart: BarChartWindow,
 };
 
 export default (block: IBody) => {

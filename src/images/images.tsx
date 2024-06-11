@@ -7,6 +7,7 @@ const IMAGES = {
   calc: new URL("./calc.png", import.meta.url).href,
   chart1: new URL("./charts1.png", import.meta.url).href,
   grid: new URL("./grid.png", import.meta.url).href,
+  barchart: new URL("./barchart.png", import.meta.url).href,
 };
 
 export default IMAGES;
