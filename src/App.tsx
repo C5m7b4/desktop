@@ -15,6 +15,7 @@ import CalculatorIcon from "./components/Taskbar/icons/CalcIcon";
 import ChartIcon from "./components/Taskbar/icons/ChartIcon";
 import GridIcon from "./components/Taskbar/icons/GridIcon";
 import BarChartIcon from "./components/Taskbar/icons/BarChartIcon";
+import BoxPlotIcon from "./components/Taskbar/icons/BoxPlotIcon";
 
 const Div = styled.div`
   background-image: linear-gradient(
@@ -71,6 +72,7 @@ const App = () => {
         <Taskbar />
         <GridIcon />
         <BarChartIcon />
+        <BoxPlotIcon />
       </Div>
     </ThemeProvider>
   );
