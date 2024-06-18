@@ -1,7 +1,17 @@
-export const pivotData = [
+export type IPivotData = {
+  Customer: number;
+  OrderId: number;
+  Product: string;
+  "Units Sold": number;
+  Date: number;
+  Rev: number;
+  "Our cost": number;
+};
+
+export const pivotData: IPivotData[] = [
   {
     Customer: 3,
-    "Order ID": 397386,
+    OrderId: 397386,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 3997.5,
     Date: 43831,
@@ -10,7 +20,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 613058,
+    OrderId: 613058,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 3864,
     Date: 43922,
@@ -19,7 +29,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 766402,
+    OrderId: 766402,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 3850.5,
     Date: 43922,
@@ -28,7 +38,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 710702,
+    OrderId: 710702,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 3793.5,
     Date: 44013,
@@ -37,7 +47,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 283378,
+    OrderId: 283378,
     Product: "Chocolate Chip",
     "Units Sold": 4492.5,
     Date: 43922,
@@ -46,7 +56,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 239419,
+    OrderId: 239419,
     Product: "Chocolate Chip",
     "Units Sold": 4251,
     Date: 43831,
@@ -55,7 +65,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 739483,
+    OrderId: 739483,
     Product: "Oatmeal Raisin",
     "Units Sold": 4219.5,
     Date: 43922,
@@ -64,7 +74,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 253399,
+    OrderId: 253399,
     Product: "Chocolate Chip",
     "Units Sold": 4026,
     Date: 44013,
@@ -73,7 +83,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 361305,
+    OrderId: 361305,
     Product: "Chocolate Chip",
     "Units Sold": 3945,
     Date: 43831,
@@ -82,7 +92,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 603195,
+    OrderId: 603195,
     Product: "Chocolate Chip",
     "Units Sold": 3801,
     Date: 43922,
@@ -91,7 +101,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 643111,
+    OrderId: 643111,
     Product: "Chocolate Chip",
     "Units Sold": 3675,
     Date: 43922,
@@ -100,7 +110,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 861720,
+    OrderId: 861720,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 2966,
     Date: 43739,
@@ -109,7 +119,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 272552,
+    OrderId: 272552,
     Product: "Oatmeal Raisin",
     "Units Sold": 3520.5,
     Date: 43922,
@@ -118,7 +128,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 459019,
+    OrderId: 459019,
     Product: "Chocolate Chip",
     "Units Sold": 3513,
     Date: 44013,
@@ -127,7 +137,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 628402,
+    OrderId: 628402,
     Product: "Chocolate Chip",
     "Units Sold": 3495,
     Date: 43831,
@@ -136,7 +146,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 567117,
+    OrderId: 567117,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 2907,
     Date: 43983,
@@ -145,7 +155,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 426268,
+    OrderId: 426268,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 2877,
     Date: 44105,
@@ -154,7 +164,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 824253,
+    OrderId: 824253,
     Product: "Chocolate Chip",
     "Units Sold": 3450,
     Date: 44013,
@@ -163,7 +173,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 165918,
+    OrderId: 165918,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 2861,
     Date: 43831,
@@ -172,7 +182,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 261362,
+    OrderId: 261362,
     Product: "Oatmeal Raisin",
     "Units Sold": 3421.5,
     Date: 44013,
@@ -181,7 +191,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 864063,
+    OrderId: 864063,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 2832,
     Date: 44044,
@@ -190,7 +200,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 765655,
+    OrderId: 765655,
     Product: "Snickerdoodle",
     "Units Sold": 4243.5,
     Date: 43922,
@@ -199,7 +209,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 853295,
+    OrderId: 853295,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 2826,
     Date: 43952,
@@ -208,7 +218,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 685153,
+    OrderId: 685153,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 2821,
     Date: 44044,
@@ -217,7 +227,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 494115,
+    OrderId: 494115,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 2805,
     Date: 43709,
@@ -226,7 +236,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 218006,
+    OrderId: 218006,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 2755,
     Date: 43862,
@@ -235,7 +245,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 104326,
+    OrderId: 104326,
     Product: "Oatmeal Raisin",
     "Units Sold": 3199.5,
     Date: 44013,
@@ -244,7 +254,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 632477,
+    OrderId: 632477,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 2665,
     Date: 44136,
@@ -253,7 +263,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 558048,
+    OrderId: 558048,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 2646,
     Date: 43709,
@@ -262,7 +272,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 382237,
+    OrderId: 382237,
     Product: "Oatmeal Raisin",
     "Units Sold": 3165,
     Date: 43831,
@@ -271,7 +281,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 488771,
+    OrderId: 488771,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 2632,
     Date: 43983,
@@ -280,7 +290,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 507202,
+    OrderId: 507202,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 2628,
     Date: 43922,
@@ -289,7 +299,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 814769,
+    OrderId: 814769,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 2605,
     Date: 43770,
@@ -298,7 +308,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 208456,
+    OrderId: 208456,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 2574,
     Date: 43770,
@@ -307,7 +317,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 752353,
+    OrderId: 752353,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 2536,
     Date: 43770,
@@ -316,7 +326,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 215670,
+    OrderId: 215670,
     Product: "Oatmeal Raisin",
     "Units Sold": 2993,
     Date: 43891,
@@ -325,7 +335,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 788375,
+    OrderId: 788375,
     Product: "Chocolate Chip",
     "Units Sold": 2993,
     Date: 44075,
@@ -334,7 +344,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 440377,
+    OrderId: 440377,
     Product: "Chocolate Chip",
     "Units Sold": 2992,
     Date: 43739,
@@ -343,7 +353,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 508782,
+    OrderId: 508782,
     Product: "Chocolate Chip",
     "Units Sold": 2992,
     Date: 43891,
@@ -352,7 +362,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 288851,
+    OrderId: 288851,
     Product: "Chocolate Chip",
     "Units Sold": 2988,
     Date: 44013,
@@ -361,7 +371,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 253215,
+    OrderId: 253215,
     Product: "Oatmeal Raisin",
     "Units Sold": 2966,
     Date: 43739,
@@ -370,7 +380,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 233911,
+    OrderId: 233911,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 2460,
     Date: 44013,
@@ -379,7 +389,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 854455,
+    OrderId: 854455,
     Product: "Chocolate Chip",
     "Units Sold": 2931,
     Date: 43709,
@@ -388,7 +398,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 727940,
+    OrderId: 727940,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 2438,
     Date: 43800,
@@ -397,7 +407,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 549329,
+    OrderId: 549329,
     Product: "Chocolate Chip",
     "Units Sold": 2918,
     Date: 43952,
@@ -406,7 +416,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 673372,
+    OrderId: 673372,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 2431,
     Date: 44166,
@@ -415,7 +425,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 898886,
+    OrderId: 898886,
     Product: "Chocolate Chip",
     "Units Sold": 2914,
     Date: 44105,
@@ -424,7 +434,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 841420,
+    OrderId: 841420,
     Product: "Oatmeal Raisin",
     "Units Sold": 2914,
     Date: 44105,
@@ -433,7 +443,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 755930,
+    OrderId: 755930,
     Product: "Oatmeal Raisin",
     "Units Sold": 2907,
     Date: 43983,
@@ -442,7 +452,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 160202,
+    OrderId: 160202,
     Product: "Chocolate Chip",
     "Units Sold": 2905,
     Date: 44136,
@@ -451,7 +461,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 271981,
+    OrderId: 271981,
     Product: "Oatmeal Raisin",
     "Units Sold": 2876,
     Date: 44075,
@@ -460,7 +470,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 177011,
+    OrderId: 177011,
     Product: "Chocolate Chip",
     "Units Sold": 2852,
     Date: 44166,
@@ -469,7 +479,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 251968,
+    OrderId: 251968,
     Product: "Chocolate Chip",
     "Units Sold": 2851,
     Date: 43952,
@@ -478,7 +488,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 374115,
+    OrderId: 374115,
     Product: "Oatmeal Raisin",
     "Units Sold": 2844,
     Date: 43952,
@@ -487,7 +497,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 507642,
+    OrderId: 507642,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 2338,
     Date: 43983,
@@ -496,7 +506,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 307196,
+    OrderId: 307196,
     Product: "Chocolate Chip",
     "Units Sold": 2797,
     Date: 44166,
@@ -505,7 +515,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 867252,
+    OrderId: 867252,
     Product: "Chocolate Chip",
     "Units Sold": 2763,
     Date: 43770,
@@ -514,7 +524,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 410583,
+    OrderId: 410583,
     Product: "Oatmeal Raisin",
     "Units Sold": 2761,
     Date: 43709,
@@ -523,7 +533,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 876370,
+    OrderId: 876370,
     Product: "Snickerdoodle",
     "Units Sold": 3445.5,
     Date: 43922,
@@ -532,7 +542,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 378254,
+    OrderId: 378254,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 2294,
     Date: 43739,
@@ -541,7 +551,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 736328,
+    OrderId: 736328,
     Product: "Oatmeal Raisin",
     "Units Sold": 2750,
     Date: 43862,
@@ -550,7 +560,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 723364,
+    OrderId: 723364,
     Product: "Oatmeal Raisin",
     "Units Sold": 2734,
     Date: 44105,
@@ -559,7 +569,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 306694,
+    OrderId: 306694,
     Product: "Chocolate Chip",
     "Units Sold": 2729,
     Date: 44166,
@@ -568,7 +578,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 209116,
+    OrderId: 209116,
     Product: "Chocolate Chip",
     "Units Sold": 2708,
     Date: 43862,
@@ -577,7 +587,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 121808,
+    OrderId: 121808,
     Product: "Chocolate Chip",
     "Units Sold": 2696,
     Date: 44044,
@@ -586,7 +596,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 335658,
+    OrderId: 335658,
     Product: "Chocolate Chip",
     "Units Sold": 2689,
     Date: 44105,
@@ -595,7 +605,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 444225,
+    OrderId: 444225,
     Product: "Chocolate Chip",
     "Units Sold": 2663,
     Date: 44166,
@@ -604,7 +614,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 388978,
+    OrderId: 388978,
     Product: "Chocolate Chip",
     "Units Sold": 2641,
     Date: 43862,
@@ -613,7 +623,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 123693,
+    OrderId: 123693,
     Product: "Chocolate Chip",
     "Units Sold": 2632,
     Date: 43983,
@@ -622,7 +632,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 424398,
+    OrderId: 424398,
     Product: "Oatmeal Raisin",
     "Units Sold": 2629,
     Date: 43831,
@@ -631,7 +641,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 587035,
+    OrderId: 587035,
     Product: "Chocolate Chip",
     "Units Sold": 2620,
     Date: 44075,
@@ -640,7 +650,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 375461,
+    OrderId: 375461,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 2177,
     Date: 44105,
@@ -649,7 +659,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 806592,
+    OrderId: 806592,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 2161,
     Date: 43891,
@@ -658,7 +668,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 431261,
+    OrderId: 431261,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 2145,
     Date: 43739,
@@ -667,7 +677,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 702523,
+    OrderId: 702523,
     Product: "Oatmeal Raisin",
     "Units Sold": 2574,
     Date: 44044,
@@ -676,7 +686,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 334678,
+    OrderId: 334678,
     Product: "Chocolate Chip",
     "Units Sold": 2565,
     Date: 43831,
@@ -685,7 +695,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 408804,
+    OrderId: 408804,
     Product: "Chocolate Chip",
     "Units Sold": 2559,
     Date: 44044,
@@ -694,7 +704,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 519269,
+    OrderId: 519269,
     Product: "Oatmeal Raisin",
     "Units Sold": 2548,
     Date: 43770,
@@ -703,7 +713,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 844763,
+    OrderId: 844763,
     Product: "Chocolate Chip",
     "Units Sold": 2535,
     Date: 43922,
@@ -712,7 +722,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 436809,
+    OrderId: 436809,
     Product: "Chocolate Chip",
     "Units Sold": 2532,
     Date: 43922,
@@ -721,7 +731,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 764088,
+    OrderId: 764088,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 2110,
     Date: 44075,
@@ -730,7 +740,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 684759,
+    OrderId: 684759,
     Product: "Chocolate Chip",
     "Units Sold": 2518,
     Date: 43983,
@@ -739,7 +749,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 894331,
+    OrderId: 894331,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 2092,
     Date: 43770,
@@ -748,7 +758,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 529471,
+    OrderId: 529471,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 2087,
     Date: 44075,
@@ -757,7 +767,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 881268,
+    OrderId: 881268,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 2076,
     Date: 43739,
@@ -766,7 +776,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 683349,
+    OrderId: 683349,
     Product: "Oatmeal Raisin",
     "Units Sold": 2475,
     Date: 43891,
@@ -775,7 +785,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 140516,
+    OrderId: 140516,
     Product: "Oatmeal Raisin",
     "Units Sold": 2475,
     Date: 44044,
@@ -784,7 +794,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 703997,
+    OrderId: 703997,
     Product: "Chocolate Chip",
     "Units Sold": 2472,
     Date: 44075,
@@ -793,7 +803,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 864409,
+    OrderId: 864409,
     Product: "Chocolate Chip",
     "Units Sold": 2470,
     Date: 43709,
@@ -802,7 +812,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 496123,
+    OrderId: 496123,
     Product: "Chocolate Chip",
     "Units Sold": 2460,
     Date: 43983,
@@ -811,7 +821,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 235897,
+    OrderId: 235897,
     Product: "Oatmeal Raisin",
     "Units Sold": 2460,
     Date: 43983,
@@ -820,7 +830,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 120842,
+    OrderId: 120842,
     Product: "Chocolate Chip",
     "Units Sold": 2441,
     Date: 44105,
@@ -829,7 +839,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 859158,
+    OrderId: 859158,
     Product: "Chocolate Chip",
     "Units Sold": 2434.5,
     Date: 43831,
@@ -838,7 +848,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 115582,
+    OrderId: 115582,
     Product: "Chocolate Chip",
     "Units Sold": 2431,
     Date: 44166,
@@ -847,7 +857,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 442121,
+    OrderId: 442121,
     Product: "Chocolate Chip",
     "Units Sold": 2428,
     Date: 43891,
@@ -856,7 +866,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 146841,
+    OrderId: 146841,
     Product: "Chocolate Chip",
     "Units Sold": 2425.5,
     Date: 44013,
@@ -865,7 +875,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 527753,
+    OrderId: 527753,
     Product: "Chocolate Chip",
     "Units Sold": 2417,
     Date: 43831,
@@ -874,7 +884,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 899743,
+    OrderId: 899743,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 2009,
     Date: 44105,
@@ -883,7 +893,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 231476,
+    OrderId: 231476,
     Product: "Chocolate Chip",
     "Units Sold": 2409,
     Date: 43709,
@@ -892,7 +902,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 727283,
+    OrderId: 727283,
     Product: "Snickerdoodle",
     "Units Sold": 2996,
     Date: 43739,
@@ -901,7 +911,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 466133,
+    OrderId: 466133,
     Product: "Chocolate Chip",
     "Units Sold": 2394,
     Date: 44044,
@@ -910,7 +920,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 726489,
+    OrderId: 726489,
     Product: "Chocolate Chip",
     "Units Sold": 2385,
     Date: 43891,
@@ -919,7 +929,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 235009,
+    OrderId: 235009,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 1976,
     Date: 44105,
@@ -928,7 +938,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 550816,
+    OrderId: 550816,
     Product: "Chocolate Chip",
     "Units Sold": 2363,
     Date: 43862,
@@ -937,7 +947,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 751733,
+    OrderId: 751733,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 1967,
     Date: 43891,
@@ -946,7 +956,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 678731,
+    OrderId: 678731,
     Product: "Chocolate Chip",
     "Units Sold": 2349,
     Date: 43709,
@@ -955,7 +965,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 779126,
+    OrderId: 779126,
     Product: "Chocolate Chip",
     "Units Sold": 2327,
     Date: 43952,
@@ -964,7 +974,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 219485,
+    OrderId: 219485,
     Product: "Sugar",
     "Units Sold": 3874.5,
     Date: 44013,
@@ -973,7 +983,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 482625,
+    OrderId: 482625,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 1916,
     Date: 43800,
@@ -982,7 +992,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 176592,
+    OrderId: 176592,
     Product: "Chocolate Chip",
     "Units Sold": 2299,
     Date: 43739,
@@ -991,7 +1001,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 579016,
+    OrderId: 579016,
     Product: "Chocolate Chip",
     "Units Sold": 2296,
     Date: 43862,
@@ -1000,7 +1010,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 866409,
+    OrderId: 866409,
     Product: "Snickerdoodle",
     "Units Sold": 2852,
     Date: 44166,
@@ -1009,7 +1019,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 654585,
+    OrderId: 654585,
     Product: "Snickerdoodle",
     "Units Sold": 2851,
     Date: 43739,
@@ -1018,7 +1028,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 655952,
+    OrderId: 655952,
     Product: "Oatmeal Raisin",
     "Units Sold": 2276,
     Date: 43952,
@@ -1027,7 +1037,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 779393,
+    OrderId: 779393,
     Product: "Snickerdoodle",
     "Units Sold": 2844,
     Date: 43983,
@@ -1036,7 +1046,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 738910,
+    OrderId: 738910,
     Product: "Chocolate Chip",
     "Units Sold": 2261,
     Date: 43800,
@@ -1045,7 +1055,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 384743,
+    OrderId: 384743,
     Product: "Snickerdoodle",
     "Units Sold": 2821,
     Date: 43800,
@@ -1054,7 +1064,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 327555,
+    OrderId: 327555,
     Product: "Snickerdoodle",
     "Units Sold": 2811,
     Date: 44013,
@@ -1063,7 +1073,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 761022,
+    OrderId: 761022,
     Product: "Oatmeal Raisin",
     "Units Sold": 2240,
     Date: 43862,
@@ -1072,7 +1082,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 812448,
+    OrderId: 812448,
     Product: "Snickerdoodle",
     "Units Sold": 2791,
     Date: 44136,
@@ -1081,7 +1091,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 754823,
+    OrderId: 754823,
     Product: "Chocolate Chip",
     "Units Sold": 2222,
     Date: 43770,
@@ -1090,7 +1100,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 858434,
+    OrderId: 858434,
     Product: "Snickerdoodle",
     "Units Sold": 2767,
     Date: 44044,
@@ -1099,7 +1109,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 698245,
+    OrderId: 698245,
     Product: "Chocolate Chip",
     "Units Sold": 2198,
     Date: 44044,
@@ -1108,7 +1118,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 356550,
+    OrderId: 356550,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 1808,
     Date: 44136,
@@ -1117,7 +1127,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 712767,
+    OrderId: 712767,
     Product: "Chocolate Chip",
     "Units Sold": 2167,
     Date: 43739,
@@ -1126,7 +1136,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 775360,
+    OrderId: 775360,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 1804,
     Date: 43862,
@@ -1135,7 +1145,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 535522,
+    OrderId: 535522,
     Product: "Snickerdoodle",
     "Units Sold": 2706,
     Date: 43770,
@@ -1144,7 +1154,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 441751,
+    OrderId: 441751,
     Product: "Oatmeal Raisin",
     "Units Sold": 2157,
     Date: 44166,
@@ -1153,7 +1163,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 714255,
+    OrderId: 714255,
     Product: "Chocolate Chip",
     "Units Sold": 2156,
     Date: 44105,
@@ -1162,7 +1172,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 481324,
+    OrderId: 481324,
     Product: "Chocolate Chip",
     "Units Sold": 2155,
     Date: 44166,
@@ -1171,7 +1181,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 529550,
+    OrderId: 529550,
     Product: "Chocolate Chip",
     "Units Sold": 2152,
     Date: 43800,
@@ -1180,7 +1190,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 483789,
+    OrderId: 483789,
     Product: "Snickerdoodle",
     "Units Sold": 2689,
     Date: 44136,
@@ -1189,7 +1199,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 708450,
+    OrderId: 708450,
     Product: "Chocolate Chip",
     "Units Sold": 2151,
     Date: 43770,
@@ -1198,7 +1208,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 389356,
+    OrderId: 389356,
     Product: "Chocolate Chip",
     "Units Sold": 2150,
     Date: 44136,
@@ -1207,7 +1217,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 263663,
+    OrderId: 263663,
     Product: "Chocolate Chip",
     "Units Sold": 2146,
     Date: 43770,
@@ -1216,7 +1226,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 505159,
+    OrderId: 505159,
     Product: "Chocolate Chip",
     "Units Sold": 2145,
     Date: 43739,
@@ -1225,7 +1235,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 348619,
+    OrderId: 348619,
     Product: "Oatmeal Raisin",
     "Units Sold": 2141,
     Date: 44044,
@@ -1234,7 +1244,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 111799,
+    OrderId: 111799,
     Product: "Snickerdoodle",
     "Units Sold": 2671,
     Date: 44075,
@@ -1243,7 +1253,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 685544,
+    OrderId: 685544,
     Product: "Chocolate Chip",
     "Units Sold": 2136,
     Date: 43800,
@@ -1252,7 +1262,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 146778,
+    OrderId: 146778,
     Product: "Chocolate Chip",
     "Units Sold": 2125,
     Date: 43800,
@@ -1261,7 +1271,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 636993,
+    OrderId: 636993,
     Product: "Chocolate Chip",
     "Units Sold": 2116,
     Date: 43800,
@@ -1270,7 +1280,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 735406,
+    OrderId: 735406,
     Product: "Chocolate Chip",
     "Units Sold": 2104.5,
     Date: 44013,
@@ -1279,7 +1289,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 126864,
+    OrderId: 126864,
     Product: "Chocolate Chip",
     "Units Sold": 2101,
     Date: 44044,
@@ -1288,7 +1298,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 657776,
+    OrderId: 657776,
     Product: "Oatmeal Raisin",
     "Units Sold": 2076,
     Date: 43739,
@@ -1297,7 +1307,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 255145,
+    OrderId: 255145,
     Product: "Chocolate Chip",
     "Units Sold": 2074,
     Date: 44075,
@@ -1306,7 +1316,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 190154,
+    OrderId: 190154,
     Product: "Oatmeal Raisin",
     "Units Sold": 2072,
     Date: 44166,
@@ -1315,7 +1325,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 444725,
+    OrderId: 444725,
     Product: "Oatmeal Raisin",
     "Units Sold": 2071,
     Date: 44075,
@@ -1324,7 +1334,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 732442,
+    OrderId: 732442,
     Product: "Snickerdoodle",
     "Units Sold": 2580,
     Date: 43922,
@@ -1333,7 +1343,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 455417,
+    OrderId: 455417,
     Product: "Snickerdoodle",
     "Units Sold": 2579,
     Date: 43922,
@@ -1342,7 +1352,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 759173,
+    OrderId: 759173,
     Product: "Snickerdoodle",
     "Units Sold": 2567,
     Date: 43983,
@@ -1351,7 +1361,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 120233,
+    OrderId: 120233,
     Product: "Oatmeal Raisin",
     "Units Sold": 2039,
     Date: 43952,
@@ -1360,7 +1370,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 872825,
+    OrderId: 872825,
     Product: "Chocolate Chip",
     "Units Sold": 2031,
     Date: 44105,
@@ -1369,7 +1379,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 406431,
+    OrderId: 406431,
     Product: "Snickerdoodle",
     "Units Sold": 2529,
     Date: 44013,
@@ -1378,7 +1388,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 728960,
+    OrderId: 728960,
     Product: "Snickerdoodle",
     "Units Sold": 2521.5,
     Date: 43831,
@@ -1387,7 +1397,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 208984,
+    OrderId: 208984,
     Product: "Oatmeal Raisin",
     "Units Sold": 2015,
     Date: 43800,
@@ -1396,7 +1406,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 780708,
+    OrderId: 780708,
     Product: "Chocolate Chip",
     "Units Sold": 2013,
     Date: 43800,
@@ -1405,7 +1415,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 164895,
+    OrderId: 164895,
     Product: "Chocolate Chip",
     "Units Sold": 2009,
     Date: 44105,
@@ -1414,7 +1424,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 117162,
+    OrderId: 117162,
     Product: "Chocolate Chip",
     "Units Sold": 2007,
     Date: 43770,
@@ -1423,7 +1433,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 614031,
+    OrderId: 614031,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 1659,
     Date: 44013,
@@ -1432,7 +1442,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 348955,
+    OrderId: 348955,
     Product: "Snickerdoodle",
     "Units Sold": 2487,
     Date: 44166,
@@ -1441,7 +1451,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 304546,
+    OrderId: 304546,
     Product: "Oatmeal Raisin",
     "Units Sold": 1989,
     Date: 43709,
@@ -1450,7 +1460,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 131249,
+    OrderId: 131249,
     Product: "Oatmeal Raisin",
     "Units Sold": 1987.5,
     Date: 43831,
@@ -1459,7 +1469,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 159484,
+    OrderId: 159484,
     Product: "Chocolate Chip",
     "Units Sold": 1984,
     Date: 44044,
@@ -1468,7 +1478,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 293680,
+    OrderId: 293680,
     Product: "Snickerdoodle",
     "Units Sold": 2470,
     Date: 43983,
@@ -1477,7 +1487,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 761356,
+    OrderId: 761356,
     Product: "Chocolate Chip",
     "Units Sold": 1954,
     Date: 43891,
@@ -1486,7 +1496,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 731074,
+    OrderId: 731074,
     Product: "Oatmeal Raisin",
     "Units Sold": 1953,
     Date: 43922,
@@ -1495,7 +1505,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 363487,
+    OrderId: 363487,
     Product: "Snickerdoodle",
     "Units Sold": 2441,
     Date: 44105,
@@ -1504,7 +1514,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 617395,
+    OrderId: 617395,
     Product: "Sugar",
     "Units Sold": 3244.5,
     Date: 43831,
@@ -1513,7 +1523,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 887888,
+    OrderId: 887888,
     Product: "Chocolate Chip",
     "Units Sold": 1946,
     Date: 43800,
@@ -1522,7 +1532,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 675075,
+    OrderId: 675075,
     Product: "Chocolate Chip",
     "Units Sold": 1945,
     Date: 43739,
@@ -1531,7 +1541,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 100553,
+    OrderId: 100553,
     Product: "Chocolate Chip",
     "Units Sold": 1934,
     Date: 44075,
@@ -1540,7 +1550,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 105566,
+    OrderId: 105566,
     Product: "Snickerdoodle",
     "Units Sold": 2416,
     Date: 43709,
@@ -1549,7 +1559,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 793514,
+    OrderId: 793514,
     Product: "Chocolate Chip",
     "Units Sold": 1925,
     Date: 43800,
@@ -1558,7 +1568,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 364025,
+    OrderId: 364025,
     Product: "Chocolate Chip",
     "Units Sold": 1922,
     Date: 43770,
@@ -1567,7 +1577,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 580583,
+    OrderId: 580583,
     Product: "Oatmeal Raisin",
     "Units Sold": 1916,
     Date: 44166,
@@ -1576,7 +1586,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 778039,
+    OrderId: 778039,
     Product: "Chocolate Chip",
     "Units Sold": 1916,
     Date: 44166,
@@ -1585,7 +1595,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 748204,
+    OrderId: 748204,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 1596,
     Date: 44075,
@@ -1594,7 +1604,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 788478,
+    OrderId: 788478,
     Product: "Oatmeal Raisin",
     "Units Sold": 1907,
     Date: 44075,
@@ -1603,7 +1613,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 296424,
+    OrderId: 296424,
     Product: "Chocolate Chip",
     "Units Sold": 1901,
     Date: 43983,
@@ -1612,7 +1622,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 609228,
+    OrderId: 609228,
     Product: "Oatmeal Raisin",
     "Units Sold": 1899,
     Date: 43983,
@@ -1621,7 +1631,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 818350,
+    OrderId: 818350,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 1582,
     Date: 44166,
@@ -1630,7 +1640,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 355971,
+    OrderId: 355971,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 1579,
     Date: 44044,
@@ -1639,7 +1649,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 674043,
+    OrderId: 674043,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 1575,
     Date: 43862,
@@ -1648,7 +1658,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 149035,
+    OrderId: 149035,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 1566,
     Date: 44105,
@@ -1657,7 +1667,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 227896,
+    OrderId: 227896,
     Product: "Oatmeal Raisin",
     "Units Sold": 1870,
     Date: 43770,
@@ -1666,7 +1676,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 283163,
+    OrderId: 283163,
     Product: "Oatmeal Raisin",
     "Units Sold": 1865,
     Date: 43862,
@@ -1675,7 +1685,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 643742,
+    OrderId: 643742,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 1545,
     Date: 43983,
@@ -1684,7 +1694,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 632637,
+    OrderId: 632637,
     Product: "Snickerdoodle",
     "Units Sold": 2300,
     Date: 44166,
@@ -1693,7 +1703,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 288662,
+    OrderId: 288662,
     Product: "Snickerdoodle",
     "Units Sold": 2299,
     Date: 43739,
@@ -1702,7 +1712,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 374150,
+    OrderId: 374150,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 1530,
     Date: 43952,
@@ -1711,7 +1721,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 534742,
+    OrderId: 534742,
     Product: "Chocolate Chip",
     "Units Sold": 1823,
     Date: 44013,
@@ -1720,7 +1730,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 481875,
+    OrderId: 481875,
     Product: "Chocolate Chip",
     "Units Sold": 1817,
     Date: 44166,
@@ -1729,7 +1739,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 348194,
+    OrderId: 348194,
     Product: "Chocolate Chip",
     "Units Sold": 1802,
     Date: 43800,
@@ -1738,7 +1748,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 625104,
+    OrderId: 625104,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 1498,
     Date: 43983,
@@ -1747,7 +1757,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 250308,
+    OrderId: 250308,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 1496,
     Date: 43983,
@@ -1756,7 +1766,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 616386,
+    OrderId: 616386,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 1493,
     Date: 43831,
@@ -1765,7 +1775,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 303687,
+    OrderId: 303687,
     Product: "Chocolate Chip",
     "Units Sold": 1785,
     Date: 43770,
@@ -1774,7 +1784,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 733366,
+    OrderId: 733366,
     Product: "Oatmeal Raisin",
     "Units Sold": 1778,
     Date: 43800,
@@ -1783,7 +1793,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 839631,
+    OrderId: 839631,
     Product: "Chocolate Chip",
     "Units Sold": 1775,
     Date: 43770,
@@ -1792,7 +1802,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 779279,
+    OrderId: 779279,
     Product: "Chocolate Chip",
     "Units Sold": 1774,
     Date: 43891,
@@ -1801,7 +1811,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 780393,
+    OrderId: 780393,
     Product: "Sugar",
     "Units Sold": 2954,
     Date: 43770,
@@ -1810,7 +1820,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 786473,
+    OrderId: 786473,
     Product: "Oatmeal Raisin",
     "Units Sold": 1770,
     Date: 43800,
@@ -1819,7 +1829,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 544855,
+    OrderId: 544855,
     Product: "Chocolate Chip",
     "Units Sold": 1767,
     Date: 44075,
@@ -1828,7 +1838,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 856913,
+    OrderId: 856913,
     Product: "Sugar",
     "Units Sold": 2935,
     Date: 43770,
@@ -1837,7 +1847,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 141665,
+    OrderId: 141665,
     Product: "Chocolate Chip",
     "Units Sold": 1760,
     Date: 43709,
@@ -1846,7 +1856,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 464499,
+    OrderId: 464499,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 1465,
     Date: 43891,
@@ -1855,7 +1865,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 676135,
+    OrderId: 676135,
     Product: "Chocolate Chip",
     "Units Sold": 1757,
     Date: 43739,
@@ -1864,7 +1874,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 310429,
+    OrderId: 310429,
     Product: "Snickerdoodle",
     "Units Sold": 2181,
     Date: 44105,
@@ -1873,7 +1883,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 520865,
+    OrderId: 520865,
     Product: "Chocolate Chip",
     "Units Sold": 1743,
     Date: 43739,
@@ -1882,7 +1892,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 796346,
+    OrderId: 796346,
     Product: "Chocolate Chip",
     "Units Sold": 1743,
     Date: 44044,
@@ -1891,7 +1901,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 594129,
+    OrderId: 594129,
     Product: "Oatmeal Raisin",
     "Units Sold": 1743,
     Date: 43739,
@@ -1900,7 +1910,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 649737,
+    OrderId: 649737,
     Product: "Snickerdoodle",
     "Units Sold": 2178,
     Date: 43983,
@@ -1909,7 +1919,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 800536,
+    OrderId: 800536,
     Product: "Sugar",
     "Units Sold": 2903,
     Date: 43891,
@@ -1918,7 +1928,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 429735,
+    OrderId: 429735,
     Product: "Chocolate Chip",
     "Units Sold": 1731,
     Date: 44105,
@@ -1927,7 +1937,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 707748,
+    OrderId: 707748,
     Product: "Oatmeal Raisin",
     "Units Sold": 1731,
     Date: 44105,
@@ -1936,7 +1946,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 365463,
+    OrderId: 365463,
     Product: "Chocolate Chip",
     "Units Sold": 1728,
     Date: 43952,
@@ -1945,7 +1955,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 225353,
+    OrderId: 225353,
     Product: "Oatmeal Raisin",
     "Units Sold": 1727,
     Date: 43739,
@@ -1954,7 +1964,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 439635,
+    OrderId: 439635,
     Product: "Sugar",
     "Units Sold": 2877,
     Date: 44105,
@@ -1963,7 +1973,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 289811,
+    OrderId: 289811,
     Product: "Chocolate Chip",
     "Units Sold": 1725,
     Date: 43770,
@@ -1972,7 +1982,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 694579,
+    OrderId: 694579,
     Product: "Snickerdoodle",
     "Units Sold": 2156,
     Date: 44105,
@@ -1981,7 +1991,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 338090,
+    OrderId: 338090,
     Product: "Snickerdoodle",
     "Units Sold": 2155,
     Date: 44166,
@@ -1990,7 +2000,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 403455,
+    OrderId: 403455,
     Product: "Snickerdoodle",
     "Units Sold": 2145,
     Date: 43770,
@@ -1999,7 +2009,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 885201,
+    OrderId: 885201,
     Product: "Chocolate Chip",
     "Units Sold": 1715,
     Date: 43739,
@@ -2008,7 +2018,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 632111,
+    OrderId: 632111,
     Product: "Sugar",
     "Units Sold": 2844,
     Date: 43862,
@@ -2017,7 +2027,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 701669,
+    OrderId: 701669,
     Product: "Sugar",
     "Units Sold": 2844,
     Date: 43983,
@@ -2026,7 +2036,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 566401,
+    OrderId: 566401,
     Product: "Chocolate Chip",
     "Units Sold": 1706,
     Date: 44166,
@@ -2035,7 +2045,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 562718,
+    OrderId: 562718,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 1421,
     Date: 43800,
@@ -2044,7 +2054,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 355287,
+    OrderId: 355287,
     Product: "Sugar",
     "Units Sold": 2838,
     Date: 43922,
@@ -2053,7 +2063,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 283491,
+    OrderId: 283491,
     Product: "Chocolate Chip",
     "Units Sold": 1702,
     Date: 43952,
@@ -2062,7 +2072,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 686661,
+    OrderId: 686661,
     Product: "Oatmeal Raisin",
     "Units Sold": 1694,
     Date: 44136,
@@ -2071,7 +2081,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 754791,
+    OrderId: 754791,
     Product: "Oatmeal Raisin",
     "Units Sold": 1686,
     Date: 44013,
@@ -2080,7 +2090,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 363822,
+    OrderId: 363822,
     Product: "Sugar",
     "Units Sold": 2807,
     Date: 44044,
@@ -2089,7 +2099,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 602865,
+    OrderId: 602865,
     Product: "Oatmeal Raisin",
     "Units Sold": 1683,
     Date: 44013,
@@ -2098,7 +2108,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 551372,
+    OrderId: 551372,
     Product: "Oatmeal Raisin",
     "Units Sold": 1679,
     Date: 44075,
@@ -2107,7 +2117,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 638098,
+    OrderId: 638098,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 1395,
     Date: 44013,
@@ -2116,7 +2126,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 665489,
+    OrderId: 665489,
     Product: "Oatmeal Raisin",
     "Units Sold": 1659,
     Date: 43831,
@@ -2125,7 +2135,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 210209,
+    OrderId: 210209,
     Product: "Sugar",
     "Units Sold": 2747,
     Date: 43862,
@@ -2134,7 +2144,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 640346,
+    OrderId: 640346,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 1372,
     Date: 44166,
@@ -2143,7 +2153,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 493427,
+    OrderId: 493427,
     Product: "Oatmeal Raisin",
     "Units Sold": 1645,
     Date: 43952,
@@ -2152,7 +2162,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 752965,
+    OrderId: 752965,
     Product: "Sugar",
     "Units Sold": 2729,
     Date: 44166,
@@ -2161,7 +2171,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 571542,
+    OrderId: 571542,
     Product: "Oatmeal Raisin",
     "Units Sold": 1630.5,
     Date: 44013,
@@ -2170,7 +2180,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 768268,
+    OrderId: 768268,
     Product: "Snickerdoodle",
     "Units Sold": 2030,
     Date: 44136,
@@ -2179,7 +2189,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 725869,
+    OrderId: 725869,
     Product: "Snickerdoodle",
     "Units Sold": 2021,
     Date: 44105,
@@ -2188,7 +2198,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 216326,
+    OrderId: 216326,
     Product: "Chocolate Chip",
     "Units Sold": 1614,
     Date: 43922,
@@ -2197,7 +2207,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 639651,
+    OrderId: 639651,
     Product: "Sugar",
     "Units Sold": 2689,
     Date: 44105,
@@ -2206,7 +2216,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 750389,
+    OrderId: 750389,
     Product: "Sugar",
     "Units Sold": 2682,
     Date: 43770,
@@ -2215,7 +2225,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 218291,
+    OrderId: 218291,
     Product: "Chocolate Chip",
     "Units Sold": 1607,
     Date: 43922,
@@ -2224,7 +2234,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 169621,
+    OrderId: 169621,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 1333,
     Date: 44136,
@@ -2233,7 +2243,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 513469,
+    OrderId: 513469,
     Product: "Chocolate Chip",
     "Units Sold": 1598,
     Date: 44044,
@@ -2242,7 +2252,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 774130,
+    OrderId: 774130,
     Product: "Sugar",
     "Units Sold": 2663,
     Date: 44166,
@@ -2251,7 +2261,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 184366,
+    OrderId: 184366,
     Product: "Sugar",
     "Units Sold": 2659,
     Date: 43862,
@@ -2260,7 +2270,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 559510,
+    OrderId: 559510,
     Product: "Chocolate Chip",
     "Units Sold": 1594,
     Date: 44136,
@@ -2269,7 +2279,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 670662,
+    OrderId: 670662,
     Product: "Chocolate Chip",
     "Units Sold": 1583,
     Date: 43983,
@@ -2278,7 +2288,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 365552,
+    OrderId: 365552,
     Product: "Chocolate Chip",
     "Units Sold": 1570,
     Date: 43983,
@@ -2287,7 +2297,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 696979,
+    OrderId: 696979,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 1307,
     Date: 44013,
@@ -2296,7 +2306,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 626543,
+    OrderId: 626543,
     Product: "Chocolate Chip",
     "Units Sold": 1565,
     Date: 44105,
@@ -2305,7 +2315,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 863607,
+    OrderId: 863607,
     Product: "Snickerdoodle",
     "Units Sold": 1947,
     Date: 44075,
@@ -2314,7 +2324,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 241164,
+    OrderId: 241164,
     Product: "Snickerdoodle",
     "Units Sold": 1937,
     Date: 43862,
@@ -2323,7 +2333,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 384410,
+    OrderId: 384410,
     Product: "Sugar",
     "Units Sold": 2567,
     Date: 43983,
@@ -2332,7 +2342,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 293863,
+    OrderId: 293863,
     Product: "Chocolate Chip",
     "Units Sold": 1535,
     Date: 44075,
@@ -2341,7 +2351,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 143923,
+    OrderId: 143923,
     Product: "Chocolate Chip",
     "Units Sold": 1531,
     Date: 44166,
@@ -2350,7 +2360,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 444518,
+    OrderId: 444518,
     Product: "Sugar",
     "Units Sold": 2541,
     Date: 44044,
@@ -2359,7 +2369,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 447945,
+    OrderId: 447945,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 1269,
     Date: 44105,
@@ -2368,7 +2378,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 872307,
+    OrderId: 872307,
     Product: "Oatmeal Raisin",
     "Units Sold": 1520,
     Date: 44136,
@@ -2377,7 +2387,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 820943,
+    OrderId: 820943,
     Product: "Sugar",
     "Units Sold": 2529,
     Date: 44136,
@@ -2386,7 +2396,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 636371,
+    OrderId: 636371,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 1262,
     Date: 43952,
@@ -2395,7 +2405,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 538134,
+    OrderId: 538134,
     Product: "Chocolate Chip",
     "Units Sold": 1514,
     Date: 43739,
@@ -2404,7 +2414,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 562219,
+    OrderId: 562219,
     Product: "Chocolate Chip",
     "Units Sold": 1514,
     Date: 43862,
@@ -2413,7 +2423,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 183251,
+    OrderId: 183251,
     Product: "Chocolate Chip",
     "Units Sold": 1513,
     Date: 44166,
@@ -2422,7 +2432,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 572044,
+    OrderId: 572044,
     Product: "Snickerdoodle",
     "Units Sold": 1884,
     Date: 44044,
@@ -2431,7 +2441,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 553803,
+    OrderId: 553803,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 1250,
     Date: 44166,
@@ -2440,7 +2450,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 568366,
+    OrderId: 568366,
     Product: "Chocolate Chip",
     "Units Sold": 1496,
     Date: 43983,
@@ -2449,7 +2459,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 792599,
+    OrderId: 792599,
     Product: "Sugar",
     "Units Sold": 2487,
     Date: 44166,
@@ -2458,7 +2468,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 449939,
+    OrderId: 449939,
     Product: "Snickerdoodle",
     "Units Sold": 1865,
     Date: 43862,
@@ -2467,7 +2477,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 444395,
+    OrderId: 444395,
     Product: "Sugar",
     "Units Sold": 2479,
     Date: 43831,
@@ -2476,7 +2486,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 161388,
+    OrderId: 161388,
     Product: "Snickerdoodle",
     "Units Sold": 1858,
     Date: 43862,
@@ -2485,7 +2495,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 119027,
+    OrderId: 119027,
     Product: "Snickerdoodle",
     "Units Sold": 1834,
     Date: 43709,
@@ -2494,7 +2504,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 669715,
+    OrderId: 669715,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 1221,
     Date: 43739,
@@ -2503,7 +2513,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 562962,
+    OrderId: 562962,
     Product: "Sugar",
     "Units Sold": 2436,
     Date: 43800,
@@ -2512,7 +2522,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 710711,
+    OrderId: 710711,
     Product: "Chocolate Chip",
     "Units Sold": 1438.5,
     Date: 43831,
@@ -2521,7 +2531,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 821698,
+    OrderId: 821698,
     Product: "Oatmeal Raisin",
     "Units Sold": 1433,
     Date: 43952,
@@ -2530,7 +2540,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 601126,
+    OrderId: 601126,
     Product: "Sugar",
     "Units Sold": 2387,
     Date: 44136,
@@ -2539,7 +2549,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 317699,
+    OrderId: 317699,
     Product: "Snickerdoodle",
     "Units Sold": 1790,
     Date: 43891,
@@ -2548,7 +2558,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 168032,
+    OrderId: 168032,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 1190,
     Date: 43983,
@@ -2557,7 +2567,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 595670,
+    OrderId: 595670,
     Product: "Chocolate Chip",
     "Units Sold": 1414.5,
     Date: 43922,
@@ -2566,7 +2576,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 345233,
+    OrderId: 345233,
     Product: "Snickerdoodle",
     "Units Sold": 1761,
     Date: 43891,
@@ -2575,7 +2585,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 521535,
+    OrderId: 521535,
     Product: "Chocolate Chip",
     "Units Sold": 1404,
     Date: 43770,
@@ -2584,7 +2594,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 504962,
+    OrderId: 504962,
     Product: "Oatmeal Raisin",
     "Units Sold": 1403,
     Date: 43739,
@@ -2593,7 +2603,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 406234,
+    OrderId: 406234,
     Product: "Sugar",
     "Units Sold": 2338,
     Date: 43983,
@@ -2602,7 +2612,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 759484,
+    OrderId: 759484,
     Product: "Snickerdoodle",
     "Units Sold": 1743,
     Date: 43952,
@@ -2611,7 +2621,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 158597,
+    OrderId: 158597,
     Product: "Chocolate Chip",
     "Units Sold": 1393,
     Date: 44105,
@@ -2620,7 +2630,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 540063,
+    OrderId: 540063,
     Product: "Oatmeal Raisin",
     "Units Sold": 1393,
     Date: 44105,
@@ -2629,7 +2639,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 691331,
+    OrderId: 691331,
     Product: "Chocolate Chip",
     "Units Sold": 1389,
     Date: 43739,
@@ -2638,7 +2648,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 872775,
+    OrderId: 872775,
     Product: "Sugar",
     "Units Sold": 2297,
     Date: 43770,
@@ -2647,7 +2657,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 540189,
+    OrderId: 540189,
     Product: "Sugar",
     "Units Sold": 2294,
     Date: 43739,
@@ -2656,7 +2666,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 545954,
+    OrderId: 545954,
     Product: "Oatmeal Raisin",
     "Units Sold": 1375,
     Date: 43800,
@@ -2665,7 +2675,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 631270,
+    OrderId: 631270,
     Product: "Chocolate Chip",
     "Units Sold": 1372,
     Date: 43831,
@@ -2674,7 +2684,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 560670,
+    OrderId: 560670,
     Product: "Oatmeal Raisin",
     "Units Sold": 1372,
     Date: 44166,
@@ -2683,7 +2693,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 713958,
+    OrderId: 713958,
     Product: "Chocolate Chip",
     "Units Sold": 1369.5,
     Date: 44013,
@@ -2692,7 +2702,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 418690,
+    OrderId: 418690,
     Product: "Chocolate Chip",
     "Units Sold": 1366,
     Date: 43983,
@@ -2701,7 +2711,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 277131,
+    OrderId: 277131,
     Product: "Oatmeal Raisin",
     "Units Sold": 1366,
     Date: 43983,
@@ -2710,7 +2720,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 781275,
+    OrderId: 781275,
     Product: "Chocolate Chip",
     "Units Sold": 1366,
     Date: 44136,
@@ -2719,7 +2729,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 223911,
+    OrderId: 223911,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 1135,
     Date: 43983,
@@ -2728,7 +2738,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 816536,
+    OrderId: 816536,
     Product: "Chocolate Chip",
     "Units Sold": 1362,
     Date: 44166,
@@ -2737,7 +2747,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 259455,
+    OrderId: 259455,
     Product: "Chocolate Chip",
     "Units Sold": 1359,
     Date: 44136,
@@ -2746,7 +2756,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 357838,
+    OrderId: 357838,
     Product: "Oatmeal Raisin",
     "Units Sold": 1350,
     Date: 43862,
@@ -2755,7 +2765,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 594463,
+    OrderId: 594463,
     Product: "Sugar",
     "Units Sold": 2234,
     Date: 43709,
@@ -2764,7 +2774,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 899556,
+    OrderId: 899556,
     Product: "Sugar",
     "Units Sold": 2215,
     Date: 43709,
@@ -2773,7 +2783,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 205484,
+    OrderId: 205484,
     Product: "Chocolate Chip",
     "Units Sold": 1324,
     Date: 44136,
@@ -2782,7 +2792,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 246621,
+    OrderId: 246621,
     Product: "Sugar",
     "Units Sold": 2178,
     Date: 43983,
@@ -2791,7 +2801,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 144559,
+    OrderId: 144559,
     Product: "Sugar",
     "Units Sold": 2177,
     Date: 44105,
@@ -2800,7 +2810,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 833644,
+    OrderId: 833644,
     Product: "Chocolate Chip",
     "Units Sold": 1303,
     Date: 43862,
@@ -2809,7 +2819,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 765978,
+    OrderId: 765978,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 1084,
     Date: 44166,
@@ -2818,7 +2828,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 823956,
+    OrderId: 823956,
     Product: "Sugar",
     "Units Sold": 2167,
     Date: 43739,
@@ -2827,7 +2837,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 776532,
+    OrderId: 776532,
     Product: "Chocolate Chip",
     "Units Sold": 1295,
     Date: 44105,
@@ -2836,7 +2846,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 194906,
+    OrderId: 194906,
     Product: "Snickerdoodle",
     "Units Sold": 1618.5,
     Date: 43831,
@@ -2845,7 +2855,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 505496,
+    OrderId: 505496,
     Product: "Sugar",
     "Units Sold": 2151,
     Date: 44075,
@@ -2854,7 +2864,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 455780,
+    OrderId: 455780,
     Product: "Chocolate Chip",
     "Units Sold": 1287,
     Date: 44166,
@@ -2863,7 +2873,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 786700,
+    OrderId: 786700,
     Product: "Oatmeal Raisin",
     "Units Sold": 1282,
     Date: 43983,
@@ -2872,7 +2882,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 711362,
+    OrderId: 711362,
     Product: "Sugar",
     "Units Sold": 2134,
     Date: 44075,
@@ -2881,7 +2891,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 131700,
+    OrderId: 131700,
     Product: "Oatmeal Raisin",
     "Units Sold": 1269,
     Date: 44105,
@@ -2890,7 +2900,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 367956,
+    OrderId: 367956,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 1055,
     Date: 44166,
@@ -2899,7 +2909,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 644843,
+    OrderId: 644843,
     Product: "Sugar",
     "Units Sold": 2109,
     Date: 43952,
@@ -2908,7 +2918,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 203224,
+    OrderId: 203224,
     Product: "Snickerdoodle",
     "Units Sold": 1580,
     Date: 44075,
@@ -2917,7 +2927,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 428676,
+    OrderId: 428676,
     Product: "Chocolate Chip",
     "Units Sold": 1259,
     Date: 43922,
@@ -2926,7 +2936,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 295574,
+    OrderId: 295574,
     Product: "Snickerdoodle",
     "Units Sold": 1563,
     Date: 43952,
@@ -2935,7 +2945,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 707082,
+    OrderId: 707082,
     Product: "Oatmeal Raisin",
     "Units Sold": 1250,
     Date: 44166,
@@ -2944,7 +2954,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 374010,
+    OrderId: 374010,
     Product: "Chocolate Chip",
     "Units Sold": 1249,
     Date: 44105,
@@ -2953,7 +2963,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 607051,
+    OrderId: 607051,
     Product: "Snickerdoodle",
     "Units Sold": 1560,
     Date: 43770,
@@ -2962,7 +2972,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 234670,
+    OrderId: 234670,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 1033,
     Date: 43800,
@@ -2971,7 +2981,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 734809,
+    OrderId: 734809,
     Product: "Oatmeal Raisin",
     "Units Sold": 1236,
     Date: 44136,
@@ -2980,7 +2990,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 514463,
+    OrderId: 514463,
     Product: "Chocolate Chip",
     "Units Sold": 1233,
     Date: 44166,
@@ -2989,7 +2999,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 495847,
+    OrderId: 495847,
     Product: "Snickerdoodle",
     "Units Sold": 1540,
     Date: 44044,
@@ -2998,7 +3008,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 697895,
+    OrderId: 697895,
     Product: "Chocolate Chip",
     "Units Sold": 1228,
     Date: 43739,
@@ -3007,7 +3017,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 117166,
+    OrderId: 117166,
     Product: "Oatmeal Raisin",
     "Units Sold": 1228,
     Date: 43739,
@@ -3016,7 +3026,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 171515,
+    OrderId: 171515,
     Product: "Chocolate Chip",
     "Units Sold": 1227,
     Date: 44105,
@@ -3025,7 +3035,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 758487,
+    OrderId: 758487,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 1013,
     Date: 44166,
@@ -3034,7 +3044,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 199710,
+    OrderId: 199710,
     Product: "Snickerdoodle",
     "Units Sold": 1513,
     Date: 44136,
@@ -3043,7 +3053,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 682634,
+    OrderId: 682634,
     Product: "Snickerdoodle",
     "Units Sold": 1513,
     Date: 44166,
@@ -3052,7 +3062,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 552346,
+    OrderId: 552346,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 1006,
     Date: 43983,
@@ -3061,7 +3071,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 263637,
+    OrderId: 263637,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 1001,
     Date: 44044,
@@ -3070,7 +3080,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 793118,
+    OrderId: 793118,
     Product: "Sugar",
     "Units Sold": 2001,
     Date: 43862,
@@ -3079,7 +3089,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 294935,
+    OrderId: 294935,
     Product: "Chocolate Chip",
     "Units Sold": 1198,
     Date: 43739,
@@ -3088,7 +3098,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 582048,
+    OrderId: 582048,
     Product: "Chocolate Chip",
     "Units Sold": 1197,
     Date: 44136,
@@ -3097,7 +3107,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 289035,
+    OrderId: 289035,
     Product: "Snickerdoodle",
     "Units Sold": 1496,
     Date: 44105,
@@ -3106,7 +3116,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 479703,
+    OrderId: 479703,
     Product: "Oatmeal Raisin",
     "Units Sold": 1190,
     Date: 43983,
@@ -3115,7 +3125,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 788517,
+    OrderId: 788517,
     Product: "Snickerdoodle",
     "Units Sold": 1482,
     Date: 43800,
@@ -3124,7 +3134,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 382008,
+    OrderId: 382008,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 986,
     Date: 44105,
@@ -3133,7 +3143,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 763666,
+    OrderId: 763666,
     Product: "Chocolate Chip",
     "Units Sold": 1177,
     Date: 44136,
@@ -3142,7 +3152,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 837170,
+    OrderId: 837170,
     Product: "Chocolate Chip",
     "Units Sold": 1175,
     Date: 44105,
@@ -3151,7 +3161,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 462436,
+    OrderId: 462436,
     Product: "Sugar",
     "Units Sold": 1956,
     Date: 43831,
@@ -3160,7 +3170,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 623371,
+    OrderId: 623371,
     Product: "Sugar",
     "Units Sold": 1945,
     Date: 43739,
@@ -3169,7 +3179,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 434482,
+    OrderId: 434482,
     Product: "Sugar",
     "Units Sold": 1940,
     Date: 43800,
@@ -3178,7 +3188,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 151329,
+    OrderId: 151329,
     Product: "Oatmeal Raisin",
     "Units Sold": 1159,
     Date: 43739,
@@ -3187,7 +3197,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 690780,
+    OrderId: 690780,
     Product: "Chocolate Chip",
     "Units Sold": 1158,
     Date: 43891,
@@ -3196,7 +3206,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 869055,
+    OrderId: 869055,
     Product: "Snickerdoodle",
     "Units Sold": 1445,
     Date: 44075,
@@ -3205,7 +3215,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 203608,
+    OrderId: 203608,
     Product: "Chocolate Chip",
     "Units Sold": 1153,
     Date: 44105,
@@ -3214,7 +3224,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 703612,
+    OrderId: 703612,
     Product: "Sugar",
     "Units Sold": 1916,
     Date: 43922,
@@ -3223,7 +3233,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 308620,
+    OrderId: 308620,
     Product: "Chocolate Chip",
     "Units Sold": 1143,
     Date: 44105,
@@ -3232,7 +3242,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 170867,
+    OrderId: 170867,
     Product: "Oatmeal Raisin",
     "Units Sold": 1143,
     Date: 44105,
@@ -3241,7 +3251,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 730844,
+    OrderId: 730844,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 952,
     Date: 43862,
@@ -3250,7 +3260,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 234290,
+    OrderId: 234290,
     Product: "Chocolate Chip",
     "Units Sold": 1142,
     Date: 43983,
@@ -3259,7 +3269,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 697568,
+    OrderId: 697568,
     Product: "Chocolate Chip",
     "Units Sold": 1138,
     Date: 44166,
@@ -3268,7 +3278,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 691342,
+    OrderId: 691342,
     Product: "Oatmeal Raisin",
     "Units Sold": 1135,
     Date: 43983,
@@ -3277,7 +3287,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 149767,
+    OrderId: 149767,
     Product: "Sugar",
     "Units Sold": 1874,
     Date: 44044,
@@ -3286,7 +3296,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 898591,
+    OrderId: 898591,
     Product: "Chocolate Chip",
     "Units Sold": 1123,
     Date: 43709,
@@ -3295,7 +3305,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 304458,
+    OrderId: 304458,
     Product: "Oatmeal Raisin",
     "Units Sold": 1123,
     Date: 44044,
@@ -3304,7 +3314,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 366080,
+    OrderId: 366080,
     Product: "Sugar",
     "Units Sold": 1870,
     Date: 43800,
@@ -3313,7 +3323,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 667288,
+    OrderId: 667288,
     Product: "Chocolate Chip",
     "Units Sold": 1122,
     Date: 43891,
@@ -3322,7 +3332,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 390355,
+    OrderId: 390355,
     Product: "Sugar",
     "Units Sold": 1867,
     Date: 44075,
@@ -3331,7 +3341,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 653226,
+    OrderId: 653226,
     Product: "Oatmeal Raisin",
     "Units Sold": 1118,
     Date: 44136,
@@ -3340,7 +3350,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 128044,
+    OrderId: 128044,
     Product: "Snickerdoodle",
     "Units Sold": 1397,
     Date: 44105,
@@ -3349,7 +3359,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 686090,
+    OrderId: 686090,
     Product: "Chocolate Chip",
     "Units Sold": 1114,
     Date: 43891,
@@ -3358,7 +3368,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 265959,
+    OrderId: 265959,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 923,
     Date: 44044,
@@ -3367,7 +3377,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 604462,
+    OrderId: 604462,
     Product: "Oatmeal Raisin",
     "Units Sold": 1101,
     Date: 43891,
@@ -3376,7 +3386,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 414628,
+    OrderId: 414628,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 914,
     Date: 44166,
@@ -3385,7 +3395,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 278950,
+    OrderId: 278950,
     Product: "Chocolate Chip",
     "Units Sold": 1095,
     Date: 43952,
@@ -3394,7 +3404,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 529578,
+    OrderId: 529578,
     Product: "Chocolate Chip",
     "Units Sold": 1094,
     Date: 43983,
@@ -3403,7 +3413,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 745887,
+    OrderId: 745887,
     Product: "Sugar",
     "Units Sold": 1817,
     Date: 44166,
@@ -3412,7 +3422,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 702657,
+    OrderId: 702657,
     Product: "Snickerdoodle",
     "Units Sold": 1362,
     Date: 44166,
@@ -3421,7 +3431,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 234667,
+    OrderId: 234667,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 905,
     Date: 44105,
@@ -3430,7 +3440,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 332447,
+    OrderId: 332447,
     Product: "Chocolate Chip",
     "Units Sold": 1085,
     Date: 44105,
@@ -3439,7 +3449,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 300303,
+    OrderId: 300303,
     Product: "Chocolate Chip",
     "Units Sold": 1084,
     Date: 44166,
@@ -3448,7 +3458,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 559561,
+    OrderId: 559561,
     Product: "Sugar",
     "Units Sold": 1806,
     Date: 43952,
@@ -3457,7 +3467,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 558408,
+    OrderId: 558408,
     Product: "Oatmeal Raisin",
     "Units Sold": 1074,
     Date: 43922,
@@ -3466,7 +3476,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 858867,
+    OrderId: 858867,
     Product: "Snickerdoodle",
     "Units Sold": 1321,
     Date: 43831,
@@ -3475,7 +3485,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 436748,
+    OrderId: 436748,
     Product: "Chocolate Chip",
     "Units Sold": 1056,
     Date: 44075,
@@ -3484,7 +3494,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 531834,
+    OrderId: 531834,
     Product: "Chocolate Chip",
     "Units Sold": 1055,
     Date: 44166,
@@ -3493,7 +3503,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 275167,
+    OrderId: 275167,
     Product: "Sugar",
     "Units Sold": 1744,
     Date: 44136,
@@ -3502,7 +3512,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 361541,
+    OrderId: 361541,
     Product: "Sugar",
     "Units Sold": 1738.5,
     Date: 43922,
@@ -3511,7 +3521,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 153144,
+    OrderId: 153144,
     Product: "Sugar",
     "Units Sold": 1734,
     Date: 43831,
@@ -3520,7 +3530,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 842675,
+    OrderId: 842675,
     Product: "Oatmeal Raisin",
     "Units Sold": 1038,
     Date: 43983,
@@ -3529,7 +3539,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 429472,
+    OrderId: 429472,
     Product: "Chocolate Chip",
     "Units Sold": 1038,
     Date: 43983,
@@ -3538,7 +3548,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 601636,
+    OrderId: 601636,
     Product: "Snickerdoodle",
     "Units Sold": 1295,
     Date: 44105,
@@ -3547,7 +3557,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 304806,
+    OrderId: 304806,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 861,
     Date: 44105,
@@ -3556,7 +3566,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 142979,
+    OrderId: 142979,
     Product: "Chocolate Chip",
     "Units Sold": 1031,
     Date: 43709,
@@ -3565,7 +3575,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 600124,
+    OrderId: 600124,
     Product: "Chocolate Chip",
     "Units Sold": 1030,
     Date: 43952,
@@ -3574,7 +3584,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 428131,
+    OrderId: 428131,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 853,
     Date: 44166,
@@ -3583,7 +3593,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 721092,
+    OrderId: 721092,
     Product: "Chocolate Chip",
     "Units Sold": 1013,
     Date: 44166,
@@ -3592,7 +3602,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 640447,
+    OrderId: 640447,
     Product: "Chocolate Chip",
     "Units Sold": 1006,
     Date: 43983,
@@ -3601,7 +3611,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 766207,
+    OrderId: 766207,
     Product: "Oatmeal Raisin",
     "Units Sold": 994,
     Date: 43709,
@@ -3610,7 +3620,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 560581,
+    OrderId: 560581,
     Product: "Chocolate Chip",
     "Units Sold": 991,
     Date: 43983,
@@ -3619,7 +3629,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 108848,
+    OrderId: 108848,
     Product: "Sugar",
     "Units Sold": 1642,
     Date: 44044,
@@ -3628,7 +3638,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 140794,
+    OrderId: 140794,
     Product: "Chocolate Chip",
     "Units Sold": 974,
     Date: 43862,
@@ -3637,7 +3647,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 123431,
+    OrderId: 123431,
     Product: "Chocolate Chip",
     "Units Sold": 973,
     Date: 43891,
@@ -3646,7 +3656,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 156941,
+    OrderId: 156941,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 809,
     Date: 43739,
@@ -3655,7 +3665,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 256775,
+    OrderId: 256775,
     Product: "Oatmeal Raisin",
     "Units Sold": 970,
     Date: 43770,
@@ -3664,7 +3674,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 666752,
+    OrderId: 666752,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 807,
     Date: 43862,
@@ -3673,7 +3683,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 103112,
+    OrderId: 103112,
     Product: "Snickerdoodle",
     "Units Sold": 1210,
     Date: 43891,
@@ -3682,7 +3692,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 518063,
+    OrderId: 518063,
     Product: "Snickerdoodle",
     "Units Sold": 1198,
     Date: 43739,
@@ -3691,7 +3701,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 561318,
+    OrderId: 561318,
     Product: "Sugar",
     "Units Sold": 1583,
     Date: 43983,
@@ -3700,7 +3710,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 628954,
+    OrderId: 628954,
     Product: "Sugar",
     "Units Sold": 1582,
     Date: 44166,
@@ -3709,7 +3719,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 217808,
+    OrderId: 217808,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 790,
     Date: 43952,
@@ -3718,7 +3728,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 565067,
+    OrderId: 565067,
     Product: "Sugar",
     "Units Sold": 1579,
     Date: 43891,
@@ -3727,7 +3737,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 550622,
+    OrderId: 550622,
     Product: "Oatmeal Raisin",
     "Units Sold": 947,
     Date: 43709,
@@ -3736,7 +3746,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 358173,
+    OrderId: 358173,
     Product: "Sugar",
     "Units Sold": 1570,
     Date: 43983,
@@ -3745,7 +3755,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 544809,
+    OrderId: 544809,
     Product: "Oatmeal Raisin",
     "Units Sold": 941,
     Date: 44136,
@@ -3754,7 +3764,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 819278,
+    OrderId: 819278,
     Product: "Snickerdoodle",
     "Units Sold": 1174,
     Date: 44044,
@@ -3763,7 +3773,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 762271,
+    OrderId: 762271,
     Product: "Sugar",
     "Units Sold": 1565,
     Date: 44105,
@@ -3772,7 +3782,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 521663,
+    OrderId: 521663,
     Product: "Sugar",
     "Units Sold": 1531,
     Date: 44166,
@@ -3781,7 +3791,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 770750,
+    OrderId: 770750,
     Product: "Chocolate Chip",
     "Units Sold": 918,
     Date: 43952,
@@ -3790,7 +3800,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 587301,
+    OrderId: 587301,
     Product: "Sugar",
     "Units Sold": 1527,
     Date: 43709,
@@ -3799,7 +3809,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 855262,
+    OrderId: 855262,
     Product: "Chocolate Chip",
     "Units Sold": 914,
     Date: 44166,
@@ -3808,7 +3818,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 144696,
+    OrderId: 144696,
     Product: "Chocolate Chip",
     "Units Sold": 912,
     Date: 43770,
@@ -3817,7 +3827,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 592176,
+    OrderId: 592176,
     Product: "Sugar",
     "Units Sold": 1514,
     Date: 43739,
@@ -3826,7 +3836,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 170514,
+    OrderId: 170514,
     Product: "Chocolate Chip",
     "Units Sold": 905,
     Date: 44105,
@@ -3835,7 +3845,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 721252,
+    OrderId: 721252,
     Product: "Sugar",
     "Units Sold": 1498,
     Date: 43983,
@@ -3844,7 +3854,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 356877,
+    OrderId: 356877,
     Product: "Sugar",
     "Units Sold": 1496,
     Date: 44105,
@@ -3853,7 +3863,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 138905,
+    OrderId: 138905,
     Product: "Sugar",
     "Units Sold": 1491,
     Date: 43891,
@@ -3862,7 +3872,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 137994,
+    OrderId: 137994,
     Product: "Snickerdoodle",
     "Units Sold": 1117.5,
     Date: 43831,
@@ -3871,7 +3881,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 787606,
+    OrderId: 787606,
     Product: "Snickerdoodle",
     "Units Sold": 1116,
     Date: 43862,
@@ -3880,7 +3890,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 858624,
+    OrderId: 858624,
     Product: "Oatmeal Raisin",
     "Units Sold": 888,
     Date: 43891,
@@ -3889,7 +3899,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 249663,
+    OrderId: 249663,
     Product: "Chocolate Chip",
     "Units Sold": 886,
     Date: 43983,
@@ -3898,7 +3908,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 455927,
+    OrderId: 455927,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 736,
     Date: 43709,
@@ -3907,7 +3917,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 889571,
+    OrderId: 889571,
     Product: "Chocolate Chip",
     "Units Sold": 883,
     Date: 44044,
@@ -3916,7 +3926,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 629559,
+    OrderId: 629559,
     Product: "Snickerdoodle",
     "Units Sold": 1094,
     Date: 43983,
@@ -3925,7 +3935,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 103317,
+    OrderId: 103317,
     Product: "Chocolate Chip",
     "Units Sold": 873,
     Date: 43831,
@@ -3934,7 +3944,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 329257,
+    OrderId: 329257,
     Product: "Snickerdoodle",
     "Units Sold": 1085,
     Date: 44105,
@@ -3943,7 +3953,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 852827,
+    OrderId: 852827,
     Product: "Chocolate Chip",
     "Units Sold": 861,
     Date: 44105,
@@ -3952,7 +3962,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 681348,
+    OrderId: 681348,
     Product: "Oatmeal Raisin",
     "Units Sold": 853,
     Date: 44166,
@@ -3961,7 +3971,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 295390,
+    OrderId: 295390,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 704,
     Date: 43739,
@@ -3970,7 +3980,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 791359,
+    OrderId: 791359,
     Product: "Sugar",
     "Units Sold": 1397,
     Date: 44105,
@@ -3979,7 +3989,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 426898,
+    OrderId: 426898,
     Product: "Sugar",
     "Units Sold": 1389,
     Date: 43739,
@@ -3988,7 +3998,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 285799,
+    OrderId: 285799,
     Product: "Snickerdoodle",
     "Units Sold": 1023,
     Date: 43709,
@@ -3997,7 +4007,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 311475,
+    OrderId: 311475,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 681,
     Date: 43831,
@@ -4006,7 +4016,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 296951,
+    OrderId: 296951,
     Product: "Snickerdoodle",
     "Units Sold": 1016,
     Date: 43770,
@@ -4015,7 +4025,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 151130,
+    OrderId: 151130,
     Product: "Sugar",
     "Units Sold": 1351.5,
     Date: 43922,
@@ -4024,7 +4034,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 875012,
+    OrderId: 875012,
     Product: "Chocolate Chip",
     "Units Sold": 809,
     Date: 43739,
@@ -4033,7 +4043,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 411519,
+    OrderId: 411519,
     Product: "Snickerdoodle",
     "Units Sold": 1010,
     Date: 44105,
@@ -4042,7 +4052,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 608863,
+    OrderId: 608863,
     Product: "Chocolate Chip",
     "Units Sold": 807,
     Date: 43831,
@@ -4051,7 +4061,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 253981,
+    OrderId: 253981,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 663,
     Date: 44075,
@@ -4060,7 +4070,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 196520,
+    OrderId: 196520,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 663,
     Date: 43739,
@@ -4069,7 +4079,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 514091,
+    OrderId: 514091,
     Product: "Sugar",
     "Units Sold": 1326,
     Date: 43891,
@@ -4078,7 +4088,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 776513,
+    OrderId: 776513,
     Product: "Chocolate Chip",
     "Units Sold": 795,
     Date: 43891,
@@ -4087,7 +4097,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 551997,
+    OrderId: 551997,
     Product: "Snickerdoodle",
     "Units Sold": 991,
     Date: 43983,
@@ -4096,7 +4106,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 899629,
+    OrderId: 899629,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 660,
     Date: 43709,
@@ -4105,7 +4115,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 505339,
+    OrderId: 505339,
     Product: "Chocolate Chip",
     "Units Sold": 788,
     Date: 43709,
@@ -4114,7 +4124,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 387444,
+    OrderId: 387444,
     Product: "Chocolate Chip",
     "Units Sold": 787,
     Date: 43983,
@@ -4123,7 +4133,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 573970,
+    OrderId: 573970,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 655,
     Date: 43709,
@@ -4132,7 +4142,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 510933,
+    OrderId: 510933,
     Product: "Sugar",
     "Units Sold": 1281,
     Date: 43800,
@@ -4141,7 +4151,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 897372,
+    OrderId: 897372,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 639,
     Date: 44013,
@@ -4150,7 +4160,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 584477,
+    OrderId: 584477,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 639,
     Date: 44136,
@@ -4159,7 +4169,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 238791,
+    OrderId: 238791,
     Product: "Chocolate Chip",
     "Units Sold": 766,
     Date: 43739,
@@ -4168,7 +4178,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 751314,
+    OrderId: 751314,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 635,
     Date: 44166,
@@ -4177,7 +4187,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 156617,
+    OrderId: 156617,
     Product: "Fortune Cookie",
     "Units Sold": 3802.5,
     Date: 43922,
@@ -4186,7 +4196,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 646205,
+    OrderId: 646205,
     Product: "Sugar",
     "Units Sold": 1265,
     Date: 43770,
@@ -4195,7 +4205,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 320688,
+    OrderId: 320688,
     Product: "Chocolate Chip",
     "Units Sold": 747,
     Date: 44075,
@@ -4204,7 +4214,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 871331,
+    OrderId: 871331,
     Product: "Sugar",
     "Units Sold": 1233,
     Date: 44166,
@@ -4213,7 +4223,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 602911,
+    OrderId: 602911,
     Product: "Snickerdoodle",
     "Units Sold": 923,
     Date: 43891,
@@ -4222,7 +4232,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 699845,
+    OrderId: 699845,
     Product: "Sugar",
     "Units Sold": 1227,
     Date: 44105,
@@ -4231,7 +4241,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 425472,
+    OrderId: 425472,
     Product: "Sugar",
     "Units Sold": 1221,
     Date: 43739,
@@ -4240,7 +4250,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 741049,
+    OrderId: 741049,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 609,
     Date: 44044,
@@ -4249,7 +4259,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 349645,
+    OrderId: 349645,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 606,
     Date: 43922,
@@ -4258,7 +4268,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 698573,
+    OrderId: 698573,
     Product: "Oatmeal Raisin",
     "Units Sold": 727,
     Date: 43739,
@@ -4267,7 +4277,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 885205,
+    OrderId: 885205,
     Product: "Chocolate Chip",
     "Units Sold": 727,
     Date: 43983,
@@ -4276,7 +4286,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 758323,
+    OrderId: 758323,
     Product: "Chocolate Chip",
     "Units Sold": 727,
     Date: 43739,
@@ -4285,7 +4295,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 249563,
+    OrderId: 249563,
     Product: "Snickerdoodle",
     "Units Sold": 908,
     Date: 43800,
@@ -4294,7 +4304,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 746705,
+    OrderId: 746705,
     Product: "Fortune Cookie",
     "Units Sold": 3627,
     Date: 44013,
@@ -4303,7 +4313,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 135967,
+    OrderId: 135967,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 604,
     Date: 43983,
@@ -4312,7 +4322,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 170761,
+    OrderId: 170761,
     Product: "Chocolate Chip",
     "Units Sold": 723,
     Date: 43922,
@@ -4321,7 +4331,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 192398,
+    OrderId: 192398,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 602,
     Date: 43983,
@@ -4330,7 +4340,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 856865,
+    OrderId: 856865,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 598,
     Date: 43891,
@@ -4339,7 +4349,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 103888,
+    OrderId: 103888,
     Product: "Oatmeal Raisin",
     "Units Sold": 711,
     Date: 44166,
@@ -4348,7 +4358,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 361699,
+    OrderId: 361699,
     Product: "Snickerdoodle",
     "Units Sold": 888,
     Date: 43983,
@@ -4357,7 +4367,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 847678,
+    OrderId: 847678,
     Product: "Snickerdoodle",
     "Units Sold": 887,
     Date: 43800,
@@ -4366,7 +4376,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 533938,
+    OrderId: 533938,
     Product: "Snickerdoodle",
     "Units Sold": 886,
     Date: 43983,
@@ -4375,7 +4385,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 137921,
+    OrderId: 137921,
     Product: "Oatmeal Raisin",
     "Units Sold": 708,
     Date: 43983,
@@ -4384,7 +4394,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 267107,
+    OrderId: 267107,
     Product: "Oatmeal Raisin",
     "Units Sold": 707,
     Date: 44075,
@@ -4393,7 +4403,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 629523,
+    OrderId: 629523,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 588,
     Date: 43800,
@@ -4402,7 +4412,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 330030,
+    OrderId: 330030,
     Product: "Sugar",
     "Units Sold": 1175,
     Date: 44105,
@@ -4411,7 +4421,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 567484,
+    OrderId: 567484,
     Product: "Chocolate Chip",
     "Units Sold": 704,
     Date: 43739,
@@ -4420,7 +4430,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 778322,
+    OrderId: 778322,
     Product: "Chocolate Chip",
     "Units Sold": 700,
     Date: 44136,
@@ -4429,7 +4439,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 666684,
+    OrderId: 666684,
     Product: "Sugar",
     "Units Sold": 1153,
     Date: 44105,
@@ -4438,7 +4448,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 578401,
+    OrderId: 578401,
     Product: "Chocolate Chip",
     "Units Sold": 689,
     Date: 43983,
@@ -4447,7 +4457,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 609418,
+    OrderId: 609418,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 567,
     Date: 44075,
@@ -4456,7 +4466,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 456841,
+    OrderId: 456841,
     Product: "Chocolate Chip",
     "Units Sold": 678,
     Date: 44044,
@@ -4465,7 +4475,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 441711,
+    OrderId: 441711,
     Product: "Sugar",
     "Units Sold": 1123,
     Date: 43770,
@@ -4474,7 +4484,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 707858,
+    OrderId: 707858,
     Product: "Chocolate Chip",
     "Units Sold": 671,
     Date: 43739,
@@ -4483,7 +4493,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 397008,
+    OrderId: 397008,
     Product: "Oatmeal Raisin",
     "Units Sold": 671,
     Date: 43739,
@@ -4492,7 +4502,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 197116,
+    OrderId: 197116,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 555,
     Date: 43831,
@@ -4501,7 +4511,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 355733,
+    OrderId: 355733,
     Product: "Snickerdoodle",
     "Units Sold": 831,
     Date: 43952,
@@ -4510,7 +4520,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 847203,
+    OrderId: 847203,
     Product: "Chocolate Chip",
     "Units Sold": 662,
     Date: 43983,
@@ -4519,7 +4529,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 433084,
+    OrderId: 433084,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 547,
     Date: 44136,
@@ -4528,7 +4538,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 865204,
+    OrderId: 865204,
     Product: "Snickerdoodle",
     "Units Sold": 819,
     Date: 44013,
@@ -4537,7 +4547,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 214845,
+    OrderId: 214845,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 544,
     Date: 43800,
@@ -4546,7 +4556,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 372739,
+    OrderId: 372739,
     Product: "Snickerdoodle",
     "Units Sold": 801,
     Date: 44013,
@@ -4555,7 +4565,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 480891,
+    OrderId: 480891,
     Product: "Oatmeal Raisin",
     "Units Sold": 635,
     Date: 44166,
@@ -4564,7 +4574,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 242657,
+    OrderId: 242657,
     Product: "Snickerdoodle",
     "Units Sold": 792,
     Date: 43891,
@@ -4573,7 +4583,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 183779,
+    OrderId: 183779,
     Product: "Oatmeal Raisin",
     "Units Sold": 615,
     Date: 44166,
@@ -4582,7 +4592,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 576749,
+    OrderId: 576749,
     Product: "Snickerdoodle",
     "Units Sold": 766,
     Date: 43739,
@@ -4591,7 +4601,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 581762,
+    OrderId: 581762,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 510,
     Date: 43922,
@@ -4600,7 +4610,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 208723,
+    OrderId: 208723,
     Product: "Sugar",
     "Units Sold": 1010,
     Date: 44105,
@@ -4609,7 +4619,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 808356,
+    OrderId: 808356,
     Product: "Sugar",
     "Units Sold": 1005,
     Date: 43709,
@@ -4618,7 +4628,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 369627,
+    OrderId: 369627,
     Product: "Chocolate Chip",
     "Units Sold": 602,
     Date: 43983,
@@ -4627,7 +4637,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 600167,
+    OrderId: 600167,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 500,
     Date: 43891,
@@ -4636,7 +4646,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 295198,
+    OrderId: 295198,
     Product: "Fortune Cookie",
     "Units Sold": 2996,
     Date: 43739,
@@ -4645,7 +4655,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 644686,
+    OrderId: 644686,
     Product: "Fortune Cookie",
     "Units Sold": 2992,
     Date: 43739,
@@ -4654,7 +4664,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 178855,
+    OrderId: 178855,
     Product: "Snickerdoodle",
     "Units Sold": 742.5,
     Date: 43922,
@@ -4663,7 +4673,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 305275,
+    OrderId: 305275,
     Product: "Sugar",
     "Units Sold": 986,
     Date: 44105,
@@ -4672,7 +4682,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 354480,
+    OrderId: 354480,
     Product: "Sugar",
     "Units Sold": 986,
     Date: 44075,
@@ -4681,7 +4691,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 197639,
+    OrderId: 197639,
     Product: "Chocolate Chip",
     "Units Sold": 591,
     Date: 43952,
@@ -4690,7 +4700,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 421883,
+    OrderId: 421883,
     Product: "Snickerdoodle",
     "Units Sold": 727,
     Date: 43862,
@@ -4699,7 +4709,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 884057,
+    OrderId: 884057,
     Product: "Oatmeal Raisin",
     "Units Sold": 579,
     Date: 43831,
@@ -4708,7 +4718,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 619210,
+    OrderId: 619210,
     Product: "Sugar",
     "Units Sold": 959,
     Date: 43862,
@@ -4717,7 +4727,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 868182,
+    OrderId: 868182,
     Product: "Chocolate Chip",
     "Units Sold": 571,
     Date: 44013,
@@ -4726,7 +4736,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 873031,
+    OrderId: 873031,
     Product: "Fortune Cookie",
     "Units Sold": 2851,
     Date: 43739,
@@ -4735,7 +4745,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 885051,
+    OrderId: 885051,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 472,
     Date: 44105,
@@ -4744,7 +4754,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 540473,
+    OrderId: 540473,
     Product: "Sugar",
     "Units Sold": 943.5,
     Date: 43922,
@@ -4753,7 +4763,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 390387,
+    OrderId: 390387,
     Product: "Fortune Cookie",
     "Units Sold": 2797,
     Date: 44166,
@@ -4762,7 +4772,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 399302,
+    OrderId: 399302,
     Product: "Oatmeal Raisin",
     "Units Sold": 552,
     Date: 44044,
@@ -4771,7 +4781,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 745878,
+    OrderId: 745878,
     Product: "Snickerdoodle",
     "Units Sold": 689,
     Date: 43983,
@@ -4780,7 +4790,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 738711,
+    OrderId: 738711,
     Product: "Chocolate Chip",
     "Units Sold": 549,
     Date: 43709,
@@ -4789,7 +4799,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 533611,
+    OrderId: 533611,
     Product: "Fortune Cookie",
     "Units Sold": 2734,
     Date: 44105,
@@ -4798,7 +4808,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 578917,
+    OrderId: 578917,
     Product: "Oatmeal Raisin",
     "Units Sold": 546,
     Date: 44105,
@@ -4807,7 +4817,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 128675,
+    OrderId: 128675,
     Product: "Fortune Cookie",
     "Units Sold": 2723,
     Date: 44136,
@@ -4816,7 +4826,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 252717,
+    OrderId: 252717,
     Product: "Fortune Cookie",
     "Units Sold": 2665.5,
     Date: 44013,
@@ -4825,7 +4835,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 641259,
+    OrderId: 641259,
     Product: "Sugar",
     "Units Sold": 888,
     Date: 43983,
@@ -4834,7 +4844,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 200053,
+    OrderId: 200053,
     Product: "Fortune Cookie",
     "Units Sold": 2661,
     Date: 43952,
@@ -4843,7 +4853,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 273665,
+    OrderId: 273665,
     Product: "Snickerdoodle",
     "Units Sold": 663,
     Date: 43952,
@@ -4852,7 +4862,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 747194,
+    OrderId: 747194,
     Product: "Sugar",
     "Units Sold": 880,
     Date: 43952,
@@ -4861,7 +4871,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 867837,
+    OrderId: 867837,
     Product: "Sugar",
     "Units Sold": 877,
     Date: 44136,
@@ -4870,7 +4880,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 818048,
+    OrderId: 818048,
     Product: "Sugar",
     "Units Sold": 866,
     Date: 43952,
@@ -4879,7 +4889,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 213778,
+    OrderId: 213778,
     Product: "Sugar",
     "Units Sold": 865.5,
     Date: 44013,
@@ -4888,7 +4898,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 830805,
+    OrderId: 830805,
     Product: "Fortune Cookie",
     "Units Sold": 2518,
     Date: 43983,
@@ -4897,7 +4907,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 179673,
+    OrderId: 179673,
     Product: "Fortune Cookie",
     "Units Sold": 2501,
     Date: 43891,
@@ -4906,7 +4916,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 443834,
+    OrderId: 443834,
     Product: "Fortune Cookie",
     "Units Sold": 2500,
     Date: 43770,
@@ -4915,7 +4925,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 539666,
+    OrderId: 539666,
     Product: "Fortune Cookie",
     "Units Sold": 2498,
     Date: 43709,
@@ -4924,7 +4934,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 249098,
+    OrderId: 249098,
     Product: "Fortune Cookie",
     "Units Sold": 2470,
     Date: 43983,
@@ -4933,7 +4943,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 617339,
+    OrderId: 617339,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 410,
     Date: 44105,
@@ -4942,7 +4952,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 451947,
+    OrderId: 451947,
     Product: "Sugar",
     "Units Sold": 808,
     Date: 43800,
@@ -4951,7 +4961,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 741765,
+    OrderId: 741765,
     Product: "Fortune Cookie",
     "Units Sold": 2420,
     Date: 44075,
@@ -4960,7 +4970,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 460452,
+    OrderId: 460452,
     Product: "Sugar",
     "Units Sold": 787,
     Date: 43983,
@@ -4969,7 +4979,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 323754,
+    OrderId: 323754,
     Product: "Oatmeal Raisin",
     "Units Sold": 472,
     Date: 44105,
@@ -4978,7 +4988,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 818777,
+    OrderId: 818777,
     Product: "Fortune Cookie",
     "Units Sold": 2342,
     Date: 44136,
@@ -4987,7 +4997,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 454312,
+    OrderId: 454312,
     Product: "Fortune Cookie",
     "Units Sold": 2342,
     Date: 44136,
@@ -4996,7 +5006,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 336365,
+    OrderId: 336365,
     Product: "Fortune Cookie",
     "Units Sold": 2340,
     Date: 43831,
@@ -5005,7 +5015,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 724808,
+    OrderId: 724808,
     Product: "Fortune Cookie",
     "Units Sold": 2328,
     Date: 44075,
@@ -5014,7 +5024,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 272243,
+    OrderId: 272243,
     Product: "Fortune Cookie",
     "Units Sold": 2321,
     Date: 44136,
@@ -5023,7 +5033,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 289924,
+    OrderId: 289924,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 386,
     Date: 43770,
@@ -5032,7 +5042,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 561083,
+    OrderId: 561083,
     Product: "Fortune Cookie",
     "Units Sold": 2313,
     Date: 43952,
@@ -5041,7 +5051,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 120418,
+    OrderId: 120418,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 384,
     Date: 43831,
@@ -5050,7 +5060,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 142538,
+    OrderId: 142538,
     Product: "Fortune Cookie",
     "Units Sold": 2301,
     Date: 43922,
@@ -5059,7 +5069,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 138137,
+    OrderId: 138137,
     Product: "Fortune Cookie",
     "Units Sold": 2300,
     Date: 44166,
@@ -5068,7 +5078,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 539656,
+    OrderId: 539656,
     Product: "Snickerdoodle",
     "Units Sold": 570,
     Date: 44166,
@@ -5077,7 +5087,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 434964,
+    OrderId: 434964,
     Product: "Fortune Cookie",
     "Units Sold": 2255,
     Date: 44013,
@@ -5086,7 +5096,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 443447,
+    OrderId: 443447,
     Product: "Snickerdoodle",
     "Units Sold": 562,
     Date: 44075,
@@ -5095,7 +5105,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 807061,
+    OrderId: 807061,
     Product: "Chocolate Chip",
     "Units Sold": 448,
     Date: 43983,
@@ -5104,7 +5114,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 529423,
+    OrderId: 529423,
     Product: "Fortune Cookie",
     "Units Sold": 2227.5,
     Date: 43831,
@@ -5113,7 +5123,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 353832,
+    OrderId: 353832,
     Product: "Fortune Cookie",
     "Units Sold": 2214,
     Date: 43891,
@@ -5122,7 +5132,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 327845,
+    OrderId: 327845,
     Product: "Sugar",
     "Units Sold": 727,
     Date: 43983,
@@ -5131,7 +5141,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 444955,
+    OrderId: 444955,
     Product: "Fortune Cookie",
     "Units Sold": 2181,
     Date: 44105,
@@ -5140,7 +5150,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 729194,
+    OrderId: 729194,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 362,
     Date: 43952,
@@ -5149,7 +5159,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 881771,
+    OrderId: 881771,
     Product: "Fortune Cookie",
     "Units Sold": 2157,
     Date: 44166,
@@ -5158,7 +5168,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 366159,
+    OrderId: 366159,
     Product: "Fortune Cookie",
     "Units Sold": 2146,
     Date: 44075,
@@ -5167,7 +5177,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 361276,
+    OrderId: 361276,
     Product: "Snickerdoodle",
     "Units Sold": 521,
     Date: 44166,
@@ -5176,7 +5186,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 742570,
+    OrderId: 742570,
     Product: "Fortune Cookie",
     "Units Sold": 2072,
     Date: 44166,
@@ -5185,7 +5195,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 725066,
+    OrderId: 725066,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 345,
     Date: 43739,
@@ -5194,7 +5204,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 403071,
+    OrderId: 403071,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 344,
     Date: 43739,
@@ -5203,7 +5213,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 148871,
+    OrderId: 148871,
     Product: "Oatmeal Raisin",
     "Units Sold": 410,
     Date: 44105,
@@ -5212,7 +5222,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 801641,
+    OrderId: 801641,
     Product: "Fortune Cookie",
     "Units Sold": 2031,
     Date: 44105,
@@ -5221,7 +5231,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 574744,
+    OrderId: 574744,
     Product: "Fortune Cookie",
     "Units Sold": 2021,
     Date: 44105,
@@ -5230,7 +5240,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 160577,
+    OrderId: 160577,
     Product: "Sugar",
     "Units Sold": 662,
     Date: 43983,
@@ -5239,7 +5249,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 757336,
+    OrderId: 757336,
     Product: "Fortune Cookie",
     "Units Sold": 1976,
     Date: 44105,
@@ -5248,7 +5258,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 238485,
+    OrderId: 238485,
     Product: "Snickerdoodle",
     "Units Sold": 494,
     Date: 43739,
@@ -5257,7 +5267,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 823953,
+    OrderId: 823953,
     Product: "Fortune Cookie",
     "Units Sold": 1967,
     Date: 43891,
@@ -5266,7 +5276,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 297812,
+    OrderId: 297812,
     Product: "Snickerdoodle",
     "Units Sold": 490,
     Date: 44136,
@@ -5275,7 +5285,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 570270,
+    OrderId: 570270,
     Product: "Fortune Cookie",
     "Units Sold": 1958,
     Date: 43862,
@@ -5284,7 +5294,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 686651,
+    OrderId: 686651,
     Product: "Chocolate Chip",
     "Units Sold": 386,
     Date: 43739,
@@ -5293,7 +5303,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 485947,
+    OrderId: 485947,
     Product: "Sugar",
     "Units Sold": 641,
     Date: 44013,
@@ -5302,7 +5312,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 445507,
+    OrderId: 445507,
     Product: "Fortune Cookie",
     "Units Sold": 1901,
     Date: 43983,
@@ -5311,7 +5321,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 607709,
+    OrderId: 607709,
     Product: "Chocolate Chip",
     "Units Sold": 380,
     Date: 43709,
@@ -5320,7 +5330,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 737790,
+    OrderId: 737790,
     Product: "Chocolate Chip",
     "Units Sold": 380,
     Date: 43800,
@@ -5329,7 +5339,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 138739,
+    OrderId: 138739,
     Product: "Fortune Cookie",
     "Units Sold": 1899,
     Date: 43983,
@@ -5338,7 +5348,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 362208,
+    OrderId: 362208,
     Product: "Sugar",
     "Units Sold": 623,
     Date: 43709,
@@ -5347,7 +5357,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 539522,
+    OrderId: 539522,
     Product: "Fortune Cookie",
     "Units Sold": 1859,
     Date: 44044,
@@ -5356,7 +5366,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 431913,
+    OrderId: 431913,
     Product: "Fortune Cookie",
     "Units Sold": 1857,
     Date: 43770,
@@ -5365,7 +5375,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 266313,
+    OrderId: 266313,
     Product: "Chocolate Chip",
     "Units Sold": 367,
     Date: 43739,
@@ -5374,7 +5384,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 898637,
+    OrderId: 898637,
     Product: "Chocolate Chip",
     "Units Sold": 367,
     Date: 44013,
@@ -5383,7 +5393,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 459280,
+    OrderId: 459280,
     Product: "Fortune Cookie",
     "Units Sold": 1830,
     Date: 44044,
@@ -5392,7 +5402,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 352793,
+    OrderId: 352793,
     Product: "Fortune Cookie",
     "Units Sold": 1804,
     Date: 43770,
@@ -5401,7 +5411,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 336267,
+    OrderId: 336267,
     Product: "Chocolate Chip",
     "Units Sold": 360,
     Date: 44105,
@@ -5410,7 +5420,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 806978,
+    OrderId: 806978,
     Product: "Fortune Cookie",
     "Units Sold": 1797,
     Date: 43709,
@@ -5419,7 +5429,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 115306,
+    OrderId: 115306,
     Product: "Snickerdoodle",
     "Units Sold": 448,
     Date: 43983,
@@ -5428,7 +5438,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 448428,
+    OrderId: 448428,
     Product: "Chocolate Chip",
     "Units Sold": 357,
     Date: 44136,
@@ -5437,7 +5447,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 433556,
+    OrderId: 433556,
     Product: "Fortune Cookie",
     "Units Sold": 1773,
     Date: 43922,
@@ -5446,7 +5456,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 676544,
+    OrderId: 676544,
     Product: "Snickerdoodle",
     "Units Sold": 442,
     Date: 43709,
@@ -5455,7 +5465,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 215754,
+    OrderId: 215754,
     Product: "Fortune Cookie",
     "Units Sold": 1757,
     Date: 43739,
@@ -5464,7 +5474,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 164574,
+    OrderId: 164574,
     Product: "Fortune Cookie",
     "Units Sold": 1727,
     Date: 43739,
@@ -5473,7 +5483,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 324307,
+    OrderId: 324307,
     Product: "Sugar",
     "Units Sold": 574.5,
     Date: 43922,
@@ -5482,7 +5492,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 423355,
+    OrderId: 423355,
     Product: "Oatmeal Raisin",
     "Units Sold": 344,
     Date: 43739,
@@ -5491,7 +5501,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 347412,
+    OrderId: 347412,
     Product: "Fortune Cookie",
     "Units Sold": 1715,
     Date: 43739,
@@ -5500,7 +5510,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 899502,
+    OrderId: 899502,
     Product: "Sugar",
     "Units Sold": 570,
     Date: 44166,
@@ -5509,7 +5519,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 494228,
+    OrderId: 494228,
     Product: "Fortune Cookie",
     "Units Sold": 1706,
     Date: 44166,
@@ -5518,7 +5528,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 487819,
+    OrderId: 487819,
     Product: "Fortune Cookie",
     "Units Sold": 1666,
     Date: 43952,
@@ -5527,7 +5537,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 878522,
+    OrderId: 878522,
     Product: "Sugar",
     "Units Sold": 554,
     Date: 43831,
@@ -5536,7 +5546,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 113657,
+    OrderId: 113657,
     Product: "Fortune Cookie",
     "Units Sold": 1660,
     Date: 43770,
@@ -5545,7 +5555,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 483216,
+    OrderId: 483216,
     Product: "Sugar",
     "Units Sold": 552,
     Date: 44136,
@@ -5554,7 +5564,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 867907,
+    OrderId: 867907,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 269,
     Date: 43739,
@@ -5563,7 +5573,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 270516,
+    OrderId: 270516,
     Product: "Fortune Cookie",
     "Units Sold": 1611,
     Date: 43800,
@@ -5572,7 +5582,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 182735,
+    OrderId: 182735,
     Product: "Oatmeal Raisin",
     "Units Sold": 321,
     Date: 43770,
@@ -5581,7 +5591,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 326089,
+    OrderId: 326089,
     Product: "Fortune Cookie",
     "Units Sold": 1566,
     Date: 44105,
@@ -5590,7 +5600,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 102288,
+    OrderId: 102288,
     Product: "Sugar",
     "Units Sold": 521,
     Date: 44166,
@@ -5599,7 +5609,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 141979,
+    OrderId: 141979,
     Product: "Fortune Cookie",
     "Units Sold": 1562,
     Date: 44044,
@@ -5608,7 +5618,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 830819,
+    OrderId: 830819,
     Product: "Fortune Cookie",
     "Units Sold": 1545,
     Date: 43983,
@@ -5617,7 +5627,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 395290,
+    OrderId: 395290,
     Product: "Snickerdoodle",
     "Units Sold": 386,
     Date: 43739,
@@ -5626,7 +5636,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 581556,
+    OrderId: 581556,
     Product: "Oatmeal Raisin",
     "Units Sold": 306,
     Date: 43800,
@@ -5635,7 +5645,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 243929,
+    OrderId: 243929,
     Product: "Sugar",
     "Units Sold": 494,
     Date: 43739,
@@ -5644,7 +5654,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 414407,
+    OrderId: 414407,
     Product: "Sugar",
     "Units Sold": 492,
     Date: 44013,
@@ -5653,7 +5663,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 847731,
+    OrderId: 847731,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 245,
     Date: 43952,
@@ -5662,7 +5672,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 496752,
+    OrderId: 496752,
     Product: "Snickerdoodle",
     "Units Sold": 367,
     Date: 43739,
@@ -5671,7 +5681,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 809091,
+    OrderId: 809091,
     Product: "Chocolate Chip",
     "Units Sold": 293,
     Date: 44166,
@@ -5680,7 +5690,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 199458,
+    OrderId: 199458,
     Product: "Fortune Cookie",
     "Units Sold": 1460,
     Date: 43952,
@@ -5689,7 +5699,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 266868,
+    OrderId: 266868,
     Product: "Chocolate Chip",
     "Units Sold": 292,
     Date: 43862,
@@ -5698,7 +5708,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 775311,
+    OrderId: 775311,
     Product: "White Chocolate Macadamia Nut",
     "Units Sold": 241,
     Date: 44105,
@@ -5707,7 +5717,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 294390,
+    OrderId: 294390,
     Product: "Fortune Cookie",
     "Units Sold": 1403,
     Date: 43739,
@@ -5716,7 +5726,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 217341,
+    OrderId: 217341,
     Product: "Chocolate Chip",
     "Units Sold": 278,
     Date: 43862,
@@ -5725,7 +5735,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 779079,
+    OrderId: 779079,
     Product: "Fortune Cookie",
     "Units Sold": 1384.5,
     Date: 43831,
@@ -5734,7 +5744,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 892418,
+    OrderId: 892418,
     Product: "Fortune Cookie",
     "Units Sold": 1375.5,
     Date: 44013,
@@ -5743,7 +5753,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 817134,
+    OrderId: 817134,
     Product: "Chocolate Chip",
     "Units Sold": 274,
     Date: 44166,
@@ -5752,7 +5762,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 605154,
+    OrderId: 605154,
     Product: "Fortune Cookie",
     "Units Sold": 1368,
     Date: 43862,
@@ -5761,7 +5771,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 531656,
+    OrderId: 531656,
     Product: "Oatmeal Raisin",
     "Units Sold": 270,
     Date: 43862,
@@ -5770,7 +5780,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 609851,
+    OrderId: 609851,
     Product: "Chocolate Chip",
     "Units Sold": 267,
     Date: 43739,
@@ -5779,7 +5789,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 616987,
+    OrderId: 616987,
     Product: "Snickerdoodle",
     "Units Sold": 330,
     Date: 43709,
@@ -5788,7 +5798,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 633142,
+    OrderId: 633142,
     Product: "Sugar",
     "Units Sold": 436.5,
     Date: 44013,
@@ -5797,7 +5807,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 358353,
+    OrderId: 358353,
     Product: "Chocolate Chip",
     "Units Sold": 260,
     Date: 43862,
@@ -5806,7 +5816,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 541297,
+    OrderId: 541297,
     Product: "Fortune Cookie",
     "Units Sold": 1298,
     Date: 43862,
@@ -5815,7 +5825,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 494850,
+    OrderId: 494850,
     Product: "Sugar",
     "Units Sold": 432,
     Date: 44075,
@@ -5824,7 +5834,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 150101,
+    OrderId: 150101,
     Product: "Oatmeal Raisin",
     "Units Sold": 259,
     Date: 43891,
@@ -5833,7 +5843,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 637451,
+    OrderId: 637451,
     Product: "Fortune Cookie",
     "Units Sold": 1287,
     Date: 44166,
@@ -5842,7 +5852,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 566983,
+    OrderId: 566983,
     Product: "Chocolate Chip",
     "Units Sold": 257,
     Date: 43952,
@@ -5851,7 +5861,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 781308,
+    OrderId: 781308,
     Product: "Fortune Cookie",
     "Units Sold": 1283,
     Date: 43709,
@@ -5860,7 +5870,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 173001,
+    OrderId: 173001,
     Product: "Fortune Cookie",
     "Units Sold": 1282,
     Date: 43983,
@@ -5869,7 +5879,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 350494,
+    OrderId: 350494,
     Product: "Sugar",
     "Units Sold": 422,
     Date: 44044,
@@ -5878,7 +5888,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 505218,
+    OrderId: 505218,
     Product: "Fortune Cookie",
     "Units Sold": 1249,
     Date: 44105,
@@ -5887,7 +5897,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 565251,
+    OrderId: 565251,
     Product: "Chocolate Chip",
     "Units Sold": 241,
     Date: 44105,
@@ -5896,7 +5906,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 721311,
+    OrderId: 721311,
     Product: "Fortune Cookie",
     "Units Sold": 1199,
     Date: 43922,
@@ -5905,7 +5915,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 469636,
+    OrderId: 469636,
     Product: "Fortune Cookie",
     "Units Sold": 1186,
     Date: 43800,
@@ -5914,7 +5924,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 150704,
+    OrderId: 150704,
     Product: "Fortune Cookie",
     "Units Sold": 1159,
     Date: 43739,
@@ -5923,7 +5933,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 464364,
+    OrderId: 464364,
     Product: "Sugar",
     "Units Sold": 381,
     Date: 44044,
@@ -5932,7 +5942,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 652401,
+    OrderId: 652401,
     Product: "Fortune Cookie",
     "Units Sold": 1142,
     Date: 43983,
@@ -5941,7 +5951,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 130685,
+    OrderId: 130685,
     Product: "Fortune Cookie",
     "Units Sold": 1138,
     Date: 44166,
@@ -5950,7 +5960,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 684001,
+    OrderId: 684001,
     Product: "Snickerdoodle",
     "Units Sold": 280,
     Date: 44166,
@@ -5959,7 +5969,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 830981,
+    OrderId: 830981,
     Product: "Fortune Cookie",
     "Units Sold": 1100,
     Date: 43800,
@@ -5968,7 +5978,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 882680,
+    OrderId: 882680,
     Product: "Snickerdoodle",
     "Units Sold": 274,
     Date: 44166,
@@ -5977,7 +5987,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 675035,
+    OrderId: 675035,
     Product: "Chocolate Chip",
     "Units Sold": 218,
     Date: 44075,
@@ -5986,7 +5996,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 881898,
+    OrderId: 881898,
     Product: "Sugar",
     "Units Sold": 360,
     Date: 44105,
@@ -5995,7 +6005,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 680427,
+    OrderId: 680427,
     Product: "Snickerdoodle",
     "Units Sold": 263,
     Date: 43770,
@@ -6004,7 +6014,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 581507,
+    OrderId: 581507,
     Product: "Sugar",
     "Units Sold": 349,
     Date: 43709,
@@ -6013,7 +6023,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 727045,
+    OrderId: 727045,
     Product: "Sugar",
     "Units Sold": 341,
     Date: 43952,
@@ -6022,7 +6032,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 348844,
+    OrderId: 348844,
     Product: "Fortune Cookie",
     "Units Sold": 982.5,
     Date: 43831,
@@ -6031,7 +6041,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 503244,
+    OrderId: 503244,
     Product: "Fortune Cookie",
     "Units Sold": 980,
     Date: 43922,
@@ -6040,7 +6050,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 440487,
+    OrderId: 440487,
     Product: "Fortune Cookie",
     "Units Sold": 958,
     Date: 44044,
@@ -6049,7 +6059,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 203604,
+    OrderId: 203604,
     Product: "Fortune Cookie",
     "Units Sold": 921,
     Date: 43891,
@@ -6058,7 +6068,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 887151,
+    OrderId: 887151,
     Product: "Sugar",
     "Units Sold": 293,
     Date: 44166,
@@ -6067,7 +6077,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 893967,
+    OrderId: 893967,
     Product: "Snickerdoodle",
     "Units Sold": 214,
     Date: 43739,
@@ -6076,7 +6086,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 528145,
+    OrderId: 528145,
     Product: "Sugar",
     "Units Sold": 280,
     Date: 44166,
@@ -6085,7 +6095,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 340032,
+    OrderId: 340032,
     Product: "Sugar",
     "Units Sold": 269,
     Date: 43739,
@@ -6094,7 +6104,7 @@ export const pivotData = [
   },
   {
     Customer: 1,
-    "Order ID": 199727,
+    OrderId: 199727,
     Product: "Sugar",
     "Units Sold": 267,
     Date: 43739,
@@ -6103,7 +6113,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 454417,
+    OrderId: 454417,
     Product: "Sugar",
     "Units Sold": 266,
     Date: 43800,
@@ -6112,7 +6122,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 735280,
+    OrderId: 735280,
     Product: "Sugar",
     "Units Sold": 263,
     Date: 43891,
@@ -6121,7 +6131,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 121208,
+    OrderId: 121208,
     Product: "Fortune Cookie",
     "Units Sold": 766,
     Date: 43831,
@@ -6130,7 +6140,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 594945,
+    OrderId: 594945,
     Product: "Fortune Cookie",
     "Units Sold": 720,
     Date: 43709,
@@ -6139,7 +6149,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 711452,
+    OrderId: 711452,
     Product: "Fortune Cookie",
     "Units Sold": 711,
     Date: 44166,
@@ -6148,7 +6158,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 123331,
+    OrderId: 123331,
     Product: "Fortune Cookie",
     "Units Sold": 708,
     Date: 43983,
@@ -6157,7 +6167,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 676869,
+    OrderId: 676869,
     Product: "Fortune Cookie",
     "Units Sold": 690,
     Date: 44136,
@@ -6166,7 +6176,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 517456,
+    OrderId: 517456,
     Product: "Fortune Cookie",
     "Units Sold": 677,
     Date: 43891,
@@ -6175,7 +6185,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 625570,
+    OrderId: 625570,
     Product: "Fortune Cookie",
     "Units Sold": 663,
     Date: 43739,
@@ -6184,7 +6194,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 219898,
+    OrderId: 219898,
     Product: "Fortune Cookie",
     "Units Sold": 645,
     Date: 44013,
@@ -6193,7 +6203,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 827058,
+    OrderId: 827058,
     Product: "Sugar",
     "Units Sold": 214,
     Date: 43739,
@@ -6202,7 +6212,7 @@ export const pivotData = [
   },
   {
     Customer: 3,
-    "Order ID": 227728,
+    OrderId: 227728,
     Product: "Fortune Cookie",
     "Units Sold": 615,
     Date: 44166,
@@ -6211,7 +6221,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 280321,
+    OrderId: 280321,
     Product: "Fortune Cookie",
     "Units Sold": 604,
     Date: 43983,
@@ -6220,7 +6230,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 894001,
+    OrderId: 894001,
     Product: "Fortune Cookie",
     "Units Sold": 546,
     Date: 44105,
@@ -6229,7 +6239,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 154432,
+    OrderId: 154432,
     Product: "Fortune Cookie",
     "Units Sold": 544,
     Date: 44075,
@@ -6238,7 +6248,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 119754,
+    OrderId: 119754,
     Product: "Fortune Cookie",
     "Units Sold": 488,
     Date: 43862,
@@ -6247,7 +6257,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 397049,
+    OrderId: 397049,
     Product: "Fortune Cookie",
     "Units Sold": 388,
     Date: 44075,
@@ -6256,7 +6266,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 439030,
+    OrderId: 439030,
     Product: "Fortune Cookie",
     "Units Sold": 345,
     Date: 43739,
@@ -6265,7 +6275,7 @@ export const pivotData = [
   },
   {
     Customer: 5,
-    "Order ID": 254540,
+    OrderId: 254540,
     Product: "Fortune Cookie",
     "Units Sold": 334,
     Date: 43800,
@@ -6274,7 +6284,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 503591,
+    OrderId: 503591,
     Product: "Fortune Cookie",
     "Units Sold": 322,
     Date: 43709,
@@ -6283,7 +6293,7 @@ export const pivotData = [
   },
   {
     Customer: 4,
-    "Order ID": 715966,
+    OrderId: 715966,
     Product: "Fortune Cookie",
     "Units Sold": 293,
     Date: 43862,
@@ -6292,7 +6302,7 @@ export const pivotData = [
   },
   {
     Customer: 2,
-    "Order ID": 205221,
+    OrderId: 205221,
     Product: "Fortune Cookie",
     "Units Sold": 200,
     Date: 43952,

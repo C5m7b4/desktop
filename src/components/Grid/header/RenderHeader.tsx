@@ -7,7 +7,8 @@ import { RowResizer } from "../divs";
 import { DownIcon } from "../../../svgs/DownIcon";
 import HeaderContextMenu from "./HeaderContextMenu";
 import { RowFilterConfiguration } from "../DataGrid";
-import { SubEvent, eventActionType, eventTypes } from "../../../pubsub/pubsub";
+import { SubEvent, eventTypes } from "../../../pubsub/pubsub";
+import { debounce } from "../../../utils/utils";
 
 interface Props<T> {
   column: TableHeader<T>;
@@ -25,6 +26,7 @@ interface Props<T> {
   includedColumns: TableHeader<T>[];
   setRowFilterConfiguration: (c: RowFilterConfiguration<T>) => void;
   _uuid: string;
+  setColumns: (t: TableHeader<T>[]) => void;
 }
 
 function RenderHeader<T>(props: Props<T>) {
@@ -33,11 +35,11 @@ function RenderHeader<T>(props: Props<T>) {
     x: 0,
     y: 0,
   });
-  const [windowPos, setWindowPos] = useState({
-    x: 0,
-    y: 0,
-  });
-  const [startPosition, setStartPosition] = useState({ x: 0, y: 0 });
+  // const [windowPos, setWindowPos] = useState({
+  //   x: 0,
+  //   y: 0,
+  // });
+  // const [startPosition, setStartPosition] = useState({ x: 0, y: 0 });
   const {
     column,
     columns,
@@ -53,6 +55,7 @@ function RenderHeader<T>(props: Props<T>) {
     setRowFilterConfiguration,
     setData,
     _uuid,
+    setColumns,
   } = props;
 
   const menuRef = useRef<HTMLDivElement>(null);
@@ -60,27 +63,27 @@ function RenderHeader<T>(props: Props<T>) {
   const resizerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (thRef.current) {
-      const parent =
-        thRef.current?.parentElement?.parentElement?.parentElement
-          ?.parentElement?.parentElement?.parentElement?.parentElement;
+    // if (thRef.current) {
+    //   const parent =
+    //     thRef.current?.parentElement?.parentElement?.parentElement
+    //       ?.parentElement?.parentElement?.parentElement?.parentElement;
 
-      const box = parent?.getBoundingClientRect();
-      if (box) {
-        const obj = { x: box.x, y: box.y };
-        console.log("setting windowPos", obj);
-        setWindowPos(obj);
-      }
-    }
-    SubEvent.on(eventTypes.moved, (e: string) => {
+    //   const box = parent?.getBoundingClientRect();
+    //   if (box) {
+    //     const obj = { x: box.x, y: box.y };
+    //     console.log("setting windowPos from useEffect", obj);
+    //     setWindowPos(obj);
+    //   }
+    // }
+    SubEvent.on(eventTypes.moved, function gridHeaderMoved(e: string) {
       const { _uid, x, y } = JSON.parse(e);
       if (_uid === _uuid) {
         const obj = { x, y };
-        console.log("setting windowPos", obj);
-        setWindowPos(obj);
+        console.log("setting windowPos from subevent", obj);
+        // setWindowPos(obj);
       }
     });
-  }, []);
+  }, [_uuid]);
 
   const removeListers = () => {
     console.log("removing listeners");
@@ -88,20 +91,36 @@ function RenderHeader<T>(props: Props<T>) {
     document.removeEventListener("mouseup", handleMouseUp);
   };
 
+  const updateColumns = (newWidth: number) => {
+    console.log("updating columns", newWidth);
+    // now we need to update the columnHeaders with the new width
+    const columnCopy = { ...column, width: newWidth };
+    const index = columns.findIndex((c) => c.columnName === column.columnName);
+    if (index >= 0) {
+      const columnsCopy = [...columns];
+      columnsCopy.splice(index, 1, columnCopy);
+      setColumns(columnsCopy);
+    }
+  };
+
+  const debouncedUpdateColumns = debounce(updateColumns, 500);
+
   const handleMouseMove = (e: MouseEvent) => {
     const el = resizerRef.current;
     if (el) {
       const parent = el.parentElement;
       if (parent) {
-        console.log("parent", parent);
+        // console.log("parent", parent);
         const { left, width } = parent.getBoundingClientRect();
-        console.log(left, width, e.clientX, e.movementX);
+        // console.log(left, width, e.clientX, e.movementX);
         //const dx = e.clientX - startPosition.x - windowPos.x;
         //const newX = `${parseInt(styles.width, 10) + dx}`;
         const difference = left + width - e.clientX;
         const newWidth = width - difference;
-        console.log("newWidth", newWidth);
+        // console.log("newWidth", newWidth);
         parent.style.width = `${newWidth}px`;
+
+        debouncedUpdateColumns(newWidth);
       }
     }
   };
@@ -135,16 +154,15 @@ function RenderHeader<T>(props: Props<T>) {
     }
   };
 
-  const handleResizeMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
-    console.log("resizer clicked - mouse down");
+  const handleResizeMouseDown = () => {
     const el = resizerRef.current;
     if (el) {
-      const startPos = {
-        x: e.clientX,
-        y: e.clientY,
-      };
-      console.log("startPos", startPos);
-      setStartPosition(startPos);
+      // const startPos = {
+      //   x: e.clientX,
+      //   y: e.clientY,
+      // };
+      // console.log("startPos", startPos);
+      // setStartPosition(startPos);
       document.addEventListener("mousemove", handleMouseMove);
       document.addEventListener("mouseup", handleMouseUp);
     }
@@ -173,8 +191,7 @@ function RenderHeader<T>(props: Props<T>) {
         <Th
           key={`th-tr-${i}`}
           ref={thRef}
-          // $width={calculateWidth(column, columns, tableWidth, scrollbarWidth)}
-          //
+          $width={calculateWidth(column, columns, tableWidth, scrollbarWidth)}
           $align={column.align}
           $background={
             headersActive &&

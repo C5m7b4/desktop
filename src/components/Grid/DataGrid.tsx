@@ -14,7 +14,7 @@ const Div = styled.div<{ $height: number }>`
 `;
 
 export type RowFilterConfiguration<T> = {
-  column: keyof T;
+  column: keyof T | null;
   value: string[];
 };
 
@@ -25,9 +25,10 @@ function DataGrid<T extends {}>(props: TableProps<T>) {
   const [headersActive, setHeadersActive] = useState(false);
   const [activeHeader, setActiveHeader] = useState<TableHeader<T> | {}>({});
   const [includedColumns, setIncludedColumns] = useState<TableHeader<T>[]>([]);
+  const [columns, setColumns] = useState<TableHeader<T>[]>(props.columns);
   const [rowFilterConfiguration, setRowFilterConfiguration] = useState<
     RowFilterConfiguration<T>
-  >({ column: "", value: [] });
+  >({ column: null, value: [] });
   const theme = useTheme();
 
   //refs
@@ -44,7 +45,7 @@ function DataGrid<T extends {}>(props: TableProps<T>) {
         debounce(resizeHandler, 500)
       ).observe(windowRef.current);
     }
-    const newColumnArray = props.columns.map((column) => column);
+    const newColumnArray = columns.map((column) => column);
     setIncludedColumns(newColumnArray);
 
     return () => {};
@@ -57,6 +58,10 @@ function DataGrid<T extends {}>(props: TableProps<T>) {
     }
   }, [rowFilterConfiguration]);
 
+  useEffect(() => {
+    buildComponent();
+  }, [columns]);
+
   const columnsInclude = (row: T, columnName: keyof T, value: string[]) => {
     return value.includes(row[columnName] as string);
   };
@@ -64,14 +69,14 @@ function DataGrid<T extends {}>(props: TableProps<T>) {
   const filterPredicate = (row: T) => {
     return columnsInclude(
       row,
-      rowFilterConfiguration.column,
+      rowFilterConfiguration.column as keyof T,
       rowFilterConfiguration.value
     );
   };
 
   const resizeHandler = useCallback(() => {
     buildComponent();
-  }, []);
+  }, [columns]);
 
   const includes = (v: string) => {
     const index = includedColumns.findIndex(
@@ -82,6 +87,7 @@ function DataGrid<T extends {}>(props: TableProps<T>) {
   };
 
   const buildComponent = () => {
+    console.log("building component");
     if (windowRef.current && tableRef.current) {
       const windowDimensions =
         windowRef.current.parentElement?.parentElement?.parentElement?.getBoundingClientRect();
@@ -106,7 +112,7 @@ function DataGrid<T extends {}>(props: TableProps<T>) {
       <Table ref={tableRef}>
         <thead>
           <tr style={{ display: "flex" }}>
-            {props.columns
+            {columns
               .filter((c) => includes(c.columnName as string))
               .map((column, i) => (
                 <RenderHeader
@@ -114,7 +120,8 @@ function DataGrid<T extends {}>(props: TableProps<T>) {
                   key={`rh-${i}`}
                   column={column}
                   i={i}
-                  columns={props.columns}
+                  columns={columns}
+                  setColumns={setColumns}
                   tableWidth={tableWidth}
                   scrollbarWidth={theme.scrollbar.width}
                   headersActive={headersActive}
@@ -165,8 +172,8 @@ function DataGrid<T extends {}>(props: TableProps<T>) {
       <Tr key={`table-tbody-tr-${i}`}>
         {Object.keys(item)
           .filter((c) => includes(c as string))
-          .map((key, i) => {
-            const column = props.columns.filter(
+          .map((key, i: number) => {
+            const column = columns.filter(
               (c) =>
                 c.columnName.toString().toLowerCase() ===
                 key.toString().toLowerCase()
@@ -176,7 +183,7 @@ function DataGrid<T extends {}>(props: TableProps<T>) {
                 key={`table-tbody=tr-td-${i}`}
                 $width={calculateWidth(
                   column,
-                  props.columns,
+                  columns,
                   tableWidth,
                   theme.scrollbar.width
                 )}
