@@ -2,9 +2,10 @@
 export enum eventTypes {
   maximize,
   clear,
+  moved,
 }
 
-type eventActionType = (e: string) => void;
+export type eventActionType = (e: string) => void;
 
 export const SubEvent = {
   list: new Map(),
