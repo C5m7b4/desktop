@@ -35,11 +35,6 @@ function RenderHeader<T>(props: Props<T>) {
     x: 0,
     y: 0,
   });
-  // const [windowPos, setWindowPos] = useState({
-  //   x: 0,
-  //   y: 0,
-  // });
-  // const [startPosition, setStartPosition] = useState({ x: 0, y: 0 });
   const {
     column,
     columns,
@@ -59,22 +54,10 @@ function RenderHeader<T>(props: Props<T>) {
   } = props;
 
   const menuRef = useRef<HTMLDivElement>(null);
-  const thRef = useRef<HTMLTableHeaderCellElement>(null);
+  const thRef = useRef<HTMLTableCellElement>(null);
   const resizerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // if (thRef.current) {
-    //   const parent =
-    //     thRef.current?.parentElement?.parentElement?.parentElement
-    //       ?.parentElement?.parentElement?.parentElement?.parentElement;
-
-    //   const box = parent?.getBoundingClientRect();
-    //   if (box) {
-    //     const obj = { x: box.x, y: box.y };
-    //     console.log("setting windowPos from useEffect", obj);
-    //     setWindowPos(obj);
-    //   }
-    // }
     SubEvent.on(eventTypes.moved, function gridHeaderMoved(e: string) {
       const { _uid, x, y } = JSON.parse(e);
       if (_uid === _uuid) {
@@ -157,12 +140,6 @@ function RenderHeader<T>(props: Props<T>) {
   const handleResizeMouseDown = () => {
     const el = resizerRef.current;
     if (el) {
-      // const startPos = {
-      //   x: e.clientX,
-      //   y: e.clientY,
-      // };
-      // console.log("startPos", startPos);
-      // setStartPosition(startPos);
       document.addEventListener("mousemove", handleMouseMove);
       document.addEventListener("mouseup", handleMouseUp);
     }
@@ -178,6 +155,7 @@ function RenderHeader<T>(props: Props<T>) {
   const handleDragLeave = (e: React.DragEvent<HTMLTableCellElement>) => {
     // @ts-expect-error cannot be null
     e.currentTarget.style.border = null;
+    e.currentTarget.style.opacity = "1.0";
   };
 
   const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
@@ -202,6 +180,7 @@ function RenderHeader<T>(props: Props<T>) {
     setColumns(columnList);
     // @ts-expect-error cannot be null
     e.currentTarget.style.borderRight = null;
+    e.currentTarget.style.opacity = "1.0";
   };
 
   const { title, visible = true } = column;

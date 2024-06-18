@@ -220,7 +220,9 @@ function DataGrid<T extends {}>(props: TableProps<T>) {
                 )}
                 $align={column.align}
               >
-                {column.renderer ? column.renderer(item[key]) : item[key]}
+                {column.renderer
+                  ? column.renderer({ item, key, value: item[key] })
+                  : item[key]}
               </Td>
             );
           })}
