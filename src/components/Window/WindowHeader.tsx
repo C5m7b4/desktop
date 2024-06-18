@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import styled from "styled-components";
+import { eventTypes, publisher } from "../../pubsub/pubsub";
 
 const Div = styled.div`
   display: flex;
@@ -29,6 +30,7 @@ interface Props {
   title: string;
   handleClose: () => void;
   handleMinimize: () => void;
+  _uid: string;
 }
 
 const WindowHeader: React.FC<Props> = ({
@@ -36,11 +38,17 @@ const WindowHeader: React.FC<Props> = ({
   title,
   handleClose,
   handleMinimize,
+  _uid,
 }) => {
   const [mouseDown, setMouseDown] = useState(false);
 
   useEffect(() => {
-    const handleMouseUp = () => setMouseDown(false);
+    const handleMouseUp = (e: MouseEvent) => {
+      setMouseDown(false);
+      const coords = { x: e.clientX, y: e.clientY, _uid };
+      const jsonCoords = JSON.stringify(coords);
+      publisher.publish(eventTypes.moved, jsonCoords);
+    };
 
     window.addEventListener("mouseup", handleMouseUp);
 
