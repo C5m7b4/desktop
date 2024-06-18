@@ -168,6 +168,42 @@ function RenderHeader<T>(props: Props<T>) {
     }
   };
 
+  const handleDragStart = (e: React.DragEvent<HTMLTableCellElement>) => {
+    e.dataTransfer.setData("columnName", column.columnName as string);
+    e.dataTransfer.effectAllowed = "copyMove";
+    e.currentTarget.style.border = "white";
+    e.currentTarget.style.opacity = "0.8";
+  };
+
+  const handleDragLeave = (e: React.DragEvent<HTMLTableCellElement>) => {
+    // @ts-expect-error cannot be null
+    e.currentTarget.style.border = null;
+  };
+
+  const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    e.currentTarget.style.borderRight = "3px solid black";
+    e.dataTransfer.dropEffect = "move";
+  };
+
+  const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
+    e.currentTarget.classList.remove("dragging");
+    const columnName = e.dataTransfer.getData("columnName");
+    console.log("columnName", columnName);
+    // find the existing position of the column
+    const originalColumn = columns.filter(
+      (c) => c.columnName === columnName
+    )[0];
+    const columnList = columns.filter((c) => c.columnName !== columnName);
+    const droppedPosition = columns.findIndex(
+      (c) => c.columnName === column.columnName
+    );
+    columnList.splice(droppedPosition, 0, originalColumn);
+    setColumns(columnList);
+    // @ts-expect-error cannot be null
+    e.currentTarget.style.borderRight = null;
+  };
+
   const { title, visible = true } = column;
   const theme = useTheme();
   if (!visible === false) {
@@ -189,6 +225,11 @@ function RenderHeader<T>(props: Props<T>) {
           />
         ) : null}
         <Th
+          draggable
+          onDragStart={handleDragStart}
+          onDragLeave={(e) => handleDragLeave(e)}
+          onDragOver={handleDragOver}
+          onDrop={handleDrop}
           key={`th-tr-${i}`}
           ref={thRef}
           $width={calculateWidth(column, columns, tableWidth, scrollbarWidth)}

@@ -107,11 +107,33 @@ function DataGrid<T extends {}>(props: TableProps<T>) {
     return buildTable();
   };
 
+  // const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
+  //   e.preventDefault();
+  //   e.currentTarget.style.border = "2px solid black";
+  //   e.dataTransfer.dropEffect = "move";
+  // };
+
+  // const handleDragLeave = (e: React.DragEvent<HTMLDivElement>) => {
+  //   // @ts-expect-error cannot be null
+  //   e.currentTarget.style.border = null;
+  // };
+
+  // const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
+  //   e.currentTarget.classList.remove("dragging");
+  //   const columnName = e.dataTransfer.getData("columnName");
+  //   console.log("columnName", columnName);
+  // };
+
   const buildTable = () => {
     return (
       <Table ref={tableRef}>
         <thead>
-          <tr style={{ display: "flex" }}>
+          <tr
+            style={{ display: "flex" }}
+            // onDragOver={handleDragOver}
+            // onDrop={handleDrop}
+            // onDragLeave={handleDragLeave}
+          >
             {columns
               .filter((c) => includes(c.columnName as string))
               .map((column, i) => (
@@ -167,7 +189,16 @@ function DataGrid<T extends {}>(props: TableProps<T>) {
     );
   };
 
+  const reorder = (item: T) => {
+    const newItem = {};
+    columns.map((c) => {
+      newItem[c.columnName] = item[c.columnName];
+    });
+    return newItem as T;
+  };
+
   const renderRow = (item: T, i: number) => {
+    item = reorder(item);
     return (
       <Tr key={`table-tbody-tr-${i}`}>
         {Object.keys(item)

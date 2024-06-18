@@ -113,7 +113,7 @@ const Window: React.FC<Props> = ({
   const { height, title, width, _uid, name } = block;
 
   useEffect(() => {
-    SubEvent.on(eventTypes.maximize, (e: string) => {
+    SubEvent.on(eventTypes.maximize, () => {
       console.log("setting animation to maximize");
       setAnimation(maximize);
     });
@@ -193,7 +193,7 @@ const Window: React.FC<Props> = ({
 
   const handleClose = () => {
     // allow time to fade out
-    // @ts-expect-error I know know how to type keyframes
+    // @ts-expect-error I dont know know how to type keyframes
     // ToDo: figure out how to type keyframes
     setAnimation(removeWindow);
     setTimeout(() => {
