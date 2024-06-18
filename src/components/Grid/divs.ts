@@ -32,7 +32,6 @@ export const Th = styled.th<{
   font-weight: ${(props) => props.theme.fontWeights.bold};
   padding: 0 0 0 5px;
   width: ${(props) => props.$width}px;
-  max-width: ${(props) => props.$width}px;
   overflow: clip;
   text-overflow: ellipsis;
   text-align: ${(props) =>
@@ -83,7 +82,7 @@ export const Footer = styled.div`
 `;
 
 export const RowResizer = styled.div`
-  width: 2px;
+  width: 5px;
   cursor: ew-resize;
   height: 100%;
   background-color: transparent;
