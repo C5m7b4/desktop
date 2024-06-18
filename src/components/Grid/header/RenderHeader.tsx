@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback } from "react";
+import { useState, useEffect, useRef } from "react";
 import { TableHeader } from "../../../interfaces/Grid";
 import { Th } from "../divs";
 import { calculateWidth } from "../calculateWidth";
@@ -7,6 +7,7 @@ import { RowResizer } from "../divs";
 import { DownIcon } from "../../../svgs/DownIcon";
 import HeaderContextMenu from "./HeaderContextMenu";
 import { RowFilterConfiguration } from "../DataGrid";
+import { SubEvent, eventActionType, eventTypes } from "../../../pubsub/pubsub";
 
 interface Props<T> {
   column: TableHeader<T>;
@@ -23,11 +24,16 @@ interface Props<T> {
   setIncludedColumns: (c: TableHeader<T>[]) => void;
   includedColumns: TableHeader<T>[];
   setRowFilterConfiguration: (c: RowFilterConfiguration<T>) => void;
+  _uuid: string;
 }
 
 function RenderHeader<T>(props: Props<T>) {
   const [showHeaderContextMenu, setShowHeaderContextMenu] = useState(false);
   const [points, setPoints] = useState({
+    x: 0,
+    y: 0,
+  });
+  const [windowPos, setWindowPos] = useState({
     x: 0,
     y: 0,
   });
@@ -46,39 +52,63 @@ function RenderHeader<T>(props: Props<T>) {
     includedColumns,
     setRowFilterConfiguration,
     setData,
+    _uuid,
   } = props;
 
   const menuRef = useRef<HTMLDivElement>(null);
   const thRef = useRef<HTMLTableHeaderCellElement>(null);
   const resizerRef = useRef<HTMLDivElement>(null);
 
-  const removeListers = useCallback(() => {
+  useEffect(() => {
+    if (thRef.current) {
+      const parent =
+        thRef.current?.parentElement?.parentElement?.parentElement
+          ?.parentElement?.parentElement?.parentElement?.parentElement;
+
+      const box = parent?.getBoundingClientRect();
+      if (box) {
+        const obj = { x: box.x, y: box.y };
+        console.log("setting windowPos", obj);
+        setWindowPos(obj);
+      }
+    }
+    SubEvent.on(eventTypes.moved, (e: string) => {
+      const { _uid, x, y } = JSON.parse(e);
+      if (_uid === _uuid) {
+        const obj = { x, y };
+        console.log("setting windowPos", obj);
+        setWindowPos(obj);
+      }
+    });
+  }, []);
+
+  const removeListers = () => {
     console.log("removing listeners");
     document.removeEventListener("mousemove", handleMouseMove);
     document.removeEventListener("mouseup", handleMouseUp);
-  }, []);
+  };
 
-  const handleMouseMove = useCallback((e: MouseEvent) => {
-    console.log("mousemove", e);
+  const handleMouseMove = (e: MouseEvent) => {
     const el = resizerRef.current;
     if (el) {
-      console.log("el", el);
       const parent = el.parentElement;
       if (parent) {
         console.log("parent", parent);
-        const styles = window.getComputedStyle(parent);
-        const dx = e.clientX - startPosition.x;
-        const newX = `${parseInt(styles.width, 10) + dx}`;
-        console.log("newX", newX);
-        parent.style.width = `${newX}px`;
+        const { left, width } = parent.getBoundingClientRect();
+        console.log(left, width, e.clientX, e.movementX);
+        //const dx = e.clientX - startPosition.x - windowPos.x;
+        //const newX = `${parseInt(styles.width, 10) + dx}`;
+        const difference = left + width - e.clientX;
+        const newWidth = width - difference;
+        console.log("newWidth", newWidth);
+        parent.style.width = `${newWidth}px`;
       }
     }
-  }, []);
+  };
 
-  const handleMouseUp = useCallback(() => {
-    console.log("mouse up");
+  const handleMouseUp = () => {
     removeListers();
-  }, [removeListers]);
+  };
 
   const handleDownClick = (e: React.MouseEvent<SVGSVGElement>) => {
     console.log("down click");
@@ -113,7 +143,7 @@ function RenderHeader<T>(props: Props<T>) {
         x: e.clientX,
         y: e.clientY,
       };
-      console.log("startingPos", startPos);
+      console.log("startPos", startPos);
       setStartPosition(startPos);
       document.addEventListener("mousemove", handleMouseMove);
       document.addEventListener("mouseup", handleMouseUp);
@@ -143,7 +173,8 @@ function RenderHeader<T>(props: Props<T>) {
         <Th
           key={`th-tr-${i}`}
           ref={thRef}
-          $width={calculateWidth(column, columns, tableWidth, scrollbarWidth)}
+          // $width={calculateWidth(column, columns, tableWidth, scrollbarWidth)}
+          //
           $align={column.align}
           $background={
             headersActive &&
