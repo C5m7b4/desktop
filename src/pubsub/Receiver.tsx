@@ -1,3 +1,5 @@
+// this is just an example file showing how to subscribe to an event
+
 import { useEffect, useState } from "react";
 
 import { SubEvent, eventTypes } from "./pubsub";
