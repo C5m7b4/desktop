@@ -228,6 +228,7 @@ const Window: React.FC<Props> = ({
                 title={title!}
                 handleClose={handleClose}
                 handleMinimize={handleMinimize}
+                _uid={block._uid}
               />
               <Content className="contents">
                 <Children>{children}</Children>
