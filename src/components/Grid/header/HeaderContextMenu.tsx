@@ -210,7 +210,7 @@ function HeaderContextMenu<T>(props: Props<T>) {
     } else {
       if (c.toLowerCase() === "(select all)") {
         setCheckedColumns([]);
-        setRowFilterConfiguration({ column: "", value: [] });
+        setRowFilterConfiguration({ column: null, value: [] });
       } else {
         const filtered = checkedColumns.filter((cc) => cc != c);
         setCheckedColumns(filtered);

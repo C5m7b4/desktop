@@ -128,7 +128,7 @@ function DataGrid<T extends {}>(props: TableProps<T>) {
                   activeHeader={activeHeader}
                   setHeadersActive={setHeadersActive}
                   setActiveHeader={setActiveHeader}
-                  data={filteredData}
+                  data={props.data}
                   setData={setFilteredData}
                   setIncludedColumns={setIncludedColumns}
                   includedColumns={includedColumns}
