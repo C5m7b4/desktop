@@ -110,6 +110,7 @@ function DataGrid<T extends {}>(props: TableProps<T>) {
               .filter((c) => includes(c.columnName as string))
               .map((column, i) => (
                 <RenderHeader
+                  _uuid={props._uid}
                   key={`rh-${i}`}
                   column={column}
                   i={i}
