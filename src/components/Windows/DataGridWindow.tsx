@@ -1,15 +1,15 @@
 import Window from "../Window/Window";
 import { IBody } from "../../layout";
 import DataGrid from "../Grid/DataGrid";
-import { pivotData } from "../../mockData/pivotData";
-import { ColumnAlignment } from "../../interfaces/Grid";
+import { pivotData, IPivotData } from "../../mockData/pivotData";
+import { ColumnAlignment, TableHeader } from "../../interfaces/Grid";
 
 interface Props {
   parent?: React.ReactNode;
   block: IBody;
 }
 
-const columns = [
+const columns: TableHeader<IPivotData>[] = [
   {
     title: "#",
     columnName: "Customer",
@@ -18,7 +18,7 @@ const columns = [
   },
   {
     title: "Order ID",
-    columnName: "Order ID",
+    columnName: "OrderId",
     width: 85,
     align: ColumnAlignment.left,
   },
@@ -47,7 +47,7 @@ const columns = [
   },
   {
     title: "Our Cost",
-    columnName: "Our Cost",
+    columnName: "Our cost",
     width: 100,
     align: ColumnAlignment.right,
   },
