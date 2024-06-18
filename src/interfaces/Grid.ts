@@ -27,5 +27,6 @@ export type TableHeader<T> = {
 export interface TableProps<T> {
   data: T[];
   columns: TableHeader<T>[];
+  _uid: string;
   // customerRenderers?: CustomRenderers<T>;
 }
