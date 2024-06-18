@@ -60,7 +60,7 @@ function DataGrid<T extends {}>(props: TableProps<T>) {
 
   useEffect(() => {
     buildComponent();
-  }, [columns]);
+  }, [columns, includedColumns]);
 
   const columnsInclude = (row: T, columnName: keyof T, value: string[]) => {
     return value.includes(row[columnName] as string);
@@ -216,7 +216,8 @@ function DataGrid<T extends {}>(props: TableProps<T>) {
                   column,
                   columns,
                   tableWidth,
-                  theme.scrollbar.width
+                  theme.scrollbar.width,
+                  includedColumns
                 )}
                 $align={column.align}
               >

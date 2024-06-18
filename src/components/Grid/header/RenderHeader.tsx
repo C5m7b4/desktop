@@ -152,7 +152,7 @@ function RenderHeader<T>(props: Props<T>) {
     e.currentTarget.style.opacity = "0.8";
   };
 
-  const handleDragLeave = (e: React.DragEvent<HTMLTableCellElement>) => {
+  const handleDragLeave = (e: React.DragEvent<HTMLDivElement>) => {
     // @ts-expect-error cannot be null
     e.currentTarget.style.border = null;
     e.currentTarget.style.opacity = "1.0";
@@ -204,14 +204,15 @@ function RenderHeader<T>(props: Props<T>) {
           />
         ) : null}
         <Th
-          draggable
-          onDragStart={handleDragStart}
-          onDragLeave={(e) => handleDragLeave(e)}
-          onDragOver={handleDragOver}
-          onDrop={handleDrop}
           key={`th-tr-${i}`}
           ref={thRef}
-          $width={calculateWidth(column, columns, tableWidth, scrollbarWidth)}
+          $width={calculateWidth(
+            column,
+            columns,
+            tableWidth,
+            scrollbarWidth,
+            includedColumns
+          )}
           $align={column.align}
           $background={
             headersActive &&
@@ -221,6 +222,11 @@ function RenderHeader<T>(props: Props<T>) {
           }
         >
           <div
+            draggable
+            onDragStart={handleDragStart}
+            onDragLeave={(e) => handleDragLeave(e)}
+            onDragOver={handleDragOver}
+            onDrop={handleDrop}
             style={{ padding: "5px 0 5px 0" }}
             onClick={() => {
               setHeadersActive(!headersActive);

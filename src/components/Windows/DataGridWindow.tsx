@@ -22,7 +22,7 @@ function FormatMoneyRenderer<T>(args: CustomRenderer<T>) {
 
 function FormatNumberRenderer<T>(args: CustomRenderer<T>) {
   const { value } = args;
-  return <div>{formatNumber(value as MoneyInput)}</div>;
+  return <div>{formatNumber(value as MoneyInput, 0)}</div>;
 }
 
 const columns: TableHeader<IPivotData>[] = [

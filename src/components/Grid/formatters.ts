@@ -39,17 +39,28 @@ export const formatMoney = (input: MoneyInput): string => {
   return `$${left}.${right}`;
 };
 
-export const formatNumber = (input: MoneyInput): string => {
+export const formatNumber = (
+  input: MoneyInput,
+  decimals: number = 2
+): string => {
   if (!isValid(input)) return "0";
   input = input.toString();
   const pos = input.indexOf(".");
   if (pos < 0) {
+    if (decimals === 0) {
+      return input;
+    }
     return `${input}.00`;
   }
   const left = input.substring(0, pos);
   let right = input.substring(pos + 1);
-  if (right.length === 1) {
-    right = right + "0";
+  if (right.length < decimals) {
+    const charsToPad = decimals - right.length;
+    const padding = [...Array(Number(charsToPad))].map(() => "0").join("");
+    right = padding;
+  }
+  if (decimals === 0) {
+    return left;
   }
   if (left.length === 0) {
     return `.${right}`;
