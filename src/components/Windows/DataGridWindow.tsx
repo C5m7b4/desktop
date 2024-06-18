@@ -56,7 +56,7 @@ const columns = [
 const PivotWindow: React.FC<Props> = ({ block }) => {
   return (
     <Window block={block}>
-      <DataGrid data={pivotData} columns={columns} />
+      <DataGrid data={pivotData} columns={columns} _uid={block._uid} />
     </Window>
   );
 };
