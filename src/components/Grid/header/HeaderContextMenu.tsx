@@ -151,16 +151,16 @@ function HeaderContextMenu<T>(props: Props<T>) {
     ) {
       const upperBox = upperRef.current.getBoundingClientRect();
       const searchBox = searchRef.current.getBoundingClientRect();
-      const columnsBox = columnsRef.current.getBoundingClientRect();
+      // const columnsBox = columnsRef.current.getBoundingClientRect();
       const menuBox = menuRef.current.getBoundingClientRect();
       const buttonsBox = buttonsRef.current.getBoundingClientRect();
       const height =
         menuBox.height -
         upperBox.height -
         searchBox.height -
-        columnsBox.height -
+        // columnsBox.height -
         buttonsBox.height -
-        30;
+        50;
       setItemListHeight(height);
     }
 

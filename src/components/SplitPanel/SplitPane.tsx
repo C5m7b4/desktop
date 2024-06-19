@@ -7,6 +7,7 @@ import React, {
   createRef,
   useRef,
 } from "react";
+import { LeftChevronIcon } from "../../svgs";
 
 const splitPaneContext = createContext({
   topHeight: null,
@@ -15,12 +16,17 @@ const splitPaneContext = createContext({
   setRightWidth: React.Dispatch<React.SetStateAction<null | number>>,
 });
 
-const SplitPaneDiv = styled.div<{ $direction: string }>`
+const SplitPaneDiv = styled.div<{ $direction: string; $height: string }>`
   display: flex;
   width: 100%;
   flex-direction: ${(props) =>
     props.$direction === "horizontal" ? "column" : "row"};
-  height: ${(props) => (props.$direction === "horizontal" ? "null" : "100%")};
+  height: ${(props) =>
+    props.$direction === "horizontal"
+      ? "null"
+      : props.$height
+      ? `${props.$height}px`
+      : "100%"};
 `;
 
 const Separator = styled.div<{
@@ -62,6 +68,7 @@ interface Props {
   separatorWidth?: number;
   separatorColor?: string;
   props?: any;
+  height?: number;
 }
 
 export default function SplitPane(props: Props) {
@@ -76,6 +83,7 @@ export default function SplitPane(props: Props) {
     props: remainingProps,
     separatorWidth,
     separatorColor,
+    height,
   } = props;
   const splitPaneRef = createRef<HTMLDivElement>();
 
@@ -126,18 +134,19 @@ export default function SplitPane(props: Props) {
       $direction={direction}
       className="split-pane"
       ref={splitPaneRef}
+      $height={height}
     >
       <splitPaneContext.Provider
         value={{ topHeight, setTopHeight, rightWidth, setRightWidth }}
       >
-        {children[0]}
+        {children && children[0]}
         <Separator
           $direction={direction}
           className="separator"
           onMouseDown={onMouseDown}
           $width={separatorWidth || 5}
           $color={separatorColor}
-        />
+        ></Separator>
         {children[1]}
       </splitPaneContext.Provider>
     </SplitPaneDiv>

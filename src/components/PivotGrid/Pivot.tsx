@@ -3,13 +3,13 @@ import styled from "styled-components";
 import { IRow } from "./dropTargets/Rows";
 import { IValue } from "./dropTargets/Values";
 import THead from "./head/THead";
+import BodyContextMenu from "./contextMenus/BodyContextMenu";
 
 import TableRow from "./body/TableRow";
 
 const Table = styled.div`
   width: 100%;
   height: 90%;
-  border: 1px solid black;
   font-size: ${(props) => props.theme.fontSizes.normal};
   border-radius: 5px 5px 0 0;
   transition: ${(props) => props.theme.transition};
@@ -51,6 +51,7 @@ function Pivot<T>(props: Props<T>) {
   const [showFormatterModal, setShowFormatterModal] = useState(false);
   const [aliasValue, setAliasValue] = useState("");
   const [formatterValue, setFormatterValue] = useState("");
+  const [showBodyContextMenu, setShowBodyContextMenu] = useState(false);
 
   const tableRef = useRef<HTMLDivElement>(null);
   const tableBodyRef = useRef<HTMLDivElement>(null);
@@ -202,13 +203,37 @@ function Pivot<T>(props: Props<T>) {
     }
   };
 
+  const handleBodyContext = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    if (tableRef.current) {
+      const parent = tableRef.current.parentElement;
+      const parentbox = parent?.getBoundingClientRect();
+      if (parentbox) {
+        setPoints({
+          x: e.clientX,
+          y: e.clientY,
+        });
+        setShowBodyContextMenu(true);
+      }
+    }
+  };
+
   const renderTableBody = () => {
     return (
       <div
         ref={tableBodyRef}
         className="seudo-table-body"
-        style={{ padding: "4px 6px" }}
+        style={{ padding: "4px 6px", position: "relative" }}
+        onContextMenu={handleBodyContext}
       >
+        {showBodyContextMenu ? (
+          <BodyContextMenu
+            top={points.y}
+            left={points.x}
+            isShowing={showBodyContextMenu}
+            hide={() => setShowBodyContextMenu(false)}
+          />
+        ) : null}
         {Object.keys(data).map((r, i) => {
           return (
             <TableRow

@@ -8,6 +8,7 @@ import { groupFn } from "../../utils/arrayUtils";
 import { Box } from "../../utils/Box";
 import SplitPane from "../SplitPanel/SplitPane";
 import { debounce } from "../../utils/utils";
+import Footer from "./body/Footer";
 
 // import Pivot from "./Pivot";
 // import Configurator from "./Configurator";
@@ -19,17 +20,35 @@ const Div = styled.div<{ $height: number }>`
   background-color: ${(props) => props.theme.colors.bg};
 `;
 
-const TableContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  height: 100%;
+const TableContainer = styled.div<{ $footerHeight: number; $height: number }>`
+  height: ${(props) => props.$height}px;
+  display: grid;
+  grid-template-rows: 1fr ${(props) => props.$footerHeight}px;
+`;
+
+const FooterDiv = styled.div`
+  height: 25px;
+  background-color: ${(Props) => Props.theme.colors.table.excel};
+  color: ${(props) => props.theme.colors.table.thText};
+  padding: 3px 15px;
 `;
 
 interface Props<T> {
   data: T[];
+  columns: IColumn[];
+  loading?: boolean;
+  downloaded?: number;
 }
 
-function PivotGrid<T, _>({ data, columns }) {
+export interface IColumn {
+  title: string;
+  columnName: string;
+  width: number;
+  align: ColumnAlignment;
+  renderer?: null;
+}
+
+function PivotGrid<T, _>({ data, columns, loading, downloaded }: Props<T>) {
   const [rows, setRows] = useState<IRow[]>([]);
   const [filters, setFilters] = useState([]);
   // const [columns, setColumns] = useState([]);
@@ -37,13 +56,19 @@ function PivotGrid<T, _>({ data, columns }) {
   const [height, setHeight] = useState(0);
   const [pivotedData, setPivotedData] = useState<T[]>([]);
   const [resized, setResized] = useState(false);
+  const [footerHeight, setFooterHeight] = useState(0);
 
   const theme = useTheme();
   const windowRef = useRef<HTMLDivElement>(null);
   const resizeRef = useRef();
   const parentResizeRef = useRef();
+  const footerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (footerRef.current) {
+      const footerBox = footerRef.current.getBoundingClientRect();
+      setFooterHeight(footerBox.height);
+    }
     if (windowRef.current) {
       resizeHandler();
       resizeRef.current = new ResizeObserver(
@@ -84,11 +109,16 @@ function PivotGrid<T, _>({ data, columns }) {
 
   return (
     <Div className="pivot-grid-window" ref={windowRef} $height={height}>
-      <TableContainer>
+      <TableContainer
+        $height={height - footerHeight}
+        $footerHeight={footerHeight}
+        className="table-container"
+      >
         <SplitPane
           direction={"vertical"}
           separatorWidth={2}
           separatorColor={"black"}
+          $height={height - footerHeight}
         >
           <SplitPane.Left>
             <Pivot
@@ -112,6 +142,9 @@ function PivotGrid<T, _>({ data, columns }) {
             />
           </SplitPane.Right>
         </SplitPane>
+        <FooterDiv ref={footerRef}>
+          <Footer loading={loading} downloaded={downloaded} data={data} />
+        </FooterDiv>
       </TableContainer>
     </Div>
   );
