@@ -15,5 +15,6 @@ module.exports = {
       { allowConstantExport: true },
     ],
     "@typescript-eslint/ban-types": 0,
+    "no-case-declarations": 0,
   },
 };
