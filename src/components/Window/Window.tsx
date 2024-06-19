@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes, useTheme } from "styled-components";
 import WindowHeader from "./WindowHeader";
 import { createPortal } from "react-dom";
 import { IApp } from "../../redux/app";
@@ -109,14 +109,24 @@ const Window: React.FC<Props> = ({
 }) => {
   const dispatch = useDispatch();
   const [animation, setAnimation] = useState("none");
-  const panelRef = useRef<HTMLDivElement>(null);
   const { height, title, width, _uid, name } = block;
+  const theme = useTheme();
+
+  const panelRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     SubEvent.on(eventTypes.maximize, () => {
       console.log("setting animation to maximize");
       setAnimation(maximize);
     });
+
+    if (contentRef.current && panelRef.current) {
+      const panelBox = panelRef.current.getBoundingClientRect();
+      const headerHeight = theme.window.windowHeaderHeight;
+      const contentHeight = panelBox.height - headerHeight;
+      contentRef.current.style.height = `${contentHeight}px`;
+    }
   }, []);
 
   const handleDrag = (movementX: number, movementY: number) => {
@@ -230,7 +240,7 @@ const Window: React.FC<Props> = ({
                 handleMinimize={handleMinimize}
                 _uid={block._uid}
               />
-              <Content className="contents">
+              <Content ref={contentRef} className="contents">
                 <Children>{children}</Children>
               </Content>
             </PortalWindow>,
