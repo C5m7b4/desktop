@@ -13,6 +13,7 @@ import { SortZA } from "./SortZA";
 import { UpArrow } from "./UpArrow";
 import { DownArrow } from "./DownArrow";
 import { CheckboxIcon } from "./CheckboxIcon";
+import { LeftChevronIcon } from "./LeftChevronIcon";
 
 export {
   BoxMinusIcon,
@@ -30,4 +31,5 @@ export {
   UpArrow,
   DownArrow,
   CheckboxIcon,
+  LeftChevronIcon,
 };
