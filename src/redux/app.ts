@@ -8,6 +8,8 @@ export type IApp = {
   width: number;
   title?: string;
   name?: string;
+  left?: number;
+  top?: number;
 };
 
 export type IMiniApp = {
@@ -31,30 +33,32 @@ interface AppState {
 
 const initialState: AppState = {
   apps: [
-    {
-      _uid: "hkhwer98u987",
-      component: "counter",
-      height: 400,
-      width: 400,
-      title: "Counter",
-      name: "Counter",
-    },
-    {
-      _uid: "ff746354",
-      component: "receiver",
-      height: 200,
-      width: 400,
-      title: "Receiver",
-      name: "Receiver",
-    },
     // {
-    //   _uid: "hsdkerer",
-    //   component: "calculator",
+    //   _uid: "hkhwer98u987",
+    //   component: "counter",
+    //   height: 400,
+    //   width: 400,
+    //   title: "Counter",
+    //   name: "Counter",
+    // },
+    // {
+    //   _uid: "ff746354",
+    //   component: "receiver",
     //   height: 200,
     //   width: 400,
-    //   title: "Calculator",
-    //   name: "Calculator",
+    //   title: "Receiver",
+    //   name: "Receiver",
     // },
+    {
+      _uid: "badass_calc",
+      component: "calculator",
+      height: 200,
+      width: 500,
+      left: 25,
+      top: 650,
+      title: "Calculator",
+      name: "Calculator",
+    },
   ],
   minimizedApps: [],
 };
