@@ -1,9 +1,11 @@
 import { Footer } from "../divs";
 import { sort } from "../../../utils/sort";
+import { TableHeader } from "../../../interfaces/Grid";
 
 interface Props<T> {
   data: T[];
   activeHeader: keyof T;
+  includedHeaders: TableHeader<T>[];
 }
 
 function sum<T>(data: T[], column: keyof T) {
@@ -61,14 +63,16 @@ function median<T>(data: T[], column: keyof T) {
 }
 
 function RenderFooter<T>(props: Props<T>) {
-  const { data, activeHeader } = props;
+  const { data, activeHeader, includedColumns } = props;
 
   return (
     <Footer>
       <div>{`rows: ${data.length}`}</div>
       <div> &nbsp;|&nbsp; </div>
       <div>{`columns: ${
-        data && data.length ? Object.keys(data[0]).length : "0"
+        data && data.length
+          ? `${includedColumns.length}/${Object.keys(data[0]).length}`
+          : "0"
       }`}</div>
       <div> &nbsp;|&nbsp; </div>
       <div>{`sum: ${sum(data, activeHeader)}`}</div>
