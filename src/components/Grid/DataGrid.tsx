@@ -237,6 +237,7 @@ function DataGrid<T extends {}>(props: TableProps<T>) {
       <RenderFooter
         data={filteredData}
         activeHeader={(activeHeader as TableHeader<T>).columnName}
+        includedColumns={includedColumns}
       />
     </Div>
   );
