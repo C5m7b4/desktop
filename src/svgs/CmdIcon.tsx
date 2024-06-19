@@ -32,7 +32,7 @@ const Icon = styled.svg<{ $stroke: string; $hoverColor: string }>`
   animation-timing-function: ease-out;
 `;
 
-export const LeftChevronIcon: React.FC<Props> = ({
+export const CmdIcon: React.FC<Props> = ({
   scale = 15,
   style,
   onClick,
@@ -55,42 +55,47 @@ export const LeftChevronIcon: React.FC<Props> = ({
         }
       }}
     >
-      <g>
-        <line
-          strokeWidth="50"
-          stroke={stroke ?? theme.colors.table.iconHoverColor}
-          strokeLinecap="round"
-          strokeMiterlimit={10}
-          fill="none"
-          x1="372.48"
-          y1="108.66"
-          x2="101.97"
-          y2="248.75"
-        />
-        <line
-          strokeWidth="50"
-          stroke={stroke ?? theme.colors.table.iconHoverColor}
-          strokeLinecap="round"
-          strokeMiterlimit={10}
-          fill="none"
-          x1="101.97"
-          y1="248.75"
-          x2="369.53"
-          y2="391.34"
-        />
-      </g>
       <rect
-        strokeWidth="20"
-        stroke={stroke ?? theme.colors.table.iconHoverColor}
-        strokeLinecap="round"
+        fill="#fff"
+        x="12.71"
+        y="12.59"
+        width="475"
+        height="475"
+        rx="26"
+        ry="26"
         strokeMiterlimit={10}
+        strokeWidth="20"
+      />
+
+      <line
+        stroke={stroke ?? theme.colors.table.iconHoverColor}
+        strokeMiterlimit={10}
+        strokeWidth="20"
         fill="none"
-        x="15.55"
-        y="13.85"
-        width="468.9"
-        height="472.3"
-        rx="19.22"
-        ry="19.22"
+        x1="89.15"
+        y1="85.57"
+        x2="244.32"
+        y2="250"
+      />
+      <line
+        stroke={stroke ?? theme.colors.table.iconHoverColor}
+        strokeMiterlimit={10}
+        strokeWidth="20"
+        fill="none"
+        x1="70.18"
+        y1="407.99"
+        x2="244.32"
+        y2="250"
+      />
+      <line
+        stroke={stroke ?? theme.colors.table.iconHoverColor}
+        strokeMiterlimit={10}
+        strokeWidth="20"
+        fill="none"
+        x1="250"
+        y1="404.54"
+        x2="429.95"
+        y2="404.54"
       />
     </Icon>
   );

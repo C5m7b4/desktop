@@ -32,7 +32,7 @@ const Icon = styled.svg<{ $stroke: string; $hoverColor: string }>`
   animation-timing-function: ease-out;
 `;
 
-export const LeftChevronIcon: React.FC<Props> = ({
+export const RightChevronIcon: React.FC<Props> = ({
   scale = 15,
   style,
   onClick,
@@ -62,10 +62,10 @@ export const LeftChevronIcon: React.FC<Props> = ({
           strokeLinecap="round"
           strokeMiterlimit={10}
           fill="none"
-          x1="372.48"
-          y1="108.66"
-          x2="101.97"
-          y2="248.75"
+          x1="101.97"
+          y1="391.34"
+          x2="372.48"
+          y2="251.25"
         />
         <line
           strokeWidth="50"
@@ -73,10 +73,10 @@ export const LeftChevronIcon: React.FC<Props> = ({
           strokeLinecap="round"
           strokeMiterlimit={10}
           fill="none"
-          x1="101.97"
-          y1="248.75"
-          x2="369.53"
-          y2="391.34"
+          x1="372.48"
+          y1="251.25"
+          x2="104.92"
+          y2="108.66"
         />
       </g>
       <rect
