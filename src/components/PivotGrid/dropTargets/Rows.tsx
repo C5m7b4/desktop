@@ -1,12 +1,5 @@
 import { doesRowExist } from "../../../utils/arrayUtils";
-import styled from "styled-components";
-
-const FiltersContainer = styled.div`
-  min-height: 100px;
-  background-color: white;
-  transition: all 0.4s ease;
-  border: 1px solid black;
-`;
+import { FiltersContainer, Title } from "./divs";
 
 export interface IRow {
   label: string;
@@ -88,7 +81,7 @@ const Rows: React.FC<Props> = ({ rows, setRows }) => {
   };
   return (
     <>
-      <div>Rows</div>
+      <Title>Rows</Title>
       <FiltersContainer
         className="filters-container"
         id="filtered-rows"
