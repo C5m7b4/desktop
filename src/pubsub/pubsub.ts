@@ -18,7 +18,7 @@ export const SubEvent = {
     return this;
   },
   emit(eventType: eventTypes, args: string) {
-    console.log(`emit triggered`);
+    console.log(`emit triggered: ${eventType}, args: ${args}`);
     this.list.get(eventType) &&
       this.list.get(eventType).forEach((cb: eventActionType) => {
         console.log(`emitting event ${eventType}`);
