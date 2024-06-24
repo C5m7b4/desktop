@@ -56,12 +56,15 @@ const Taskbar = () => {
   };
 
   return (
-    <Div>
+    <Div id={"main-taskbar"}>
       <Circle onClick={handleClick} />
       <MinimizedApps />
       <Clock />
 
-      <StartMenu showStartMenu={showStartMenu} />
+      <StartMenu
+        showStartMenu={showStartMenu}
+        setShowStartMenu={setShowStartMenu}
+      />
     </Div>
   );
 };
