@@ -10,6 +10,7 @@ export const Div = styled.div`
 
 export const SearchInput = styled.div`
   margin: 10px 12px;
+  display: flex;
 `;
 
 export const FieldsContainer = styled.div`
