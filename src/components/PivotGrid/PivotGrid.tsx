@@ -95,6 +95,8 @@ function PivotGrid<T, _>({ data, columns, loading, downloaded }: Props<T>) {
   }, [rows]);
 
   const resizeHandler = useCallback(() => {
+    console.log("resize handler");
+    setResized(!resized);
     if (windowRef.current) {
       const windowDimensions =
         windowRef.current.parentElement?.parentElement?.parentElement?.getBoundingClientRect();
@@ -104,7 +106,6 @@ function PivotGrid<T, _>({ data, columns, loading, downloaded }: Props<T>) {
         setHeight(panelHeight);
       }
     }
-    setResized(!resized);
   }, []);
 
   return (
@@ -118,7 +119,7 @@ function PivotGrid<T, _>({ data, columns, loading, downloaded }: Props<T>) {
           direction={"vertical"}
           separatorWidth={2}
           separatorColor={"black"}
-          $height={height - footerHeight}
+          height={height - footerHeight}
         >
           <SplitPane.Left>
             <Pivot
