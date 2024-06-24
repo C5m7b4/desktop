@@ -2,22 +2,26 @@
 export enum eventTypes {
   maximize,
   clear,
+  moved,
 }
 
-type eventActionType = (e: string) => void;
+export type eventActionType = (e: string) => void;
 
 export const SubEvent = {
   list: new Map(),
   on(eventType: eventTypes, eventAction: eventActionType) {
     this.list.has(eventType) || this.list.set(eventType, []);
-    if (this.list.get(eventType)) {
+    const listLength = this.list.get(eventType).length;
+    if (listLength === 0) {
       this.list.get(eventType).push(eventAction);
     }
     return this;
   },
   emit(eventType: eventTypes, args: string) {
+    console.log(`emit triggered: ${eventType}, args: ${args}`);
     this.list.get(eventType) &&
       this.list.get(eventType).forEach((cb: eventActionType) => {
+        console.log(`emitting event ${eventType}`);
         cb(args);
       });
   },

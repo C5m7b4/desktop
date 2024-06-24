@@ -7,14 +7,7 @@ import {
   pivotMedian,
   aggregateOptions,
 } from "../aggregators";
-import styled from "styled-components";
-
-const FiltersContainer = styled.div`
-  min-height: 100px;
-  background-color: white;
-  transition: all 0.4s ease;
-  border: 1px solid black;
-`;
+import { FiltersContainer, Title } from "./divs";
 
 export interface IValue {
   aggregator: string;
@@ -99,7 +92,7 @@ const Values: React.FC<Props> = ({ values, setValues }) => {
 
   return (
     <>
-      <div>Values</div>
+      <Title>Values</Title>
       <FiltersContainer
         id="filter-values"
         onDragOver={handleDragOver}

@@ -75,7 +75,7 @@ export function grandTotalSum<T>(arr: T[], lookupField: keyof T) {
   return total;
 }
 
-export function groupFn<T extends {}>(arr: T[], fields: Array<keyof T>) {
+export function groupFn<T extends {}>(arr: T[], fields: Array<keyof T>): T[] {
   if (fields.length === 0) return arr;
   if (!Array.isArray(arr)) return arr;
 

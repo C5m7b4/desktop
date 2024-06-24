@@ -33,14 +33,14 @@ function TableRow<T>(props: Props<T>) {
     <div key={`table-row-container-${i}`}>
       <Div key={`tr-${i}`}>
         {rows.length > 1 ? (
-          <Td $align={"left"} $width={calculateWidth() as number}>
+          <Td $align={"left"} $bold={true} $width={calculateWidth() as number}>
             <span onClick={handleClick}>
               {expanded ? <BoxMinusIcon /> : <BoxPlusIcon />}
             </span>
             <span>{r}</span>
           </Td>
         ) : (
-          <Td $align={"left"} $width={calculateWidth() as number}>
+          <Td $align={"left"} $bold={false} $width={calculateWidth() as number}>
             {r}
           </Td>
         )}

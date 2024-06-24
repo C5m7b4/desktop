@@ -7,6 +7,12 @@ import React, {
   createRef,
   useRef,
 } from "react";
+import {
+  LeftChevronIcon,
+  RightChevronIcon,
+  UpChevronIcon,
+  DownChevronIcon,
+} from "../../svgs";
 
 const splitPaneContext = createContext({
   topHeight: null,
@@ -15,12 +21,18 @@ const splitPaneContext = createContext({
   setRightWidth: React.Dispatch<React.SetStateAction<null | number>>,
 });
 
-const SplitPaneDiv = styled.div<{ $direction: string }>`
+const SplitPaneDiv = styled.div<{ $direction: string; $height: string }>`
   display: flex;
   width: 100%;
   flex-direction: ${(props) =>
     props.$direction === "horizontal" ? "column" : "row"};
-  height: ${(props) => (props.$direction === "horizontal" ? "null" : "100%")};
+  height: ${(props) =>
+    props.$direction === "horizontal"
+      ? "null"
+      : props.$height
+      ? `${props.$height}px`
+      : "100%"};
+  transition: all 0.3s ease-in;
 `;
 
 const Separator = styled.div<{
@@ -42,6 +54,7 @@ const SplitPaneTopDiv = styled.div`
 const SplitPaneRightDiv = styled.div`
   overflow: hidden;
   width: 300px;
+  /* transition: all 0.3s cubic-bezier(0, -0.25, 0.92, 0.62); */
 `;
 
 const SplitPaneBottomDiv = styled.div`
@@ -50,8 +63,16 @@ const SplitPaneBottomDiv = styled.div`
 `;
 
 const SplitPanelLeftDiv = styled.div`
+  position: relative;
   flex: 1;
   overflow: hidden;
+`;
+
+const CollapsePanel = styled.div<{ $right: number }>`
+  position: absolute;
+  top: 50px;
+  right: ${(props) => props.$right}px;
+  opacity: 0.8;
 `;
 
 type IDirection = "horizontal" | "vertical";
@@ -62,11 +83,13 @@ interface Props {
   separatorWidth?: number;
   separatorColor?: string;
   props?: any;
+  height?: number;
 }
 
 export default function SplitPane(props: Props) {
   const [topHeight, setTopHeight] = useState(null);
   const [rightWidth, setRightWidth] = useState(null);
+  const [collapsed, setCollapsed] = useState(false);
   const separatorYPosition = useRef(null);
   const separatorXPosition = useRef(null);
 
@@ -76,10 +99,11 @@ export default function SplitPane(props: Props) {
     props: remainingProps,
     separatorWidth,
     separatorColor,
+    height,
   } = props;
   const splitPaneRef = createRef<HTMLDivElement>();
 
-  const onMouseDown = (e) => {
+  const onMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
     if (direction === "horizontal") {
       separatorYPosition.current = e.clientY;
     } else {
@@ -87,7 +111,7 @@ export default function SplitPane(props: Props) {
     }
   };
 
-  const onMouseMove = (e) => {
+  const onMouseMove = (e: MouseEvent) => {
     if (direction == "horizontal") {
       if (!separatorYPosition.current) {
         return;
@@ -120,24 +144,59 @@ export default function SplitPane(props: Props) {
     };
   });
 
+  const handleCollapse = () => {
+    if (direction === "vertical") {
+      if (collapsed) {
+        setCollapsed(false);
+        setRightWidth(300);
+      } else {
+        setCollapsed(true);
+        setRightWidth(1);
+      }
+    } else {
+      if (collapsed) {
+        setCollapsed(false);
+        setTopHeight(300);
+      } else {
+        setCollapsed(true);
+        setTopHeight(1);
+      }
+    }
+  };
+
   return (
     <SplitPaneDiv
       {...remainingProps}
       $direction={direction}
       className="split-pane"
       ref={splitPaneRef}
+      $height={height}
     >
       <splitPaneContext.Provider
         value={{ topHeight, setTopHeight, rightWidth, setRightWidth }}
       >
-        {children[0]}
+        {children && children[0]}
         <Separator
           $direction={direction}
           className="separator"
           onMouseDown={onMouseDown}
           $width={separatorWidth || 5}
-          $color={separatorColor}
-        />
+          $color={separatorColor!}
+        >
+          <CollapsePanel $right={rightWidth} onClick={handleCollapse}>
+            {direction === "vertical" ? (
+              collapsed ? (
+                <LeftChevronIcon />
+              ) : (
+                <RightChevronIcon />
+              )
+            ) : collapsed ? (
+              <UpChevronIcon />
+            ) : (
+              <DownChevronIcon />
+            )}
+          </CollapsePanel>
+        </Separator>
         {children[1]}
       </splitPaneContext.Provider>
     </SplitPaneDiv>
@@ -162,7 +221,7 @@ SplitPane.Top = function SplitPanelTop(props) {
 };
 
 SplitPane.Right = function SplitPanelRight(props) {
-  const rightRef = createRef<HTMLDivElement>(null);
+  const rightRef = createRef<HTMLDivElement>();
   const { rightWidth, setRightWidth } = useContext(splitPaneContext);
 
   useEffect(() => {
@@ -184,5 +243,5 @@ SplitPane.Bottom = function SplitPanelBottom(props) {
 };
 
 SplitPane.Left = function SplitPanelBottom(props) {
-  return <SplitPanelLeftDiv {...props} />;
+  return <SplitPanelLeftDiv {...props}></SplitPanelLeftDiv>;
 };

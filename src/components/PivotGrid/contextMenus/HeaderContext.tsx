@@ -6,6 +6,7 @@ import { IValue } from "../dropTargets/Values";
 import NumberField from "../../NumberField";
 import Checkbox from "../../Checkbox";
 import Button from "../../Button";
+import { createPortal } from "react-dom";
 
 const Div = styled.div`
   border-bottom: 1px solid black;
@@ -43,11 +44,20 @@ interface Props {
   values: IValue[];
   setValues: (i: IValue[]) => void;
   close: () => void;
+  showHeaderContextMenu: boolean;
 }
 
 function HeaderContext(props: Props) {
-  const { top, left, column, handleAliasClick, values, setValues, close } =
-    props;
+  const {
+    top,
+    left,
+    column,
+    handleAliasClick,
+    values,
+    setValues,
+    close,
+    showHeaderContextMenu,
+  } = props;
   const [isPercentage, setIsPercentage] = useState(false);
   const [decimals, setDecimals] = useState(0);
   const [selected, setSelected] = useState("");
@@ -148,47 +158,67 @@ function HeaderContext(props: Props) {
     zIndex: "999",
   };
   return (
-    <div ref={windowRef} style={style as React.CSSProperties}>
-      <Div className="header-element" onClick={() => handleAliasClick(column)}>
-        Create Alias
-      </Div>
-      <div>
-        <H3>Select a Formatter</H3>
-        <Select
-          onChange={handleFormatterClick}
-          placeholder="Formatters"
-          options={formatters}
-          value={selected}
-        />
-      </div>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <H3>Decimal Places</H3>
-        <NumberField value={decimals} onChange={(e) => setDecimals(e)} />
-      </div>
-      <div
-        style={{
-          margin: "10px 10px",
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
-        <Checkbox
-          label="Percentage"
-          checked={isPercentage}
-          onChange={setIsPercentage}
-        />
-      </div>
-      <Buttons>
-        <Button label="OK" onClick={handleOk} type="normal" size="small" />
-      </Buttons>
-    </div>
+    <>
+      {showHeaderContextMenu ? (
+        <>
+          {createPortal(
+            <div ref={windowRef} style={style as React.CSSProperties}>
+              <Div
+                className="header-element"
+                onClick={() => handleAliasClick(column)}
+              >
+                Create Alias
+              </Div>
+              <div>
+                <H3>Select a Formatter</H3>
+                <Select
+                  onChange={handleFormatterClick}
+                  placeholder="Formatters"
+                  options={formatters}
+                  value={selected}
+                />
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <H3>Decimal Places</H3>
+                <NumberField
+                  value={decimals}
+                  onChange={(e) => setDecimals(e)}
+                />
+              </div>
+              <div
+                style={{
+                  margin: "10px 10px",
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+              >
+                <Checkbox
+                  label="Percentage"
+                  checked={isPercentage}
+                  onChange={setIsPercentage}
+                />
+              </div>
+              <Buttons>
+                <Button
+                  label="OK"
+                  onClick={handleOk}
+                  type="normal"
+                  size="small"
+                />
+              </Buttons>
+            </div>,
+            document.body
+          )}
+        </>
+      ) : null}
+    </>
   );
 }
 

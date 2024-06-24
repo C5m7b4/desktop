@@ -151,16 +151,16 @@ function HeaderContextMenu<T>(props: Props<T>) {
     ) {
       const upperBox = upperRef.current.getBoundingClientRect();
       const searchBox = searchRef.current.getBoundingClientRect();
-      const columnsBox = columnsRef.current.getBoundingClientRect();
+      // const columnsBox = columnsRef.current.getBoundingClientRect();
       const menuBox = menuRef.current.getBoundingClientRect();
       const buttonsBox = buttonsRef.current.getBoundingClientRect();
       const height =
         menuBox.height -
         upperBox.height -
         searchBox.height -
-        columnsBox.height -
+        // columnsBox.height -
         buttonsBox.height -
-        30;
+        50;
       setItemListHeight(height);
     }
 
@@ -210,7 +210,7 @@ function HeaderContextMenu<T>(props: Props<T>) {
     } else {
       if (c.toLowerCase() === "(select all)") {
         setCheckedColumns([]);
-        setRowFilterConfiguration({ column: "", value: [] });
+        setRowFilterConfiguration({ column: null, value: [] });
       } else {
         const filtered = checkedColumns.filter((cc) => cc != c);
         setCheckedColumns(filtered);

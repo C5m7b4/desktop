@@ -14,7 +14,7 @@ const Div = styled.div<{ $height: number }>`
 `;
 
 export type RowFilterConfiguration<T> = {
-  column: keyof T;
+  column: keyof T | null;
   value: string[];
 };
 
@@ -25,9 +25,10 @@ function DataGrid<T extends {}>(props: TableProps<T>) {
   const [headersActive, setHeadersActive] = useState(false);
   const [activeHeader, setActiveHeader] = useState<TableHeader<T> | {}>({});
   const [includedColumns, setIncludedColumns] = useState<TableHeader<T>[]>([]);
+  const [columns, setColumns] = useState<TableHeader<T>[]>(props.columns);
   const [rowFilterConfiguration, setRowFilterConfiguration] = useState<
     RowFilterConfiguration<T>
-  >({ column: "", value: [] });
+  >({ column: null, value: [] });
   const theme = useTheme();
 
   //refs
@@ -44,7 +45,7 @@ function DataGrid<T extends {}>(props: TableProps<T>) {
         debounce(resizeHandler, 500)
       ).observe(windowRef.current);
     }
-    const newColumnArray = props.columns.map((column) => column);
+    const newColumnArray = columns.map((column) => column);
     setIncludedColumns(newColumnArray);
 
     return () => {};
@@ -57,6 +58,10 @@ function DataGrid<T extends {}>(props: TableProps<T>) {
     }
   }, [rowFilterConfiguration]);
 
+  useEffect(() => {
+    buildComponent();
+  }, [columns, includedColumns]);
+
   const columnsInclude = (row: T, columnName: keyof T, value: string[]) => {
     return value.includes(row[columnName] as string);
   };
@@ -64,14 +69,14 @@ function DataGrid<T extends {}>(props: TableProps<T>) {
   const filterPredicate = (row: T) => {
     return columnsInclude(
       row,
-      rowFilterConfiguration.column,
+      rowFilterConfiguration.column as keyof T,
       rowFilterConfiguration.value
     );
   };
 
   const resizeHandler = useCallback(() => {
     buildComponent();
-  }, []);
+  }, [columns]);
 
   const includes = (v: string) => {
     const index = includedColumns.findIndex(
@@ -82,6 +87,7 @@ function DataGrid<T extends {}>(props: TableProps<T>) {
   };
 
   const buildComponent = () => {
+    console.log("building component");
     if (windowRef.current && tableRef.current) {
       const windowDimensions =
         windowRef.current.parentElement?.parentElement?.parentElement?.getBoundingClientRect();
@@ -101,26 +107,50 @@ function DataGrid<T extends {}>(props: TableProps<T>) {
     return buildTable();
   };
 
+  // const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
+  //   e.preventDefault();
+  //   e.currentTarget.style.border = "2px solid black";
+  //   e.dataTransfer.dropEffect = "move";
+  // };
+
+  // const handleDragLeave = (e: React.DragEvent<HTMLDivElement>) => {
+  //   // @ts-expect-error cannot be null
+  //   e.currentTarget.style.border = null;
+  // };
+
+  // const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
+  //   e.currentTarget.classList.remove("dragging");
+  //   const columnName = e.dataTransfer.getData("columnName");
+  //   console.log("columnName", columnName);
+  // };
+
   const buildTable = () => {
     return (
       <Table ref={tableRef}>
         <thead>
-          <tr style={{ display: "flex" }}>
-            {props.columns
+          <tr
+            style={{ display: "flex" }}
+            // onDragOver={handleDragOver}
+            // onDrop={handleDrop}
+            // onDragLeave={handleDragLeave}
+          >
+            {columns
               .filter((c) => includes(c.columnName as string))
               .map((column, i) => (
                 <RenderHeader
+                  _uuid={props._uid}
                   key={`rh-${i}`}
                   column={column}
                   i={i}
-                  columns={props.columns}
+                  columns={columns}
+                  setColumns={setColumns}
                   tableWidth={tableWidth}
                   scrollbarWidth={theme.scrollbar.width}
                   headersActive={headersActive}
                   activeHeader={activeHeader}
                   setHeadersActive={setHeadersActive}
                   setActiveHeader={setActiveHeader}
-                  data={filteredData}
+                  data={props.data}
                   setData={setFilteredData}
                   setIncludedColumns={setIncludedColumns}
                   includedColumns={includedColumns}
@@ -159,13 +189,22 @@ function DataGrid<T extends {}>(props: TableProps<T>) {
     );
   };
 
+  const reorder = (item: T) => {
+    const newItem = {};
+    columns.map((c) => {
+      newItem[c.columnName] = item[c.columnName];
+    });
+    return newItem as T;
+  };
+
   const renderRow = (item: T, i: number) => {
+    item = reorder(item);
     return (
       <Tr key={`table-tbody-tr-${i}`}>
         {Object.keys(item)
           .filter((c) => includes(c as string))
-          .map((key, i) => {
-            const column = props.columns.filter(
+          .map((key, i: number) => {
+            const column = columns.filter(
               (c) =>
                 c.columnName.toString().toLowerCase() ===
                 key.toString().toLowerCase()
@@ -175,13 +214,16 @@ function DataGrid<T extends {}>(props: TableProps<T>) {
                 key={`table-tbody=tr-td-${i}`}
                 $width={calculateWidth(
                   column,
-                  props.columns,
+                  columns,
                   tableWidth,
-                  theme.scrollbar.width
+                  theme.scrollbar.width,
+                  includedColumns
                 )}
                 $align={column.align}
               >
-                {column.renderer ? column.renderer(item[key]) : item[key]}
+                {column.renderer
+                  ? column.renderer({ item, key, value: item[key] })
+                  : item[key]}
               </Td>
             );
           })}
@@ -195,6 +237,7 @@ function DataGrid<T extends {}>(props: TableProps<T>) {
       <RenderFooter
         data={filteredData}
         activeHeader={(activeHeader as TableHeader<T>).columnName}
+        includedColumns={includedColumns}
       />
     </Div>
   );

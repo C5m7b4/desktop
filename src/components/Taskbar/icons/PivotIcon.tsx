@@ -37,10 +37,10 @@ const AppIcon: React.FC<Props> = ({
   };
 
   const app: IApp = {
-    _uid: "cc-pivot-hjkhksdf",
+    _uid: "bitches-pivot-ejshe53",
     component: "pivot",
-    height: 600,
-    width: 640,
+    height: 650,
+    width: 900,
     title: "Pivot Grid",
     name: "Pivot Grid",
   };

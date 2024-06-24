@@ -12,6 +12,7 @@ import PivotWindow from "./Windows/PivotWindow";
 import DataGridWindow from "./Windows/DataGridWindow";
 import BoxPlotWindow from "./Windows/BoxPlotWindow";
 import { IBody } from "../layout";
+import CmdWindow from "./Windows/CmdWindow";
 
 type ComponentNames =
   | "window"
@@ -23,7 +24,8 @@ type ComponentNames =
   | "pivot"
   | "grid"
   | "barchart"
-  | "boxplot";
+  | "boxplot"
+  | "cmd";
 
 type Components = Record<ComponentNames, any>;
 // interface IComponents {
@@ -41,6 +43,7 @@ const Components: Components = {
   grid: DataGridWindow,
   barchart: BarChartWindow,
   boxplot: BoxPlotWindow,
+  cmd: CmdWindow,
 };
 
 export default (block: IBody) => {

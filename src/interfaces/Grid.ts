@@ -1,4 +1,4 @@
-import { Renderers } from "../utils/renderers";
+// import { Renderers } from "../utils/renderers";
 
 export enum ColumnAlignment {
   left,
@@ -6,11 +6,17 @@ export enum ColumnAlignment {
   right,
 }
 
-export type CustomRenderers<T> = Partial<
-  Record<keyof T, (it: T) => React.ReactNode>
->;
+// export type CustomRenderers<T> = Partial<
+//   Record<keyof T, (it: T) => React.ReactNode>
+// >;
 
 export type TableHeaderEditor = "text" | "number" | "data" | "time" | "color";
+
+export type CustomRenderer<T> = {
+  row: T;
+  key: keyof T;
+  value: T[keyof T];
+};
 
 export type TableHeader<T> = {
   title: string;
@@ -21,11 +27,11 @@ export type TableHeader<T> = {
   visible?: boolean;
   filterable?: boolean;
   editor?: TableHeaderEditor;
-  renderer?: (e: typeof Renderers) => void;
+  renderer?: (e: CustomRenderer<T>) => React.ReactNode;
 };
 
 export interface TableProps<T> {
   data: T[];
   columns: TableHeader<T>[];
-  // customerRenderers?: CustomRenderers<T>;
+  _uid: string;
 }

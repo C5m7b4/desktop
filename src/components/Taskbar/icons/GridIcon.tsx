@@ -37,7 +37,7 @@ const GridIcon: React.FC<Props> = ({
   };
 
   const app: IApp = {
-    _uid: "cc-pivot-hjkhksdf",
+    _uid: "cc-grid-hjkhksdf",
     component: "grid",
     height: 346,
     width: 640,

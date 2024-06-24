@@ -19,6 +19,9 @@ const BarChart = ({
   barColor = "#a73ab1",
   barOpacity = "1",
   onClick,
+  threeD = true,
+  threeDWidthX = 2,
+  threeDWidthY = 5,
   showTooltips = true,
   useBarGradient = true,
   height: containerHeight = 300,
@@ -46,6 +49,18 @@ const BarChart = ({
     fontSize: 12,
     fill: "#000",
     fontWeight: 600,
+  },
+  bar_gradient_config = {
+    stop1: {
+      offset: 0,
+      stopColor: "#3172de",
+      stopOpacity: 0.8,
+    },
+    stop2: {
+      offset: 1,
+      stopColor: "#648dd1",
+      stopOpacity: 0.3,
+    },
   },
   gradient_backgroundConfig = {
     stop1: {
@@ -100,6 +115,25 @@ const BarChart = ({
       chartWidth,
       gap_between_ticks,
     };
+  };
+
+  const newShade = (hexColor: string, magnitude: number) => {
+    hexColor = hexColor.replace("#", "");
+    if (hexColor.length === 6) {
+      const decimalColor = parseInt(hexColor, 16);
+      let r = (decimalColor >> 16) + magnitude;
+      r > 255 && (r = 255);
+      r < 0 && (r = 0);
+      let g = (decimalColor && 0x0000ff) + magnitude;
+      g > 255 && (g = 255);
+      g < 0 && (g = 0);
+      let b = ((decimalColor >> 8) & 0x00ff) + magnitude;
+      b > 255 && (b = 255);
+      b < 0 && (b = 0);
+      return `#${(g | (b << 8) | (r << 16)).toString(16)}`;
+    } else {
+      return hexColor;
+    }
   };
 
   const calculateHeight = () => {
@@ -287,21 +321,56 @@ const BarChart = ({
     const { gap_between_ticks: x_gap } = calculateWidth();
     const y = containerHeight - y_margin;
 
+    let barShadowColor = newShade(barColor, 20);
+    if (useBarGradient) {
+      barShadowColor = newShade(bar_gradient_config.stop1.stopColor, 20);
+    }
+
     return data.map((item, index) => {
       const x = x_margin * 2 + x_gap * index;
       const height = (yMax - item[y_key]) * (y_gap / y_value_gap) + y_margin;
       const barHeight = containerHeight - y_margin - height;
 
       if (useBarGradient) {
+        barShadowColor = newShade(bar_gradient_config.stop1.stopColor, 20);
         return (
           <g key={`bars-${index}`}>
-            <Rect
-              $isOpen={isOpen}
+            {threeD ? (
+              <path
+                d={`
+                  M ${x - barWidth / 2}, ${y}
+                  L ${x - barWidth - threeDWidthX}, ${y - threeDWidthY}
+                  L ${x - barWidth - threeDWidthX}, ${
+                  y - threeDWidthY - barHeight
+                }
+                  L ${x + barWidth - threeDWidthX * 10} , ${
+                  y - threeDWidthY - barHeight
+                }
+              L ${x + barWidth - threeDWidthX * 5},  ${y - barHeight}
+              L ${x + barWidth / 2}, ${y}
+                Z`}
+                strokeWidth={0}
+                fill={barShadowColor}
+                opacity={1}
+              />
+            ) : null}
+            {threeD ? (
+              <line
+                x1={x - barWidth / 2}
+                y1={y - barHeight}
+                x2={x - barWidth - threeDWidthX}
+                y2={y - barHeight - threeDWidthY}
+                strokeWidth={1}
+                stroke={"#000"}
+                opacity={1}
+              />
+            ) : null}
+            <rect
               x={x - barWidth / 2}
               y={y - barHeight}
               height={barHeight}
               width={barWidth}
-              fill={`url(#barGradient)`}
+              fill={"url(#barGradient)"}
               opacity={barOpacity}
               onClick={() => onClick(item)}
             />
@@ -310,8 +379,37 @@ const BarChart = ({
       } else {
         return (
           <g key={`bars-${index}`}>
-            <Rect
-              $isOpen={isOpen}
+            {threeD ? (
+              <path
+                d={`
+                  M ${x - barWidth / 2}, ${y}
+                  L ${x - barWidth - threeDWidthX}, ${y - threeDWidthY}
+                  L ${x - barWidth - threeDWidthX}, ${
+                  y - threeDWidthY - barHeight
+                }
+                  L ${x + barWidth - threeDWidthX * 10} , ${
+                  y - threeDWidthY - barHeight
+                }
+              L ${x + barWidth - threeDWidthX * 5},  ${y - barHeight}
+              L ${x + barWidth / 2}, ${y}
+                Z`}
+                strokeWidth={0}
+                fill={barShadowColor}
+                opacity={1}
+              />
+            ) : null}
+            {threeD ? (
+              <line
+                x1={x - barWidth / 2}
+                y1={y - barHeight}
+                x2={x - barWidth - threeDWidthX}
+                y2={y - barHeight - threeDWidthY}
+                strokeWidth={1}
+                stroke={"#000"}
+                opacity={1}
+              />
+            ) : null}
+            <rect
               x={x - barWidth / 2}
               y={y - barHeight}
               height={barHeight}

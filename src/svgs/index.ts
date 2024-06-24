@@ -13,8 +13,15 @@ import { SortZA } from "./SortZA";
 import { UpArrow } from "./UpArrow";
 import { DownArrow } from "./DownArrow";
 import { CheckboxIcon } from "./CheckboxIcon";
+import { LeftChevronIcon } from "./LeftChevronIcon";
+import { RightChevronIcon } from "./RightChevronIcon";
+import { UpChevronIcon } from "./UpChevronIcon";
+import { DownChevronIcon } from "./DownChevronIcon";
+import { CmdIcon } from "./CmdIcon";
+import { JoinIcon } from "./JoinIcon";
 
 export {
+  CmdIcon,
   BoxMinusIcon,
   BoxPlusIcon,
   CalculatorIcon,
@@ -30,4 +37,9 @@ export {
   UpArrow,
   DownArrow,
   CheckboxIcon,
+  LeftChevronIcon,
+  RightChevronIcon,
+  UpChevronIcon,
+  DownChevronIcon,
+  JoinIcon,
 };

@@ -32,7 +32,6 @@ export const Th = styled.th<{
   font-weight: ${(props) => props.theme.fontWeights.bold};
   padding: 0 0 0 5px;
   width: ${(props) => props.$width}px;
-  max-width: ${(props) => props.$width}px;
   overflow: clip;
   text-overflow: ellipsis;
   text-align: ${(props) =>
@@ -68,6 +67,7 @@ export const Td = styled.td<{ $width: number; $align: number }>`
   text-overflow: ellipsis;
   text-align: ${(props) =>
     props.$align === 0 ? "left" : props.$align === 1 ? "center" : "right"};
+  transition: all 0.3s ease-in;
 `;
 
 export const Footer = styled.div`
@@ -83,10 +83,10 @@ export const Footer = styled.div`
 `;
 
 export const RowResizer = styled.div`
-  width: 2px;
+  width: 5px;
   cursor: ew-resize;
   height: 100%;
-  background-color: transparent;
+  background-color: ${(props) => props.theme.colors.table.thText};
   transition: all 0.3s ease-in;
   &:hover {
     background-color: ${(props) => props.theme.colors.table.thText};

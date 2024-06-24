@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { IRow } from "./Rows";
 import { IValue } from "./Values";
-import Checkbox from "../../Checkbox";
+// import Checkbox from "../../Checkbox";
+import { IColumn } from "../PivotGrid";
 
 interface Props<T> {
   data: T[];
@@ -9,10 +10,11 @@ interface Props<T> {
   values: IValue[];
   setValues: (v: IValue[]) => void;
   setRows: (e: IRow[]) => void;
+  columns: IColumn[];
 }
 
 function Fields<T>(props: Props<T>) {
-  const { data, rows = [], values = [], setValues, setRows } = props;
+  const { data, rows = [], values = [], setValues, setRows, columns } = props;
   const [usedFields, setUsedFields] = useState<string[]>([]);
 
   useEffect(() => {
@@ -62,6 +64,15 @@ function Fields<T>(props: Props<T>) {
     return false;
   };
 
+  const getAlias = (columnName: string) => {
+    const column = columns.filter((c) => c.columnName === columnName)[0];
+    if (column) {
+      return column.title;
+    } else {
+      return "";
+    }
+  };
+
   return (
     <>
       {data && data.length > 0 ? (
@@ -86,7 +97,9 @@ function Fields<T>(props: Props<T>) {
                   checked={isChecked(r)}
                   onChange={handleCheck}
                 />
-                <label className="draggable-item-label">{r}</label>
+                <label className="draggable-item-label">
+                  {r} - {getAlias(r)}
+                </label>
               </div>
             );
           })}

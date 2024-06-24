@@ -99,6 +99,7 @@ function THead(props: Props) {
           close={() => {
             setShowHeaderContextMenu(false);
           }}
+          showHeaderContextMenu={showHeaderContextMenu}
         />
       ) : null}
       {showAliasContextMenu ? (
