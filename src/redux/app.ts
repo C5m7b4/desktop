@@ -55,7 +55,7 @@ const initialState: AppState = {
       height: 200,
       width: 500,
       left: 25,
-      top: 650,
+      top: 660,
       title: "Calculator",
       name: "Calculator",
     },
