@@ -11,6 +11,8 @@ import {
   FieldsContainer,
   ConfigurationColumns,
 } from "./ConfiguratorDivs";
+import { JoinIcon } from "../../svgs";
+import styled from "styled-components";
 
 interface Props<T> {
   data: T[];
@@ -21,23 +23,22 @@ interface Props<T> {
   columns: IColumn[];
 }
 
+const IconDiv = styled.div`
+  margin-left: 10px;
+  border: 1px solid black;
+  padding: 2px 6px;
+`;
+
 function Configurator<T>(props: Props<T>) {
   const { data, rows, setRows, values, setValues, columns } = props;
   return (
     <Div className="configurator">
-      <div
-        style={{
-          width: "100%",
-          textAlign: "center",
-          fontSize: "1.0rem",
-          fontWeight: "bold",
-        }}
-      >
-        Pivot Grid Fields
-      </div>
       <div>
         <SearchInput className="search-input">
           <input type="text" placeholder="search" />
+          <IconDiv title="Join Columns">
+            <JoinIcon scale={20} />
+          </IconDiv>
         </SearchInput>
         <FieldsContainer className="fields-container" id="fields-container">
           <Fields
