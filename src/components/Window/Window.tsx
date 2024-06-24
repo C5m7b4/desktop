@@ -109,7 +109,7 @@ const Window: React.FC<Props> = ({
 }) => {
   const dispatch = useDispatch();
   const [animation, setAnimation] = useState("none");
-  const { height, title, width, _uid, name } = block;
+  const { height, title, width, _uid, name, left, top } = block;
   const theme = useTheme();
 
   const panelRef = useRef<HTMLDivElement>(null);
@@ -228,6 +228,8 @@ const Window: React.FC<Props> = ({
               style={{
                 height: `${height}px`,
                 width: `${width}px`,
+                top: `${top ? top : 0}px`,
+                left: `${left ? left : 0}px`,
               }}
               ref={panelRef}
               $animation={animation}
